@@ -1,0 +1,63 @@
+[Output]
+ ;Filename of the SFF file to create (required).
+;filename = 
+
+[Option]
+input.dir =
+sprite.compress.5 = lz5 ;none/lz5/rle5
+sprite.compress.8 = png8 ;none/rle8/png8
+sprite.compress.24 = png24 ;none/png24
+sprite.compress.32 = png32 ;none/png32
+sprite.decompressonload = 0 ;0/1
+sprite.detectduplicates = 0 ;0/1
+sprite.autocrop = 1 ;0/1
+pal.detectduplicates = 1 ;0/1
+pal.discardduplicates = 1 ;0/1
+
+[Pal]
+;Enter pals here (png or act files)
+;0,0, filename.png, 0,255 ;grp,idx, fname, startcol,endcol
+
+[Option]
+sprite.usepal = -1 ;Set this to the right pal
+
+[Sprite]
+   0, 0, data\charTrash\1_an_et_8_mois_de_greve\s002.png,  13,116
+   0, 1, data\charTrash\1_an_et_8_mois_de_greve\s003.png,  13,116
+   0, 2, data\charTrash\1_an_et_8_mois_de_greve\s004.png,  12,116
+   0, 3, data\charTrash\1_an_et_8_mois_de_greve\s005.png,  12,116
+   0, 4, data\charTrash\1_an_et_8_mois_de_greve\s006.png,  12,116
+   0, 5, data\charTrash\1_an_et_8_mois_de_greve\s007.png,  13,116
+   0, 6, data\charTrash\1_an_et_8_mois_de_greve\s008.png,  13,116
+   0, 7, data\charTrash\1_an_et_8_mois_de_greve\s009.png,  13,116
+   0, 8, data\charTrash\1_an_et_8_mois_de_greve\s010.png,  13,114
+   0, 9, data\charTrash\1_an_et_8_mois_de_greve\s011.png,  13,114
+   0,10, data\charTrash\1_an_et_8_mois_de_greve\s012.png,  12,116
+   0,11, data\charTrash\1_an_et_8_mois_de_greve\s013.png,  13,115
+   0,12, data\charTrash\1_an_et_8_mois_de_greve\s014.png,  13,115
+   0,13, data\charTrash\1_an_et_8_mois_de_greve\s015.png,  13,114
+   0,14, data\charTrash\1_an_et_8_mois_de_greve\s016.png,  13,107
+   0,15, data\charTrash\1_an_et_8_mois_de_greve\s017.png,  13,105
+ 180, 1, data\charTrash\1_an_et_8_mois_de_greve\s091.png,  51,103
+ 180, 2, data\charTrash\1_an_et_8_mois_de_greve\s092.png,  51,103
+ 180, 3, data\charTrash\1_an_et_8_mois_de_greve\s093.png,  51,103
+ 850, 4, data\charTrash\1_an_et_8_mois_de_greve\s428.png,  51, 95
+1000, 0, data\charTrash\1_an_et_8_mois_de_greve\s443.png,  14,108
+1000, 1, data\charTrash\1_an_et_8_mois_de_greve\s444.png,  17,107
+1000, 2, data\charTrash\1_an_et_8_mois_de_greve\s445.png,  51,103
+1000, 3, data\charTrash\1_an_et_8_mois_de_greve\s446.png,  51,103
+1000, 4, data\charTrash\1_an_et_8_mois_de_greve\s447.png,  51,103
+1000, 5, data\charTrash\1_an_et_8_mois_de_greve\s448.png,  51,103
+1000, 6, data\charTrash\1_an_et_8_mois_de_greve\s449.png,  51,103
+1000, 7, data\charTrash\1_an_et_8_mois_de_greve\s450.png,  51,103
+5040,20, data\charTrash\1_an_et_8_mois_de_greve\s790.png,  45, 60
+5300, 0, data\charTrash\1_an_et_8_mois_de_greve\s829.png,  61, 60
+5300, 1, data\charTrash\1_an_et_8_mois_de_greve\s830.png,  61, 60
+5300, 2, data\charTrash\1_an_et_8_mois_de_greve\s831.png,  61, 60
+5300, 3, data\charTrash\1_an_et_8_mois_de_greve\s832.png,  61, 60
+5300, 4, data\charTrash\1_an_et_8_mois_de_greve\s833.png,  61, 60
+5300, 5, data\charTrash\1_an_et_8_mois_de_greve\s834.png,  62, 72
+10005, 0, data\charTrash\1_an_et_8_mois_de_greve\s1504.png,  12,113
+10005, 1, data\charTrash\1_an_et_8_mois_de_greve\s1505.png,  15,110
+10005, 3, data\charTrash\1_an_et_8_mois_de_greve\s1507.png,  22,106
+10005, 5, data\charTrash\1_an_et_8_mois_de_greve\s1509.png,  25,103

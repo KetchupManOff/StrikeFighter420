@@ -1,0 +1,6 @@
+- Mouser (Some original MvC2 system codes of this character)
+- DarkWolf13, walruslui and ExShadow (Hyper Ports code and Common1 codes)
+- Jin Kazama (Sprites & sounds)
+- FerchogtX (Some MvC2 FX and sounds)
+- Violin Ken (Negative edge command)
+- Ahuron (Ultimate Grand Champion sprites)

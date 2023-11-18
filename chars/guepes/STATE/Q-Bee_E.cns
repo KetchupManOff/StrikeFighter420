@@ -1,0 +1,416 @@
+;===========================================================================
+; ダークフォース
+;===========================================================================
+;ダークフォース発動
+[Statedef 1000]
+type     = U
+movetype = I
+physics  = N
+velset   = 0,0
+anim     = 1000
+ctrl     = 0
+
+[State 1000, ドォォォン]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 18000
+
+[State 1000, 音声]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 100, 14
+
+[State 3000]
+type = PowerAdd
+trigger1 = AnimElem = 1
+value = -1000
+
+[State 1000, ムテキング]
+type = NotHitBy 
+trigger1 = 1 
+value = SCA 
+
+[State 1000,エフェクト]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 18000
+ID = 18000
+pos = 0, -50
+postype = p1
+ontop = 1
+ownpal = 1
+
+[State 1000,エフェクト2前]
+type = Explod
+trigger1 = AnimElem = 3
+anim = 18001
+ID = 18001
+pos = 0, -30
+postype = p1
+ontop = 1
+ownpal = 1
+
+[State 1000,エフェクト2後]
+type = Explod
+trigger1 = AnimElem = 3
+anim = 18002
+ID = 18002
+pos = 0, -30
+postype = p1
+sprpriority = -1
+ownpal = 1
+
+[State 1000,TIME]
+type = Helper
+trigger1 = AnimElem = 1
+name = "TIME"
+ID = 3003
+pos = 0, 0
+postype = p1
+stateno = 1003
+ownpal = 1
+
+[State 1000,蝙蝠]
+type = Helper
+trigger1 = AnimElem = 1
+name = "bat"
+ID = 3004
+pos = 0, 50
+postype = left
+stateno = 1004
+ownpal = 1
+
+[State 1000,フラッシュ]
+type = Explod
+trigger1 = AnimElem = 8
+anim = 18006
+pos = 0, 0
+postype = left
+ontop = 1
+ownpal = 1
+
+[State 1000,背景]
+type = Helper
+trigger1 = AnimElem = 8
+name = "haikei"
+ID = 3002
+pos = 9999, 9999
+postype = left
+facing = 1
+stateno = 1002
+ownpal = 1
+
+[State 1000]
+type = VarSet
+trigger1 = AnimElem = 1
+var(6) = 1
+
+[State 1000]
+type = VarSet
+trigger1 = AnimElem = 1
+fvar(10) = 1
+
+[State 1000]
+type = VelSet
+trigger1 = AnimElem = 22
+y = -2.5
+
+[State 1000]
+type = ChangeState
+trigger1 = Time >= 48
+value = 1005
+ctrl = 1
+
+;==========================================================================
+;ダークフォース終了
+[Statedef 1001]
+type     = U
+movetype = I
+physics  = N
+velset   = 0,5
+anim     = 1001
+ctrl     = 0
+
+[State 1001]
+type = Explod
+trigger1 = Pos Y >= 0
+anim = 18007
+pos = 0, 0
+postype = left
+ontop = 1
+ownpal = 1
+
+[State 1001]
+type = VarSet
+trigger1 = Pos Y >= 0
+var(6) = 0
+
+[State 1001]
+type = VarSet
+trigger1 = time = 0
+fvar(10) = 0
+
+[State 1001, 発光]
+type = PalFX
+trigger1 = var(6) = 0
+time = 1
+add = 0,0,0
+
+[State 1001]
+type = ChangeState
+trigger1 = Pos Y >= 0
+value = 0
+ctrl = 1
+
+;==========================================================================
+背景
+[Statedef 1002]
+type     = U
+movetype = I
+physics  = U
+velset   = 0,0
+anim     = 17004
+ctrl     = 0
+sprpriority = -3
+
+[State 1002, 無敵]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 1002, 特殊効果]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+flag2= Invisible
+
+[State 1002]
+type = AssertSpecial
+triggerall = NumExplod(18005) = 1
+trigger1 = Root,var(6) = 1
+flag = NoBG
+flag = NoFG
+ignorehitpause = 1
+
+[State 1002, 背景]
+type = Explod
+trigger1 = time = 1
+anim = 18005
+ID = 18005
+pos = 0, 0
+postype = Left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+scale = 1, 1
+sprpriority = -5
+ownpal = 1
+IgnoreHitPause = 1
+Persistent = 1
+
+[State 1002, 背景消去]
+type = RemoveExplod
+trigger1 = Root,var(6) = 0 
+trigger2 = Root,Life = 0
+ID = 18005
+
+[State 1002, ヘルパー消滅]
+type = DestroySelf
+triggerall = NumExplod(18005) = 0
+trigger1 = Root,var(6) = 0 
+trigger2 = Root,Life = 0
+
+;==========================================================================
+;TIME
+[Statedef 1003]
+physics = N
+velset = 0,0
+anim = 17004
+ctrl = 0
+sprpriority = 0
+
+[State 1003, 無敵]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 1003, 特殊効果]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+flag2= Invisible
+
+[State 1003, 変数リセット]
+type = ParentVarSet
+trigger1 = Root,fvar(10) <= 0
+fv = 10
+value = 0
+IgnoreHitPause = 1
+Persistent = 1
+
+[State 1003, ゲージ処理]
+type = ParentVarAdd
+triggerall = RoundState = 2
+triggerall = Root,fvar(10) > 0
+trigger1 = Time >= 26
+fv = 10
+value = -0.00275
+IgnoreHitPause = 1
+Persistent = 1
+
+[State 1003, TIME]
+type = Explod
+triggerall = RoundState = 2
+triggerall = NumExplod(18003) = 0
+trigger1 = Root,fvar(10) > 0
+anim = 18003
+ID = 18003
+pos = IfElse((Root,TeamSide=2),190,30),30
+postype = Left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+scale = 0.9, 1
+sprpriority = -4
+ownpal = 1
+IgnoreHitPause = 1
+Persistent = 1
+
+[State 1003, バー]
+type = Explod
+triggerall = RoundState = 2
+triggerall = NumExplod(18004) = 0
+trigger1 = Root,fvar(10) > 0
+anim = 18004
+ID = 18004
+pos = IfElse((Root,TeamSide=2),190,30),38
+postype = Left
+bindtime = -1
+removetime = -1
+supermovetime = 9999
+pausemovetime = 9999
+scale = 0.9, 1
+sprpriority = -4
+ownpal = 1
+IgnoreHitPause = 1
+Persistent = 1
+
+[State 1003, バー伸縮]
+type = ModifyExplod
+trigger1 = Root,fvar(10) > 0
+scale = (0+(Root,fvar(10)))*0.9,1
+supermovetime = 9999
+pausemovetime = 9999
+sprpriority = -4
+ID = 18004
+
+[State 1003, TIME消去]
+type = RemoveExplod
+trigger1 = Root,var(6) = 0 
+trigger2 = Root,Life = 0
+ID = 18003
+IgnoreHitPause = 1
+Persistent = 1
+
+[State 1003, バー消去]
+type = RemoveExplod
+trigger1 = Root,var(6) = 0 
+trigger2 = Root,Life = 0
+ID = 18004
+IgnoreHitPause = 1
+Persistent = 1
+
+[State 1003, ヘルパー消滅]
+type = DestroySelf
+trigger1 = Root,var(6) = 0 
+trigger2 = Root,Life = 0
+
+;==========================================================================
+;蝙蝠
+[Statedef 1004]
+physics = N
+velset = 0,-5.5
+anim = 18008
+ctrl = 0
+sprpriority = -1
+
+[State 3004, 無敵]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 3004, ヘルパー消滅]
+type = DestroySelf
+trigger1 = Pos Y <= -300
+
+;==========================================================================
+;浮遊
+[Statedef 1005]
+type    = A
+movetype= I
+physics = S
+ctrl = 1
+velset = 0,0
+anim = 60
+sprpriority = 1
+
+[State 1005, 粉]
+type = Explod
+triggerall = Name = "Q-Bee"
+trigger1 = TimeMod = 6, 1
+anim = ifelse(NumExplod%2=1,10501,10500)
+pos = -20, -60
+postype = p1
+scale = 0.9, 1
+sprpriority = 2
+
+
+[State 1005, 振り返り]
+type = turn
+trigger1 = p2dist x < -2
+
+[State 1005, 前進]
+type = VelSet
+trigger1 = command = "holdfwd"
+x = 5
+
+[State 1005, 後退]
+type = VelSet
+trigger1 = command = "holdback"
+x = -5
+
+[State 1005, 上昇]
+type = VelAdd
+triggerall = Vel Y > -3
+trigger1 = command = "holdup"
+y = -0.5
+
+[State 1005, 下降]
+type = VelAdd
+triggerall = Vel Y < 3
+trigger1 = command = "holddown"
+y = 0.5
+
+;[State 1005, 停止]
+;type = VelSet
+;trigger1 = command != "holdfwd"
+;trigger1 = command != "holdback"
+;x = 0
+
+[State 1005, 停止]
+type = VelSet
+trigger1 = command != "holdup"
+trigger1 = command != "holddown"
+trigger2 = Pos Y < -90
+trigger2 = Vel Y < 0
+y = 0
+
+[State 1005]
+type = ChangeState
+trigger1 = Pos Y > 0
+value = 52
+ctrl = 0
+
+

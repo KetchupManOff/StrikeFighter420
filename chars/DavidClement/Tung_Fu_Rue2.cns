@@ -1,0 +1,1589 @@
+;---------------------------------------------------------------------------
+;立ち
+[Statedef 6000]
+type = S
+physics = S
+sprpriority = -5
+anim = 4000
+ctrl = 0
+velset = 0,0
+
+[State 6000];
+type = width
+trigger1 = 1
+edge=10,0 
+;------------------相手がライン攻撃振ってない
+[State 6000]
+type = NotHitBy
+trigger1 = !var(8)
+value = SCA
+time = 1
+;-------------------相手がライン攻撃を振っている
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=1
+value = ,AP,AT
+time = 1
+;-------------------相手が対ライン攻撃（飛び道具）を画面上に出してる時
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=2
+value = ,AT
+time = 1
+;----------------------------
+
+
+[State 6000]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = null;posSet
+trigger1 = Time = 0
+y = -8
+
+[State 6000]
+type = Turn
+trigger1 = p2dist X < 0
+
+[State 6000]
+type = AngleSet
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = AngleDraw
+trigger1 = time != 0
+scale = fvar(1),fvar(1)
+
+[State 6000]
+type = ChangeAnim
+trigger1 = p2dist x <=120
+value = 4000
+
+[State 6000]
+type = ChangeAnim
+trigger1 = p2dist x >120
+value = 4001
+
+[State 6000]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State 6000]
+type = VelSet
+trigger1 = abs(vel x) < 2
+trigger2 = Time = 4
+x = 0
+
+[State 6000]
+type = ChangeState
+trigger1 = !alive
+value = 5050
+
+[State 6000]
+type = Changestate
+triggerall = !var(9)
+trigger1 = command = "holdfwd"
+trigger2 = command = "holdback"
+value = 6020
+
+[State 6000]
+type = Changestate
+triggerall = !var(9)
+trigger1 = command = "holdup"
+trigger1 = command != "holdfwd"
+trigger1 = command != "holdback"
+value = 6040
+
+[State 6000]
+type = Changestate
+triggerall = !var(9)
+trigger1 = command = "FF"
+value = 6100
+
+[State 6000]
+type = Changestate
+triggerall = !var(9)
+trigger1 = command = "BB"
+value = 6105
+
+[State 6000]
+type = Changestate
+trigger1 = !var(9)
+trigger1 = command = "z"
+trigger2 = time = 46
+trigger3 = RoundState != 2
+value = 6300
+
+
+[State 6000]
+type = Changestate
+triggerall = !var(9)
+trigger1 = command = "holddown"
+value = 6350
+
+[State 6000]
+type = Changestate
+triggerall = var(9)
+trigger1 = p2bodydist x != [10,40]
+value = 6020
+
+[State 6000]
+type = Changestate
+triggerall = var(9)
+trigger1 = p2bodydist x = [10,40]
+value = 6040
+
+;---------------------------------------------------------------------------
+;歩き
+[Statedef 6020]
+type    = S
+physics = S
+sprpriority = -5
+
+[State 6000];
+type = width
+trigger1 = 1
+edge=10,0 
+;------------------相手がライン攻撃振ってない
+[State 6000]
+type = NotHitBy
+trigger1 = !var(8)
+value = SCA
+time = 1
+;-------------------相手がライン攻撃を振っている
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=1
+value = ,AP,AT
+time = 1
+;-------------------相手が対ライン攻撃（飛び道具）を画面上に出してる時
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=2
+value = ,AT
+time = 1
+;----------------------------
+
+[State 6000]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = Turn
+trigger1 = p2dist X < -1
+
+[State 6000]
+type = AngleSet
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = AngleDraw
+trigger1 = time != 0
+scale = fvar(1),fvar(1)
+
+[State 6000]
+type = VarSet
+trigger1 = var(9)
+trigger1 = p2bodydist x >= 120 && Random <= 50
+var(0) = 0
+
+[State 6000]
+type = VarSet
+trigger1 = var(9)
+trigger1 = p2bodydist x < 80 && Random <= 50
+var(0) = 1
+
+[State 6000]
+type = VelSet
+trigger1 = !var(9)
+trigger1 = command = "holdfwd"
+trigger2 = var(9)
+trigger2 = var(0) = 0
+x = const(velocity.walk.fwd.x)
+
+[State 6000]
+type = VelSet
+trigger1 = !var(9)
+trigger1 = command = "holdback"
+trigger2 = var(9)
+trigger2 = var(0) = 1
+x = const(velocity.walk.back.x)
+
+[State 6000]
+type = ChangeAnim
+trigger1 =  vel x > 0
+trigger1 = Anim != 4020
+value = 4020
+
+[State 6000]
+type = ChangeAnim
+trigger1 = vel x < 0
+trigger1 = Anim != 4021
+value = 4021
+
+[State 6000]
+type = Changestate
+trigger1 = !var(9)
+trigger1 = command != "holdfwd"
+trigger1 = command != "holdback"
+trigger2 = var(9)
+trigger2 = p2bodydist X = [-10,30]
+value = 6040
+
+[State 6000]
+type = Changestate
+trigger1 = !var(9)
+trigger1 = command = "FF"
+value = 6100
+
+[State 6000]
+type = Changestate
+trigger1 = !var(9)
+trigger1 = command = "BB"
+value = 6105
+
+[State 6000]
+type = Changestate
+trigger1 = var(9)
+trigger1 = (P2bodydist X = [80,110]) && Random <= 4
+value = 6100
+
+[State 6000]
+type = Changestate
+triggerall = var(9) && backedgedist > 60 && enemy,numproj = 0
+trigger1 = (P2bodydist X = [80,160]) && Random <= 4 && enemy,ctrl = 0
+trigger2 = (P2bodydist X = [80,160]) && Random <= 2 && enemy,ctrl = 1
+value = 6105
+
+[State 6000]
+type = Changestate
+trigger1 = !var(9)
+trigger1 = command = "z"
+value = 6300
+
+[State 6000]
+type = Changestate
+triggerall = var(9) && enemy,numproj = 0 && !inguarddist
+trigger1 = var(0) = 1 && P2bodydist X >= 120 && Random <= 2
+value = 6300
+
+[State 6000]
+type = Changestate
+triggerall = var(9) && enemy,numproj = 0 && !inguarddist
+trigger1 = var(0) = 1 && P2bodydist X >= 120 && Random <= 2
+value = 6350
+
+[State 6000]
+type = Changestate
+triggerall = command = "holdback"
+trigger1 = inguarddist
+trigger1 = var(8)
+value = 120
+
+[State 6000]
+type = Changestate
+triggerall = var(9)
+trigger1 = time = 180
+trigger2 = RoundState != 2
+value = 6420
+
+;---------------------------------------------------------------------------
+
+[Statedef 6021]
+type    = S
+physics = S
+sprpriority = -5
+
+;------------------相手がライン攻撃振ってない
+[State 6000]
+type = NotHitBy
+trigger1 = !var(8)
+value = SCA
+time = 1
+;-------------------相手がライン攻撃を振っている
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=1
+value = ,AP,AT
+time = 1
+;-------------------相手が対ライン攻撃（飛び道具）を画面上に出してる時
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=2
+value = ,AT
+time = 1
+;----------------------------
+
+[State 6000]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = Turn
+trigger1 = p2dist X < -1
+
+[State 6000]
+type = AngleSet
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = AngleDraw
+trigger1 = time != 0
+scale = fvar(1),fvar(1)
+
+[State 6000]
+type = VelSet
+trigger1 = var(9)
+x = const(velocity.walk.back.x)
+
+[State 6000]
+type = ChangeAnim
+trigger1 =  vel x > 0
+trigger1 = Anim != 4020
+value = 4020
+
+[State 6000]
+type = ChangeAnim
+trigger1 = vel x < 0
+trigger1 = Anim != 4021
+value = 4021
+
+[State 6000]
+type = Changestate
+trigger1 = var(9)
+trigger1 = p2bodydist X >= 100
+value = 6020
+
+[State 6000]
+type = Changestate
+trigger1 = var(9)
+trigger1 = (P2bodydist X = [70,110]) && Random <= 4
+value = 6100
+
+[State 6000]
+type = Changestate
+triggerall = var(9) && backedgedist > 60 && enemy,numproj = 0
+trigger1 = (P2bodydist X = [80,160]) && Random <= 4 && enemy,ctrl = 0
+trigger2 = (P2bodydist X = [80,160]) && Random <= 2 && enemy,ctrl = 1
+value = 6105
+
+[State 6000]
+type = Changestate
+triggerall = command = "holdback"
+trigger1 = inguarddist
+trigger1 = var(8)
+value = 120
+
+[State 6000]
+type = Changestate
+triggerall = var(9)
+trigger1 = time = 180
+trigger2 = RoundState != 2
+value = 6420
+
+;---------------------------------------------------------------------------
+;待機
+[Statedef 6040]
+type = S
+physics = S
+sprpriority = -5
+ctrl = 0
+
+[State 6000];
+type = width
+trigger1 = 1
+edge=10,0 
+;------------------相手がライン攻撃振ってない
+[State 6000]
+type = NotHitBy
+trigger1 = !var(8)
+value = SCA
+time = 1
+;-------------------相手がライン攻撃を振っている
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=1
+value = ,AP,AT
+time = 1
+;-------------------相手が対ライン攻撃（飛び道具）を画面上に出してる時
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=2
+value = ,AT
+time = 1
+;----------------------------
+[State 6000]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = ChangeAnim
+trigger1 = p2dist x <=120
+trigger1 = Anim != 4040
+value = 4040
+
+[State 6000]
+type = ChangeAnim
+trigger1 = p2dist x >120
+trigger1 = Anim != 4041
+value = 4041
+
+[State 6000]
+type = Turn
+trigger1 = p2dist X < 0
+
+[State 6000]
+type = AngleSet
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = AngleDraw
+trigger1 = time != 0
+scale = fvar(1),fvar(1)
+
+[State 6000]
+type = ChangeState
+trigger1 = !alive
+value = 5050
+
+[State 6000]
+type = Changestate
+trigger1 = !var(9)
+trigger1 = command = "z"
+value = 6300
+
+[State 6000]
+type = Changestate
+triggerall = var(9) && backedgedist > 60 && enemy,numproj = 0
+trigger1 = enemy,ctrl = 0 && enemy,animtime < -40
+trigger1 = Random <= 5
+value = 6105
+
+[State 6000]
+type = Changestate
+triggerall = var(9)
+trigger1 = Random <= 5
+trigger1 = enemy,ctrl = 0 && enemy,animtime < -40
+value = 6350
+
+[State 6000]
+type = Changestate
+triggerall = var(9)
+trigger1 = Random <= 2
+value = 6021
+
+[State 6000]
+type = Changestate
+triggerall = !var(9)
+trigger1 = command = "holdfwd"
+trigger2 = command = "holdback"
+value = 6020
+
+[State 6000]
+type = Changestate
+triggerall = !var(9)
+trigger1 = command != "holdup"
+value = 6000
+
+[State 6000]
+type = Changestate
+triggerall = var(9)
+trigger1 = p2bodydist X != [-10,30]
+value = 6020
+
+[State 6000]
+type = Changestate
+triggerall = var(9)
+trigger1 = time = 180
+trigger2 = RoundState != 2
+value = 6420
+
+;---------------------------------------------------------------------------
+;ダッシュ
+[Statedef 6100]
+type = S
+physics = N
+sprpriority = -5
+anim = 4100
+ctrl = 0
+velset = 0,0
+
+[State 6000];
+type = width
+trigger1 = 1
+edge=10,0 
+;------------------相手がライン攻撃振ってない
+[State 6000]
+type = NotHitBy
+trigger1 = !var(8)
+value = SCA
+time = 1
+;-------------------相手がライン攻撃を振っている
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=1
+value = ,AP,AT
+time = 1
+;-------------------相手が対ライン攻撃（飛び道具）を画面上に出してる時
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=2
+value = ,AT
+time = 1
+;----------------------------
+
+[State 6000]
+type = Turn
+trigger1 = time=0
+trigger1 = p2dist X < 0
+
+[State 6000]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = PlaySnd
+trigger1 = time = 1
+value = 1, 3
+
+;-----------------------前進
+[State 6000]
+type = velset
+trigger1 = AnimElem = 2
+x = 5.6
+
+[State 6000]
+type = velset
+trigger1 = AnimElem = 8
+x = 3.3
+;-------------------------
+
+[State 6000]
+type = AngleSet
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = AngleDraw
+trigger1 = time != 0
+scale = fvar(1),fvar(1)
+
+[State 6000]
+type = Changestate
+trigger1 = animtime = 0
+value = 6101
+;--------------------------------------------------
+;ダッシュ、バックダッシュ後の戻り
+[Statedef 6101]
+type = S
+physics = N
+sprpriority = -5
+anim = 4101
+ctrl = 0
+
+[State 6000];
+type = width
+trigger1 = 1
+edge=10,0 
+
+[State 100, 1]
+type =statetypeset
+trigger1 = animelem=4,=0
+statetype=S
+physics=S
+
+
+[State 6000]
+type = Turn
+trigger1 = p2dist X < 0
+trigger1 = time = 0
+
+;-------------------ｘ軸
+[State 6000];前がダッシュ 右向き 相手より手前
+type =velset
+trigger1 = prevstateno=6100
+trigger1 = AnimElem = 1,=0
+trigger1 = p2dist X < 0
+trigger1 = facing=1
+x = 0.23
+
+State 6000];前がダッシュ 右向き 相手より奥
+type = velset
+trigger1 = prevstateno=6100
+trigger1 = AnimElem = 1,=0
+trigger1 = p2dist X >= 0
+trigger1 = facing=1
+x = -0.23
+
+
+[State 6000];前がダッシュ停止
+type = velset
+trigger1 = prevstateno=6100
+trigger1 = AnimElem = 4,=0
+x = 0
+
+[State 6000];前がバックダッシュ
+type = velset
+trigger1 = prevstateno=6105
+trigger1 = AnimElem = 1,=0
+trigger1 = p2dist X < 0
+trigger1 = facing=1
+x = -0.1
+
+
+State 6000];前がダッシュ 右向き 相手より奥
+type = velset
+trigger1 = prevstateno=6105
+trigger1 = AnimElem = 1,=0
+trigger1 = p2dist X >= 0
+trigger1 = facing=1
+x = 0.1
+
+[State 6000]
+type = velset
+trigger1 = prevstateno=6105
+trigger1 = AnimElem = 4,=0
+x = 0
+;-----------------------
+
+;------------------相手がライン攻撃振ってない
+[State 6000]
+type = NotHitBy
+trigger1 = !var(8)
+trigger1 = time<=10
+value = SCA
+time = 1
+;-------------------相手がライン攻撃を振っている
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=1
+trigger1 = time<=10
+value = ,AP,AT
+time = 1
+;-------------------相手が対ライン攻撃（飛び道具）を画面上に出してる時
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=2
+trigger1 = time<=10
+value = ,AT
+time = 1
+;----------------------------
+
+[State 6000]
+type = PlayerPush
+trigger1 = time <= 10
+value = 0
+
+
+[State 6000]
+type = null;varset
+trigger1 = time = 0
+fvar(1)=0.9
+
+[State 6000]
+type = varadd
+trigger1 = time > 2
+trigger1 = fvar(1) < 1.0
+fvar(1)= 0.01
+
+[State 6000]
+type = varset
+trigger1 = fvar(1) >= 1.0
+fvar(1)= 1.0
+
+[State 6000]
+type = AngleSet
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = AngleDraw
+trigger1 = time != 0
+scale = fvar(1),fvar(1)
+
+[State 6000]
+type = Changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;バックステップ
+[Statedef 6105]
+type = S
+physics = N
+sprpriority = -5
+anim = 4105
+ctrl = 0
+velset = 0,0
+
+[State 6000]
+type = PlaySnd
+trigger1 = time = 1
+value = 1, 4
+
+;------------------相手がライン攻撃振ってない
+[State 6000]
+type = NotHitBy
+trigger1 = !var(8)
+value = SCA
+time = 1
+;-------------------相手がライン攻撃を振っている
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=1
+value = ,AP,AT
+time = 1
+;-------------------相手が対ライン攻撃（飛び道具）を画面上に出してる時
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=2
+value = ,AT
+time = 1
+;----------------------------
+
+[State 6000]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+;------------------------------後退
+[State 6000]
+type = velset
+trigger1 = AnimElem = 2
+x = -5.6
+
+[State 6000]
+type = velset
+trigger1 = AnimElem = 3
+x = -4.45
+
+[State 6000]
+type = velset
+trigger1 = AnimElem = 4
+x = -3.3
+;---------------------------------
+
+[State 6000]
+type = AngleSet
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = AngleDraw
+trigger1 = time != 0
+scale = fvar(1),fvar(1)
+
+[State 6000]
+type = Changestate
+trigger1 = animtime = 0
+value = 6101
+
+;---------------------------------------------------------------------------
+;奥に移動
+[Statedef 6200]
+type = S
+physics = N
+sprpriority = -5
+anim = 4200
+ctrl = 0
+
+[State 6000];
+type = width
+trigger1 = 1
+edge=10,0 
+
+[State 6000]
+type = PlaySnd
+trigger1 = time = 1
+value = 6000, 1
+
+[State 6000];移動の声
+type = PlaySnd
+trigger1 = time = 1
+value = 0, 10
+channel=0
+
+;------------------相手がライン攻撃振ってない
+[State 6000]
+type = NotHitBy
+trigger1 = !var(8)
+value = SCA
+time = 1
+;-------------------相手がライン攻撃を振っている
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=1
+value = ,AP,AT
+time = 1
+;-------------------相手が対ライン攻撃（飛び道具）を画面上に出してる時
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=2
+value = ,AT
+time = 1
+;----------------------------
+
+
+[State 6000]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = varset
+trigger1 = time = 0
+fvar(1)=1.0
+
+[State 6000]
+type = varadd
+trigger1 = time > 10
+fvar(1)= -0.005
+
+[State 6000]
+type = AngleSet
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = AngleDraw
+trigger1 = 1
+scale = fvar(1),fvar(1)
+
+[State 6000]
+type = velset
+trigger1 = Time = 1
+trigger1 = command = "holdfwd"
+x = 1.5
+
+[State 6000]
+type = velset
+trigger1 = Time = 1
+trigger1 = command = "holdback"
+x = -1.5
+
+
+[State 6000]
+type = velset
+trigger1 = Time = 1
+trigger1 = prevstateno = 100
+x = 3
+
+[State 6000]
+type = velset
+trigger1 = AnimElem = 4
+x = 0
+
+[State 6000]
+type = Changestate
+trigger1 = animtime = 0
+value = 6000
+
+;---------------------------------------------------------------------------
+;グランドスウェー
+[Statedef 6250]
+type = S
+physics = S
+sprpriority = -5
+anim = 4250
+ctrl = 0
+
+[State 6000];
+type = width
+trigger1 = 1
+edge=10,0 
+
+[State 6000]
+type = varset
+trigger1 = time = 0
+fvar(1)=1.0
+
+[State 6000]
+type = varadd
+trigger1 = time < 12
+fvar(1)= -0.0083
+
+[State 6000]
+type = varset
+trigger1 = fvar(1)<0.9
+fvar(1)= 0.9
+
+[State 6000]
+type = AngleSet
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = AngleDraw
+trigger1 = 1
+scale = fvar(1),fvar(1)
+
+[State 6000]
+type = Changestate
+trigger1 = animtime = 0
+value = 6000
+
+;---------------------------------------------------------------------------
+;手前に移動
+[Statedef 6300]
+type = S
+physics = N
+sprpriority = -5
+anim = 4300
+ctrl = 0
+
+[State 6000];
+type = width
+trigger1 = 1
+edge=10,0 
+
+[State 6000]
+type = PlaySnd
+trigger1 = time = 1
+value = 6000, 1
+
+;------------------相手がライン攻撃振ってない
+[State 6000]
+type = NotHitBy
+trigger1 = !var(8)
+trigger1 = time<=20
+value = SCA
+time = 1
+;-------------------相手がライン攻撃を振っている
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=1
+trigger1 = time<=20
+value = ,AP,AT
+time = 1
+;-------------------相手が対ライン攻撃（飛び道具）を画面上に出してる時
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=2
+trigger1 = time<=20
+value = ,AT
+time = 1
+;----------------------------
+[State 6000]
+type = PlayerPush
+trigger1 = time <= 20
+value = 0
+
+[State 6000]
+type = null;varset
+trigger1 = time = 0
+fvar(1)=0.9
+
+[State 6000]
+type = varadd
+trigger1 = time > 10
+trigger1 = fvar(1) < 1.0
+fvar(1)= 0.005
+
+[State 6000]
+type = varset
+trigger1 = fvar(1) >= 1.0
+fvar(1)= 1.0
+
+[State 6000]
+type = AngleSet
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = AngleDraw
+trigger1 = time != 0
+scale = fvar(1),fvar(1)
+
+[State 6000]
+type = velset
+trigger1 = Time = 1
+trigger1 = command = "holdfwd"
+x = 1.5
+
+[State 6000]
+type = velset
+trigger1 = Time = 1
+trigger1 = command = "holdback"
+x = -1.5
+
+[State 6000]
+type = velset
+trigger1 = AnimElem = 4
+x = 0
+
+[State 6000]
+type = Changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+;手前にローリング移動
+[Statedef 6350]
+type = S
+physics = S
+sprpriority = -5
+anim = 4350
+ctrl = 0
+
+[State 6000];
+type = width
+trigger1 = 1
+edge=10,0 
+
+[State 6000]
+type = PlaySnd
+trigger1 = time = 10
+value = 6000, 1
+
+;------------------相手がライン攻撃振ってない
+[State 6000]
+type = NotHitBy
+trigger1 = !var(8)
+trigger1 = time<=25
+value = SCA
+time = 1
+;-------------------相手がライン攻撃を振っている
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=1
+trigger1 = time<=25
+value = ,AP,AT
+time = 1
+;-------------------相手が対ライン攻撃（飛び道具）を画面上に出してる時
+[State 6000]
+type = NotHitBy
+trigger1 = var(8)=2
+trigger1 = time<=25
+value = ,AT
+time = 1
+;----------------------------
+
+[State 6000]
+type = PlayerPush
+trigger1 = time <= 25
+value = 0
+
+[State 6000]
+type = null;varset
+trigger1 = time = 0
+fvar(1)=0.9
+
+[State 6000]
+type = varadd
+trigger1 = time > 10
+trigger1 = fvar(1) < 1.0
+fvar(1)= 0.01
+
+[State 6000]
+type = varset
+trigger1 = fvar(1) >= 1.0
+fvar(1)= 1.0
+
+[State 6000]
+type = AngleSet
+trigger1 = 1
+value = 0
+
+[State 6000]
+type = null;AngleDraw
+trigger1 = time = 0
+scale = 0.9,0.9
+
+[State 6000]
+type = AngleDraw
+trigger1 = time != 0
+scale = fvar(1),fvar(1)
+
+[State 6000]
+type = Changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;ラインA
+[Statedef 6400]
+type = S
+movetype = A
+physics = S
+sprpriority = -5
+anim = 4400
+ctrl = 0
+
+[State 6000];
+type = width
+trigger1 = 1
+edge=10,0 
+
+[State 6000]
+type = Turn
+trigger1 = p2dist X < 0
+trigger1 = animelem=3,=0
+
+[State 6400]
+type = PlaySnd
+trigger1 = Time = 1 && Random < 700 && var(30) = 0
+value = 0, 4
+channel = 0
+
+[State 6400]
+type = PlaySnd
+trigger1 = Time = 1 && Random < 700 && var(30) = 1
+value = 0, 3
+channel = 0
+
+[State 6400]
+type = PlaySnd
+trigger1 = time = 12
+value = 1, 5
+
+[State 6400]
+type = NotHitBy
+trigger1 = !var(8)
+trigger1 = animelem=13,<0 ;time<26
+value = SCA
+time = 1
+
+[State 6400]
+type = PlayerPush
+trigger1 = animelem=13,<0
+value = 0
+
+;-----------------------移動
+[State 6400]
+type = posadd
+trigger1 = p2dist x>=50
+trigger1 = time > 8
+trigger1 = time < 26
+x = 2.625
+
+[State 6400]
+type = posadd
+trigger1 = p2dist x<50 && p2dist x>=20
+trigger1 = time > 8
+trigger1 = time < 26
+x = 1.625;2.625
+
+[State 6400]
+type = posadd
+trigger1 = p2dist x>10 && p2dist x<20
+trigger1 = time > 8
+trigger1 = time < 26
+x = 0.625;2.625
+
+[State 6400]
+type = posadd
+trigger1 = p2dist x<=10
+trigger1 = time > 8
+trigger1 = time < 26
+x = 0
+
+[State 6400]
+type = varadd
+trigger1 = time > 8
+trigger1 = fvar(1) < 1.0
+fvar(1)= 0.00625
+
+[State 6400]
+type = varset
+trigger1 = fvar(1) >= 1.0
+trigger2 = animelem = 13
+fvar(1)= 1.0
+
+[State 6400]
+type = AngleSet
+trigger1 = 1
+value = 0
+
+[State 6400]
+type = AngleDraw
+trigger1 = time != 0
+scale = fvar(1),fvar(1)
+
+[State 6400]
+type = HitDef
+id=6400
+trigger1 = time = 0
+attr = S, NA
+damage = ceil((42*fvar(2))*fvar(3))
+animtype = Light
+guardflag = H
+hitflag = M
+pausetime = 9,9
+guard.pausetime = 8,8
+sparkno = S7000
+guard.sparkno = S8000
+sparkxy = -10, -65
+hitsound = S2, 0
+guardsound = S3, 0
+getpower = 150,50
+givepower = 0,50
+ground.type = High
+ground.slidetime = 16
+guard.slidetime = 14
+ground.hittime  = 16;+3
+guard.ctrltime = 14;+1
+air.hittime = 9999999
+airguard.ctrltime = 9999999
+ground.velocity = -4
+air.velocity = -2,-5.5
+ground.cornerpush.veloff = 0;-4
+guard.cornerpush.veloff = 0;-4
+air.cornerpush.veloff = 0
+p2facing=1
+sprpriority = -5
+yaccel=.43
+;-------------------------------
+[State 1400, 2];画面端ノックバック
+type = Varset
+triggerall = numtarget(6400)
+triggerall = movecontact=1
+triggerall = target,statetype!=A
+triggerall = target,movetype=H
+trigger1 = target,backedgebodydist <= 5;0
+fv=14
+value=-3.2;-1.8
+ignorehitpause=1
+persistent=0
+;---------------------------------
+
+[State 6400]
+type = Changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;ラインB
+[Statedef 6410]
+type = C
+movetype = A
+physics = C
+sprpriority = -5
+anim = 4410
+ctrl = 0
+
+[State 6000];
+type = width
+trigger1 = 1
+edge=10,0 
+
+[State 6000]
+type = Turn
+trigger1 = p2dist X < 0
+trigger1 = animelem=3,=0
+
+[State 6400]
+type = PlaySnd
+trigger1 = Time = 1 && Random < 700 && var(30) = 0
+value = 0, 4
+channel = 0
+
+[State 6400]
+type = PlaySnd
+trigger1 = Time = 1 && Random < 700 && var(30) = 1
+value = 0, 3
+channel = 0
+
+[State 6400]
+type = PlaySnd
+trigger1 = time = 10
+value = 6000, 3
+
+[State 6400]
+type = NotHitBy
+trigger1 = !var(8)
+trigger1 = animelem=6,<0
+;trigger1 = time <= 26
+value = SCA
+time = 1
+
+[State 6400]
+type = PlayerPush
+trigger1 = animelem=6,<0
+;trigger1 = time <= 26
+value = 0
+
+;---------------------移動
+[State 6400]
+type = posadd
+trigger1 = p2dist x>=50
+trigger1 = time > 11
+trigger1 = time < 28
+x = 2.625
+
+[State 6400]
+type = posadd
+trigger1 = p2dist x<50 && p2dist x>=20
+trigger1 = time > 11
+trigger1 = time < 28
+x = 1.625;2.625
+
+[State 6400]
+type = posadd
+trigger1 = p2dist x>10 && p2dist x<20
+trigger1 = time > 11
+trigger1 = time < 28
+x = 0.625;2.625
+
+[State 6400]
+type = posadd
+trigger1 = p2dist x<=10
+trigger1 = time > 11
+trigger1 = time < 28
+x = 0
+
+[State 6400]
+type = varadd
+trigger1 = time > 11
+trigger1 = fvar(1) < 1.0
+fvar(1)= 0.00625
+
+[State 6400]
+type = varset
+trigger1 = fvar(1) >= 1.0
+trigger2 = animelem = 6
+fvar(1)= 1.0
+
+[State 6400]
+type = AngleSet
+trigger1 = 1
+value = 0
+
+[State 6400]
+type = AngleDraw
+trigger1 = time != 0
+scale = fvar(1),fvar(1)
+
+[State 6400]
+type = HitDef
+id=6410
+trigger1 = time = 0
+attr = C, NA
+damage = ceil((42*fvar(2))*fvar(3))
+animtype = Light
+guardflag = L
+hitflag = M
+pausetime = 9,9
+guard.pausetime = 8,8
+sparkno = S7000
+guard.sparkno = S8000
+sparkxy = -10, -15
+hitsound = S2, 1
+guardsound = S3, 0
+getpower = 150,50
+givepower = 0,50
+ground.type = Low
+ground.slidetime = 15
+guard.slidetime = 14
+ground.hittime  = 15
+guard.ctrltime = 13
+air.hittime = 9999999
+airguard.ctrltime = 9999999
+ground.velocity = -4
+air.velocity = -2,-5.5
+ground.cornerpush.veloff = 0;-4
+guard.cornerpush.veloff =0; -4
+air.cornerpush.veloff = 0
+p2facing=1
+sprpriority = -5
+yaccel=.43
+;-------------------------------
+[State 1400, 2];画面端ノックバック
+type = Varset
+triggerall = numtarget(6410)
+triggerall = movecontact=1
+triggerall = target,statetype!=A
+triggerall = target,movetype=H
+trigger1 = target,backedgebodydist <= 5;0
+fv=14
+value=-2.93;-1.8
+ignorehitpause=1
+persistent=0
+;---------------------------------
+
+[State 6400]
+type = Changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;ラインC
+[Statedef 6420]
+type = S
+movetype = A
+physics = S
+sprpriority = -5
+anim = 4420
+ctrl = 0
+
+[State 6000];
+type = width
+trigger1 = 1
+edge=10,0 
+
+[State 6000]
+type = Turn
+trigger1 = p2dist X < 0
+trigger1 = animelem=3,=0
+
+[State 6400]
+type = PlaySnd
+trigger1 = Time = 1 && Random < 700 && var(30) = 0
+value = 0, 4
+channel = 0
+
+[State 6400]
+type = PlaySnd
+trigger1 = Time = 1 && Random < 700 && var(30) = 1
+value = 0, 3
+channel = 0
+
+[State 6400]
+type = PlaySnd
+trigger1 = time = 13
+value = 6000, 2
+
+[State 6400]
+type = NotHitBy
+trigger1 = !var(8)
+trigger1 = animelem=7,<0
+;trigger1 = time <= 28
+value = SCA
+time = 1
+
+[State 6400]
+type = PlayerPush
+trigger1 = animelem=7,<0
+;trigger1 = time <= 24
+value = 0
+
+;--------------------------移動
+[State 6400]
+type = posadd
+trigger1 = p2dist x>=50
+trigger1 = time > 13
+trigger1 = time < 30
+x = 2.625
+
+[State 6400]
+type = posadd
+trigger1 = p2dist x<50 && p2dist x>=20
+trigger1 = time > 13
+trigger1 = time < 30
+x = 1.625;2.625
+
+[State 6400]
+type = posadd
+trigger1 = p2dist x>10 && p2dist x<20
+trigger1 = time > 13
+trigger1 = time < 30
+x = 0.625;2.625
+
+[State 6400]
+type = posadd
+trigger1 = p2dist x<=10
+trigger1 = time > 13
+trigger1 = time < 30
+x = 0
+
+[State 6400]
+type = varadd
+trigger1 = time > 13
+trigger1 = fvar(1) < 1.0
+fvar(1)= 0.00625
+
+[State 6400]
+type = varset
+trigger1 = fvar(1) >= 1.0
+trigger2 = animelem = 7
+fvar(1)= 1.0
+
+[State 6400]
+type = AngleSet
+trigger1 = 1
+value = 0
+
+[State 6400]
+type = AngleDraw
+trigger1 = time != 0
+scale = fvar(1),fvar(1)
+
+[State 6400]
+type = changeanim
+trigger1 = moveguarded>=1
+trigger1 = anim=4420
+trigger1 = animelem=7,=0
+value = 4422
+ignorehitpause=0
+
+[State 6400]
+type = HitDef
+id=6420
+trigger1 = time = 0
+attr = S, NA
+damage = ceil((94*fvar(4))*fvar(6))
+animtype = Hard
+guardflag = M
+hitflag = MA
+pausetime = 15,15
+guard.pausetime = 14,14
+sparkno = S7010
+guard.sparkno = S8010
+sparkxy = -10, -55
+hitsound = S2, 9
+guardsound = S3, 1
+getpower = 250,100
+givepower = 0,50
+ground.type = High
+ground.slidetime = 25
+guard.slidetime = 24
+ground.hittime  = 25;+13
+guard.ctrltime = 23;-3
+air.hittime = 9999999
+airguard.ctrltime = 9999999
+ground.velocity = -8.5
+air.velocity = -2,-5.5
+ground.cornerpush.veloff = 0;-4
+guard.cornerpush.veloff = 0;-4
+air.cornerpush.veloff = 0
+p2facing=1
+sprpriority = -5
+yaccel=.43
+;-------------------------------
+[State 1400, 2];画面端ノックバック
+type = Varset
+triggerall = numtarget(6420)
+triggerall = movecontact=1
+triggerall = target,statetype!=A
+triggerall = target,movetype=H
+trigger1 = target,backedgebodydist <= 5;0
+fv=14
+value=-4.25;-5
+ignorehitpause=1
+persistent=0
+;---------------------------------
+
+[State 6400]
+type = Changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------

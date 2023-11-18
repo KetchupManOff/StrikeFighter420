@@ -1,0 +1,58 @@
+[Output]
+ ;Filename of the SFF file to create (required).
+;filename = 
+
+[Option]
+input.dir =
+sprite.compress.5 = lz5 ;none/lz5/rle5
+sprite.compress.8 = png8 ;none/rle8/png8
+sprite.compress.24 = png24 ;none/png24
+sprite.compress.32 = png32 ;none/png32
+sprite.decompressonload = 0 ;0/1
+sprite.detectduplicates = 0 ;0/1
+sprite.autocrop = 1 ;0/1
+pal.detectduplicates = 1 ;0/1
+pal.discardduplicates = 1 ;0/1
+
+[Pal]
+;Enter pals here (png or act files)
+;0,0, filename.png, 0,255 ;grp,idx, fname, startcol,endcol
+
+[Option]
+sprite.usepal = -1 ;Set this to the right pal
+
+[Sprite]
+   0, 0, data\charTrash\Lucas_Goku\s013.png,  44, 96
+   0, 1, data\charTrash\Lucas_Goku\s014.png,  44, 96
+   0, 2, data\charTrash\Lucas_Goku\s015.png,  44, 97
+   0, 3, data\charTrash\Lucas_Goku\s016.png,  44, 95
+   0, 4, data\charTrash\Lucas_Goku\s017.png,  44, 95
+   0, 5, data\charTrash\Lucas_Goku\s018.png,  44, 95
+   0, 6, data\charTrash\Lucas_Goku\s019.png,  44, 94
+   0, 7, data\charTrash\Lucas_Goku\s020.png,  44, 95
+   0,10, data\charTrash\Lucas_Goku\s021.png,  44, 96
+   0,11, data\charTrash\Lucas_Goku\s022.png,  44, 96
+   0,12, data\charTrash\Lucas_Goku\s023.png,  44, 97
+   0,13, data\charTrash\Lucas_Goku\s024.png,  44, 95
+   0,14, data\charTrash\Lucas_Goku\s025.png,  44, 95
+   0,15, data\charTrash\Lucas_Goku\s026.png,  44, 95
+   0,16, data\charTrash\Lucas_Goku\s027.png,  44, 94
+   0,17, data\charTrash\Lucas_Goku\s028.png,  44, 95
+ 170, 2, data\charTrash\Lucas_Goku\s124.png,  64, 96
+ 170, 3, data\charTrash\Lucas_Goku\s125.png,  66, 72
+ 170, 4, data\charTrash\Lucas_Goku\s126.png,  66, 58
+ 181, 0, data\charTrash\Lucas_Goku\s130.png,  51,105
+ 181, 1, data\charTrash\Lucas_Goku\s131.png,  50,108
+ 181, 2, data\charTrash\Lucas_Goku\s132.png,  46,100
+ 181, 3, data\charTrash\Lucas_Goku\s133.png,  46,102
+ 181, 4, data\charTrash\Lucas_Goku\s134.png,  46,102
+5000, 0, data\charTrash\Lucas_Goku\s763.png,  68, 95
+5040, 0, data\charTrash\Lucas_Goku\s803.png,  63, 58
+5040,10, data\charTrash\Lucas_Goku\s804.png,  70, 34
+5040,11, data\charTrash\Lucas_Goku\s805.png,  71, 35
+5040,20, data\charTrash\Lucas_Goku\s806.png,  72, 40
+5300, 0, data\charTrash\Lucas_Goku\s858.png,  50, 76
+5300, 1, data\charTrash\Lucas_Goku\s859.png,  50, 75
+5300, 2, data\charTrash\Lucas_Goku\s860.png,  50, 74
+5300, 3, data\charTrash\Lucas_Goku\s861.png,  50, 73
+5300, 4, data\charTrash\Lucas_Goku\s862.png,  50, 74

@@ -1,0 +1,42 @@
+;--| { |---------------------------------------------------------------
+
+[Info]
+Name         = "La Nonne"        ;LN^[OiKvsj
+DisplayName  = "La Nonne"        ;M.U.G.E.N\Oi\j
+VersionDate  = 11,01,2002     ;LN^[IXVinjj
+MugenVersion = 04,14,2002     ;LN^[oM.U.G.E.N
+Author       = "SAKURA"       ;LN^[iKvsj
+Pal.Defaults = 1,2,3,4,5,6,7  ;botoJ[pbg
+;
+;-----------------------------------------------------------------------------
+
+[Files]
+Cmd      = INDEX.cmd       ;R}ht@Co^
+Cns      = INDEX_A.cns     ;{f[^ZXe[g
+St       = INDEX_A.cns     ;sXe[g
+St2      = INDEX_B.cns     ;sXe[g
+St3      = INDEX_-2.cns    ;-2Xe[g
+St4      = INDEX_-3.cns    ;-3Xe[g
+StCommon = INDEX_C.cns     ;RXe[gt@Co^
+Sprite   = INDEX.sff       ;obwXvCgt@Co^
+Anim     = INDEX.air       ;Aj[Vt@Co^
+Sound    = INDEX.snd       ;v`udTEht@Co^
+
+;-----------------------------------------------------------------------------
+
+Pal1 = INDEX.act
+Pal2 = INDEX.act
+Pal3 = INDEX.act
+Pal4 = INDEX.act
+Pal5 = INDEX.act
+Pal6 = INDEX.act
+Pal7 = INDEX.act
+Pal8 = INDEX.act
+Pal9 = INDEX.act
+Pal10= INDEX.act
+Pal11= INDEX.act
+Pal12= INDEX.act
+
+[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def

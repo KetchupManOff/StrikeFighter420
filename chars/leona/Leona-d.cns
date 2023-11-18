@@ -1,0 +1,3254 @@
+;~~~~~DM data for Leona.~~~~~
+
+;-----{(Rebel Spark A Start)}
+[Statedef 6000]
+type = S
+movetype = I
+velset = 0,0,0
+ctrl = 0
+anim = 6000
+
+[State 6000, Pause]
+type = SuperPause
+trigger1 = Time = 2
+time = 29
+movetime = 29
+anim = -1
+
+[State 6000,Power]
+type = PowerAdd
+trigger1 = Time = 2
+value = -1000
+
+[State 6000,Snd]
+type = PlaySnd
+trigger1 = Time = 2
+value = 6000,1
+
+[State 6000,Spark1]
+type = Explod
+trigger1 = Time = 5
+anim = 9010
+sprpriority = -2
+postype = p1
+pos = 19,-121
+bindtime = 1
+supermove = 1
+
+[State 6000,Spark2]
+type = Explod
+trigger1 = Time = 1
+anim = 9020
+sprpriority = 4
+postype = p1
+pos = 19,-121
+bindtime = 1
+supermove = 1
+
+[State 6000,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 6010
+ctrl = 0
+
+;-----{(Rebel Spark B Start)}
+[Statedef 6050]
+type = S
+movetype = I
+velset = 0,0,0
+ctrl = 0
+anim = 6000
+
+[State 6050, Pause]
+type = SuperPause
+trigger1 = Time = 2
+time = 29
+movetime = 29
+anim = -1
+
+[State 6050,Power]
+type = PowerAdd
+trigger1 = Time = 2
+value = -1000
+
+[State 6050,Snd]
+type = PlaySnd
+trigger1 = Time = 2
+value = 6000,1
+
+[State 6050,Spark1]
+type = Explod
+trigger1 = Time = 5
+anim = 9010
+sprpriority = -2
+postype = p1
+pos = 19,-121
+bindtime = 1
+supermove = 1
+
+[State 6050,Spark2]
+type = Explod
+trigger1 = Time = 1
+anim = 9020
+sprpriority = 4
+postype = p1
+pos = 19,-121
+bindtime = 1
+supermove = 1
+
+[State 6050,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 6060
+ctrl = 0
+
+;-----{(Rebel Spark A Running)}
+[Statedef 6010]
+type = S
+movetype = A
+velset = 0,0,0
+ctrl = 0
+anim = 6010
+
+[State 6010,Image]
+type = AfterImage
+trigger1 = Time = 0
+time = 9999
+
+[State 6010,Vel]
+type = VelSet
+trigger1 = AnimElem = 2
+x = 9
+
+[State 6010,Steps]
+type = PlaySnd
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 5
+value = 61,6
+
+[State 6010,Skid]
+type = PlaySnd
+trigger1 = AnimElem = 4,=3
+value = 61,7
+
+[State 6010,Attack]
+type = ChangeState
+trigger1 = P2BodyDist X <= 30
+trigger1 = Vel X > 4
+value = 6070
+
+[State 6010,Stop]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 6030
+ctrl = 0
+
+;-----{(Rebel Spark B Running)}
+[Statedef 6060]
+type = S
+movetype = A
+velset = 0,0,0
+ctrl = 0
+anim = 6060
+
+[State 6060,Image]
+type = AfterImage
+trigger1 = Time = 0
+time = 9999
+
+[State 6060,Vel]
+type = VelSet
+trigger1 = AnimElem = 2
+x = 9
+
+[State 6060,Steps]
+type = PlaySnd
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 5
+trigger3 = AnimElem = 8
+value = 61,6
+
+[State 6060,Skid]
+type = PlaySnd
+trigger1 = AnimElem = 6,=3
+value = 61,7
+
+[State 6060,Attack]
+type = ChangeState
+trigger1 = P2BodyDist X <= 30
+trigger1 = Vel X > 4
+value = 6070
+
+[State 6060,Stop]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 6030
+ctrl = 0
+
+;-----{(Rebel Spark Stop)}
+[Statedef 6030]
+type = S
+movetype = I
+velset = 0,0,0
+ctrl = 0
+anim = 6030
+
+[State 6030,Image]
+type = AfterImageTime
+trigger1 = Time = 0
+time = 0
+
+[State 6030,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Rebel Spark Attack)}
+[Statedef 6070]
+type = S
+movetype = A
+ctrl = 0
+anim = 6070
+
+[State 6070,Vel]
+type = VelSet
+trigger1 = AnimElem = 2
+x = 0
+
+[State 6070,Hit]
+type = HitDef
+Trigger1 = Time = 0
+attr = S, HT
+priority = 5, Miss
+hitflag = MAF
+guardflag = MA
+;snap = -1,-98,38,1
+sparkno = -1
+guardsound = 6,0
+sparkxy = -10,-60
+p2facing = 1
+p1stateno = 6080
+p2stateno = 6090
+air.velocity = -5.5, -8.5
+ground.velocity = -5.5, -8.5
+fall.yvelocity = -3.5
+fall.recover = 0
+fall = 1
+
+[State 6070,Guarded]
+type = ChangeState
+trigger1 = MoveGuarded = 1
+value = 6077
+
+[State 6070,Miss]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger1 = MoveContact = 0
+value = 6076 
+
+;-----{(Rebel Spark Miss)}
+[Statedef 6076]
+type = S
+movetype = I
+ctrl = 0
+anim = 6075
+
+[State 6076,Image]
+type = AfterImageTime
+trigger1 = Time = 0
+time = 0
+
+[State 6076,Pos]
+type = PosAdd
+trigger1 = AnimElem = 6
+x = -32
+
+[State 6076,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Rebel Spark Guarded)}
+[Statedef 6077]
+type = S
+movetype = I
+physics = S
+ctrl = 0
+anim = 6075
+
+[State 6077,Image]
+type = AfterImageTime
+trigger1 = Time = 0
+time = 0
+
+[State 6077,Slide]
+type = VelSet
+trigger1 = AnimElem = 2
+x = -8.5
+
+[State 6077,Pos]
+type = PosAdd
+trigger1 = AnimElem = 6
+x = -32
+
+[State 6077,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Rebel Spark Finish)}
+[Statedef 6080]
+type = S
+movetype = I
+velset = 0,0,0
+ctrl = 0
+anim = 6080
+
+[State 6070,Image]
+type = AfterImageTime
+trigger1 = Time = 0
+time = 0
+
+[State 6080,Vel]
+type = VelSet
+trigger1 = Time >= 0
+x = 0
+
+[State 6080,Pos1]
+type = PosAdd
+trigger1 = AnimElem = 13
+trigger2 = AnimElem = 17
+x = -32
+
+[State 6080,Pos2]
+type = NULL;PosAdd
+trigger1 = AnimTime = 0
+x = 12
+
+[State 6080, Bind1]
+type = TargetBind
+Trigger1 = AnimElem = 1
+time = 10
+pos = 38,0
+
+[State 6080, E]
+type = Explod
+trigger1 = Time = 0
+trigger2 = AnimElem = 12
+anim = 77
+pos = 40,-60
+postype = p1
+vel = 0, 0
+bindtime = 1
+ontop = 1
+ownpal = 1
+
+[State 6080, E]
+type = Explod
+trigger1 = AnimElem = 3,=4
+anim = 6099
+ID = 6099
+pos = 70,-55
+postype = p1
+vel = 0, 0
+bindtime = 1
+removetime = -1
+sprpriority = -4
+ownpal = 1
+
+[State 6090,E]
+type = Explod
+trigger1 = Time = 240
+trigger2 = Time = 241
+trigger3 = Time = 242
+trigger4 = Time = 243
+trigger5 = Time = 244
+trigger6 = Time = 245
+trigger7 = Time = 246
+anim = 999
+ID = 999
+vel = 0
+pos = 0,-65
+postype = p2
+random = 60,110
+shadow = -1
+sprpriority = 4
+bindtime = 1
+ownpal = 1
+
+[State 6080,Snd1]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 61,1
+
+[State 6080,Snd3]
+type = PlaySnd
+trigger1 = AnimElem = 5
+value = 6000,2
+
+[State 6080,Snd2]
+type = PlaySnd
+trigger1 = AnimElem = 11
+value = 6000,3
+
+[State 6080,Snd5]
+type = PlaySnd
+trigger1 = AnimElem = 3, =4
+value = 6000,4
+
+[State 6080,Snd4]
+type = PlaySnd
+trigger1 = AnimElem = 25
+value = 900,2
+
+[State 6080,BG]
+type = BGPalFX
+trigger1 = Time = 20
+trigger2 = Time = 41
+trigger3 = Time = 62
+trigger4 = Time = 83
+trigger5 = Time = 104
+trigger6 = Time = 125
+trigger7 = Time = 146
+trigger8 = Time = 167
+trigger9 = Time = 188
+trigger10 = Time = 209
+trigger11 = Time = 230
+add = 255,255,255
+time = 1
+
+[State 6080,Shake]
+type = EnvShake
+trigger1 = Time = 242
+time = 40
+
+[State 6080,RE]
+type = RemoveExplod
+trigger1 = Time = 242
+ID = 6099
+
+[State 6080,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Hit by Rebel Spark)}
+[Statedef 6090]
+type    = S
+movetype= H
+velset = 0,0,0
+ctrl = 0
+
+[State 6090,Vel]
+type = VelSet
+trigger1 = Time >= 0
+x = 0
+
+[State 6090,CA2]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 6090
+
+[State 6090,LA]
+type = LifeAdd
+trigger1 = AnimTime = 0
+value = -315
+
+[State 6090,3]
+type = PowerAdd
+trigger1 = AnimTime = 0
+value = 250
+
+[State 6090,Pal]
+type = PalFX
+trigger1 = AnimTime = 0
+time = 30
+mul = 275,192,192 
+add = 200,120,0
+
+[State 6090,20]
+type = SelfState
+trigger1 = AnimTime = 0
+value = 5030
+ctrl = 0
+
+
+;-----{(Orochi Rebel Spark Start)}
+[Statedef 6100]
+type = S
+movetype = I
+velset = 0,0,0
+ctrl = 0
+anim = 6100
+
+[State 6100, Pause]
+type = SuperPause
+trigger1 = Time = 2
+time = 29
+movetime = 29
+anim = -1
+
+[State 6100,Power]
+type = PowerAdd
+trigger1 = Time = 2
+value = -2000
+
+[State 6100,Snd]
+type = PlaySnd
+trigger1 = Time = 2
+value = 6000,1
+
+[State 6100,Spark1]
+type = Explod
+trigger1 = Time = 6
+anim = 9030
+sprpriority = -2
+postype = p1
+pos = -3,-73
+bindtime = 1
+supermove = 1
+
+[State 6100,Spark2]
+type = Explod
+trigger1 = Time = 2
+anim = 9040
+sprpriority = 4
+postype = p1
+pos = -3,-73
+bindtime = 1
+supermove = 1
+
+[State 6100,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 6110
+ctrl = 0
+
+;-----{(Orochi Rebel Spark Running)}
+[Statedef 6110]
+type = S
+movetype = A
+velset = 0,0,0
+ctrl = 0
+anim = 6110
+
+[State 6110,Image]
+type = AfterImage
+trigger1 = Time = 0
+time = 9999
+
+[State 6110,Vel]
+type = VelSet
+trigger1 = AnimElem = 2
+x = 10
+
+[State 6110,Attack]
+type = ChangeState
+trigger1 = P2BodyDist X <= 30
+trigger1 = Vel X > 4
+value = 6170
+
+[State 6110,Stop]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 6130
+ctrl = 1
+
+;-----{(Orochi Rebel Spark Stop)}
+[Statedef 6130]
+type = S
+movetype = I
+velset = 0,0,0
+ctrl = 0
+anim = 6130
+
+[State 6130,Image]
+type = AfterImageTime
+trigger1 = Time = 0
+time = 0
+
+[State 6130,Vel]
+type = VelSet
+trigger1 = Time >= 0
+x = 0
+
+[State 6130,Pos1]
+type = PosAdd
+trigger1 = AnimElem = 5
+x = -38
+
+[State 6130,Pos2]
+type = PosAdd
+trigger1 = AnimElem = 7
+x = -18
+
+[State 6130,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Orochi Rebel Spark Attack)}
+[Statedef 6170]
+type = S
+movetype = A
+ctrl = 0
+anim = 6170
+
+[State 6170,Vel]
+type = VelSet
+trigger1 = AnimElem = 3
+x = 0
+
+[State 6170,Hit]
+type = HitDef
+Trigger1 = Time = 0
+attr = S, HT
+priority = 7, Miss
+hitflag = MAF
+guardflag = MA
+;snap = -1,-98,38,1
+sparkno = -1
+hitsound = S61,1
+guardsound = 6,0
+sparkxy = -10,-60
+p2facing = 1
+p1stateno = 6180
+p2stateno = 6190
+air.velocity = -5.5, -8.5
+ground.velocity = -5.5, -8.5
+fall.yvelocity = -3.5
+fall.recover = 0
+fall = 1
+
+[State 6170,Guarded]
+type = ChangeState
+trigger1 = MoveGuarded = 1
+value = 6130
+
+[State 6170,Miss]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger1 = MoveContact = 0
+value = 6130
+
+;-----{(Orochi Rebel Spark Finish)}
+[Statedef 6180]
+type = S
+movetype = I
+velset = 0,0,0
+ctrl = 0
+anim = 6180
+
+[State 6180,Image]
+type = AfterImageTime
+trigger1 = Time = 0
+time = 0
+
+[State 6180,Vel]
+type = VelSet
+trigger1 = Time >= 0
+x = 0
+
+[State 6180,Pos1]
+type = PosAdd
+trigger1 = AnimElem = 50
+x = -38
+
+[State 6180,Pos2]
+type = PosAdd
+trigger1 = AnimElem = 52
+x = -18
+
+[State 6180, Bind1]
+type = TargetBind
+Trigger1 = AnimElem = 1
+time = 10
+pos = 30,0
+
+[State 6180, E]
+type = NULL;Explod
+trigger1 = Time = 0
+trigger2 = AnimElem = 12
+anim = 77
+pos = 40,-60
+postype = p1
+vel = 0, 0
+bindtime = 1
+ontop = 1
+ownpal = 1
+
+[State 6180, E]
+type = Explod
+trigger1 = AnimElem = 5, =2
+anim = 6099
+ID = 6099
+pos = 60,-55
+postype = p1
+vel = 0, 0
+bindtime = 1
+removetime = -1
+sprpriority = -4
+ownpal = 1
+
+[State 6180,E]
+type = Explod
+trigger1 = Time = 295
+anim = 998
+ID = 998
+vel = 0
+pos = 0,-65
+postype = p2
+shadow = -1
+sprpriority = 4
+bindtime = 1
+ownpal = 1
+
+[State 6180,Snd1]
+type = NULL;PlaySnd
+trigger1 = Time = 0
+value = 61,1
+
+[State 6080,Snd3]
+type = NULL;PlaySnd
+trigger1 = AnimElem = 5
+value = 6000,2
+
+[State 6080,Snd2]
+type = PlaySnd
+trigger1 = AnimElem = 56
+value = 704,6
+
+[State 6180,Snd5]
+type = PlaySnd
+trigger1 = AnimElem = 5,=2
+value = 6000,4
+
+[State 6180,Snd4]
+type = PlaySnd
+trigger1 = Time = 296
+value = 900,2
+
+[State 6080,BG]
+type = BGPalFX
+trigger1 = Time = 20
+trigger2 = Time = 41
+trigger3 = Time = 62
+trigger4 = Time = 83
+trigger5 = Time = 104
+trigger6 = Time = 125
+trigger7 = Time = 146
+trigger8 = Time = 167
+add = 255,255,255
+time = 1
+
+[State 6180,Shake]
+type = EnvShake
+trigger1 = Time = 298
+trigger1 = !WinKO
+time = 60
+
+[State 6180,RE]
+type = RemoveExplod
+trigger1 = Time = 296
+ID = 6099
+
+[State 6180,G]
+type = Explod
+trigger1 = WinKO
+anim = 7999
+ID = 7999
+pos = 160,45
+postype = left
+vel = 0, 0
+bindtime = 9999
+removetime = 37
+sprpriority = -4
+ownpal = 1
+persistent = 0
+
+[State 6180,BG2]
+type = BGPalFX
+trigger1 = WinKO
+add = 230,0,0
+mul = 100,0,0
+time = 37
+persistent = 0
+
+[State 6180,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Hit by Orochi Rebel Spark)}
+[Statedef 6190]
+type    = S
+movetype= H
+velset = 0,0,0
+ctrl = 0
+
+[State 6190,Vel]
+type = VelSet
+trigger1 = Time >= 0
+x = 0
+
+[State 6190,CA2]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 6190
+
+[State 6190,LA]
+type = LifeAdd
+trigger1 = AnimTime = 0
+value = -510
+
+[State 6190,3]
+type = PowerAdd
+trigger1 = AnimTime = 0
+value = 250
+
+[State 6190,Pal]
+type = PalFX
+trigger1 = AnimTime = 0
+time = 30
+mul = 275,192,192 
+add = 200,120,0
+
+[State 6190,20]
+type = SelfState
+trigger1 = AnimTime = 0
+value = 5030
+ctrl = 0
+
+
+
+;-----{(V-Slasher X Start)}
+[Statedef 6300]
+type = A
+movetype = I
+ctrl = 0
+anim = 6300
+velset = 0,0,0
+
+[State 6300, Pause]
+type = SuperPause
+trigger1 = AnimElem = 2, =2
+time = 29
+movetime = 29
+anim = -1
+
+[State 6300,Power]
+type = PowerAdd
+trigger1 = AnimElem = 2
+value = -1000
+
+[State 6300,Snd]
+type = PlaySnd
+trigger1 = AnimElem = 2,=2
+value = 6000,1
+
+[State 6300,Spark1]
+type = Explod
+trigger1 = AnimElem = 2,=7
+anim = 9010
+sprpriority = -2
+postype = p1
+pos = -38,-112
+bindtime = 1
+supermove = 1
+
+[State 6300,Spark2]
+type = Explod
+trigger1 = AnimElem = 2,=2
+anim = 9020
+sprpriority = 4
+postype = p1
+pos = -38,-112
+bindtime = 1
+supermove = 1
+
+[State 6300,Image]
+type = AfterImage
+trigger1 = AnimElem = 2
+time = 9999
+
+[State 6300,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 6310
+
+;-----{(V-Slasher Y Start)}
+[Statedef 6350]
+type = A
+movetype = I
+ctrl = 0
+anim = 6300
+velset = 0,0,0
+
+[State 6350, Pause]
+type = SuperPause
+trigger1 = AnimElem = 2, =2
+time = 29
+movetime = 29
+anim = -1
+
+[State 6350,Power]
+type = PowerAdd
+trigger1 = AnimElem = 2
+value = -1000
+
+[State 6350,Snd]
+type = PlaySnd
+trigger1 = AnimElem = 2,=2
+value = 6000,1
+
+[State 6350,Spark1]
+type = Explod
+trigger1 = AnimElem = 2,=7
+anim = 9010
+sprpriority = -2
+postype = p1
+pos = -38,-112
+bindtime = 1
+supermove = 1
+
+[State 6350,Spark2]
+type = Explod
+trigger1 = AnimElem = 2,=2
+anim = 9020
+sprpriority = 4
+postype = p1
+pos = -38,-112
+bindtime = 1
+supermove = 1
+
+[State 6350,Image]
+type = AfterImage
+trigger1 = AnimElem = 2
+time = 9999
+
+[State 6350,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 6360
+
+;-----{(V-Slasher X Flying)}
+[Statedef 6310]
+type = A
+movetype = A
+ctrl = 0
+anim = 6310
+velset = 4,11,0
+
+[State 6310,Hit]
+type = HitDef
+Trigger1 = Time = 0
+attr = A, HT
+priority = 7, Miss
+hitflag = MAF
+guardflag = MA
+;snap = -1,-98,38,1
+sparkno = -1
+hitsound = S61,3
+guardsound = 6,0
+;sparkxy = -10,-60
+p2facing = 1
+p1stateno = 6380
+p2stateno = 6385
+air.velocity = -3.5, -8.5
+ground.velocity = -3.5, -8.5
+fall.yvelocity = -3.5
+fall.recover = 0
+fall = 1
+
+[State 6310,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 6320
+ctrl = 0
+
+;-----{(V-Slasher Y Flying)}
+[Statedef 6360]
+type = A
+movetype = A
+ctrl = 0
+anim = 6310
+velset = 17,9,0
+
+[State 6360,Hit]
+type = HitDef
+Trigger1 = Time = 0
+attr = A, HT
+priority = 7, Miss
+hitflag = MAF
+guardflag = MA
+;snap = -1,-98,38,1
+sparkno = -1
+hitsound = S61,3
+guardsound = 6,0
+;sparkxy = -10,-60
+p2facing = 1
+p1stateno = 6380
+p2stateno = 6385
+air.velocity = -3.5, -8.5
+ground.velocity = -3.5, -8.5
+fall.yvelocity = -3.5
+fall.recover = 0
+fall = 1
+
+[State 6360,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 6320
+ctrl = 0
+
+
+;-----{(V-Slasher Landing)}
+[Statedef 6320]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+anim = 6320
+velset = 8,0,0
+
+[State 6320,Image]
+type = AfterImageTime
+trigger1 = Time = 0
+time = 0
+
+[State 6320,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;-----{(V-Slasher Connect)}
+[Statedef 6380]
+type = S
+movetype = I
+ctrl = 0
+anim = 6380
+velset = 0,0,0
+
+[State 6380,Pos]
+type = PosSet
+trigger1 = Time = 0
+trigger1 = P2StateType != A
+y = 0
+
+[State 6380,Bind]
+type = TargetBind
+trigger1 = Time = 0
+time = 20
+pos = 30,0
+
+[State 6380,E]
+type = Explod
+trigger1 = Time = 0
+anim = 6390
+ID = 6390
+vel = 0
+pos = 30,-5
+postype = p1
+shadow = -1
+sprpriority = 6
+bindtime = 1
+ownpal = 1
+
+[State 6380,Snd1]
+type = PlaySnd
+trigger1 = AnimElem = 5
+value = 61,2
+
+[State 6380,Snd2]
+type = PlaySnd
+trigger1 = AnimElem = 7
+value = 900,2
+
+[State 6380,E]
+type = Explod
+trigger1 = Time = 19
+trigger2 = Time = 20
+trigger3 = Time = 21
+trigger4 = Time = 22
+trigger5 = Time = 23
+trigger6 = Time = 24
+trigger7 = Time = 25
+anim = 999
+ID = 999
+vel = 0
+pos = 0,-65
+postype = p2
+random = 60,90
+shadow = -1
+sprpriority = 4
+bindtime = 1
+ownpal = 1
+
+[State 6380,Vel]
+type = VelSet
+trigger1 = AnimElem = 7
+x = 2
+y = -8
+
+[State 6380,Vel2]
+type = VelAdd
+trigger1 = AnimElem = 7, =3
+trigger2 = AnimElem = 7, =6
+trigger3 = AnimElem = 7, =9
+trigger4 = AnimElem = 8, =3
+trigger5 = AnimElem = 8, =6
+trigger6 = AnimElem = 8, =9
+trigger7 = AnimElem = 8, =12
+trigger8 = AnimElem = 9, =3
+trigger9 = AnimElem = 9, =6
+trigger10 = AnimElem = 9, =9
+trigger11 = AnimElem = 9, =12
+trigger12 = AnimElem = 9, =15
+trigger13 = AnimElem = 9, =18
+trigger14 = AnimElem = 9, =21
+y = 1.1
+
+[State 6380,Image]
+type = AfterImageTime
+trigger1 = AnimElem = 9
+time = 0
+
+[State 6380,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 0
+ctrl = 1
+
+;-----{(Hit by V-Slasher Level 1)}
+[Statedef 6385]
+type    = S
+movetype= H
+velset = 0,0,0
+ctrl = 0
+
+[State 6385,Vel]
+type = VelSet
+trigger1 = Time >= 0
+x = 0
+
+[State 6190,CA2]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 6385
+
+[State 6385,LA]
+type = LifeAdd
+trigger1 = AnimTime = 0
+value = -320
+
+[State 6385,3]
+type = PowerAdd
+trigger1 = AnimTime = 0
+value = 250
+
+[State 6385,Pal]
+type = PalFX
+trigger1 = AnimTime = 0
+time = 30
+mul = 275,192,192 
+add = 200,120,0
+
+[State 6385,20]
+type = SelfState
+trigger1 = AnimTime = 0
+value = 5030
+ctrl = 0
+
+
+
+
+
+;-----{(V-Slasher Level 2 Start)}
+[Statedef 6400]
+type = A
+movetype = I
+ctrl = 0
+anim = 6300
+velset = 0,0,0
+
+[State 6400, Pause]
+type = SuperPause
+trigger1 = AnimElem = 2, =2
+time = 29
+movetime = 29
+anim = -1
+
+[State 6400,Power]
+type = PowerAdd
+trigger1 = AnimElem = 2
+value = -2000
+
+[State 6400,Snd]
+type = PlaySnd
+trigger1 = AnimElem = 2,=2
+value = 6000,1
+
+[State 6400,Spark1]
+type = Explod
+trigger1 = AnimElem = 2,=7
+anim = 9030
+sprpriority = -2
+postype = p1
+pos = -38,-112
+bindtime = 1
+supermove = 1
+
+[State 6400,Spark2]
+type = Explod
+trigger1 = AnimElem = 2,=2
+anim = 9040
+sprpriority = 4
+postype = p1
+pos = -38,-112
+bindtime = 1
+supermove = 1
+
+[State 6400,Image]
+type = AfterImage
+trigger1 = AnimElem = 2
+time = 9999
+
+[State 6400,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 6460
+
+;-----{(V-Slasher Level 2 Flying)}
+[Statedef 6460]
+type = A
+movetype = A
+ctrl = 0
+anim = 6310
+velset = 17,9,0
+
+[State 6460,Hit]
+type = HitDef
+Trigger1 = Time = 0
+attr = A, HT
+priority = 7, Miss
+hitflag = MAF
+guardflag = MA
+;snap = -1,-98,38,1
+sparkno = -1
+hitsound = S61,3
+guardsound = 6,0
+;sparkxy = -10,-60
+p2facing = 1
+p1stateno = 6480
+p2stateno = 6485
+air.velocity = -5.5, -10.5
+ground.velocity = -5.5, -10.5
+fall.yvelocity = -3.5
+fall.recover = 0
+fall = 1
+
+[State 6460,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 6320
+ctrl = 0
+
+
+;-----{(V-Slasher Level 2 Connect)}
+[Statedef 6480]
+type = S
+movetype = I
+ctrl = 0
+anim = 6400
+velset = 0,0,0
+
+[State 6480,Pos]
+type = PosSet
+trigger1 = Time = 0
+trigger1 = P2StateType !=A
+y = 0
+
+[State 6480,Bind]
+type = TargetBind
+trigger1 = Time = 0
+time = 20
+pos = 30,0
+
+[State 6480,E]
+type = Explod
+trigger1 = Time = 0
+anim = 6391
+ID = 6391
+vel = 0
+pos = 30,-5
+postype = p1
+shadow = -1
+sprpriority = 6
+bindtime = 1
+ownpal = 1
+
+[State 6480,Snd2]
+type = PlaySnd
+trigger1 = AnimElem = 5
+value = 6000,3
+
+[State 6480,Snd3]
+type = PlaySnd
+trigger1 = AnimElem = 7
+value = 63,1
+
+[State 6480,Snd4]
+type = PlaySnd
+trigger1 = AnimElem = 8, =3
+value = 900,2
+
+[State 6480,E]
+type = Explod
+trigger1 = Time = 81
+anim = 998
+ID = 998
+vel = 0
+pos = 0,-60
+postype = p2
+shadow = -1
+sprpriority = 4
+bindtime = 1
+ownpal = 1
+
+[State 6480,Shake]
+type = EnvShake
+trigger1 = AnimElem = 8, =4
+time = 75
+
+[State 6480,Vel]
+type = VelSet
+trigger1 = AnimElem = 7
+x = 2
+y = -9
+
+[State 6480,Vel2]
+type = VelAdd
+trigger1 = AnimElem = 7, =3
+trigger2 = AnimElem = 7, =6
+trigger3 = AnimElem = 7, =9
+trigger4 = AnimElem = 8, =3
+y = 2.1
+
+[State 6480, Vel3]
+type = VelSet
+trigger1 = AnimElem = 8, =4
+x = 0
+y = 0.2
+
+[State 6480,Vel4]
+type = VelAdd
+trigger1 = AnimElem = 9, =3
+trigger2 = AnimElem = 9, =6
+trigger3 = AnimElem = 9, =9
+trigger4 = AnimElem = 9, =12
+trigger5 = AnimElem = 9, =15
+trigger6 = AnimElem = 9, =18
+trigger7 = AnimElem = 9, =21
+trigger8 = AnimElem = 9, =24
+trigger9 = AnimElem = 9, =27
+trigger10 = AnimElem = 9, =30
+trigger11 = AnimElem = 9, =33
+trigger12 = AnimElem = 9, =36
+y = 1.8
+
+[State 6480,Image]
+type = AfterImageTime
+trigger1 = AnimElem = 9
+time = 0
+
+[State 6480,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 0
+ctrl = 1
+
+;-----{(Hit by V-Slasher Level 2)}
+[Statedef 6485]
+type    = S
+movetype= H
+velset = 0,0,0
+ctrl = 0
+
+[State 6485,Vel]
+type = VelSet
+trigger1 = Time >= 0
+x = 0
+
+[State 6485,CA2]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 6485
+
+[State 6485,LA]
+type = LifeAdd
+trigger1 = AnimTime = 0
+value = -500
+
+[State 6485,3]
+type = PowerAdd
+trigger1 = AnimTime = 0
+value = 350
+
+[State 6485,Pal]
+type = PalFX
+trigger1 = AnimTime = 0
+time = 50
+mul = 275,192,192 
+add = 200,120,0
+
+[State 6485,20]
+type = SelfState
+trigger1 = AnimTime = 0
+value = 5030
+ctrl = 0
+
+
+
+
+
+;-----{(Grateful Dead Start)}
+[Statedef 6500]
+type = S
+movetype = I
+ctrl = 0
+anim = 6500
+velset = 0,0,0
+
+[State 6500, Pause]
+type = SuperPause
+trigger1 = AnimElem = 4
+time = 29
+movetime = 29
+anim = -1
+
+[State 6500,Power]
+type = PowerAdd
+trigger1 = AnimElem = 4
+value = -1000
+
+[State 6500,Snd]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 6000,1
+
+[State 6500,Snd2]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 17,2
+
+[State 6500,Spark1]
+type = Explod
+trigger1 = AnimElem = 4, =5
+anim = 9010
+sprpriority = -2
+postype = p1
+pos = 9,-46
+bindtime = 1
+supermove = 1
+
+[State 6500,Spark2]
+type = Explod
+trigger1 = AnimElem = 4
+anim = 9020
+sprpriority = 4
+postype = p1
+pos = 9,-46
+bindtime = 1
+supermove = 1
+
+[State 6500,NHB]
+type = NotHitBy
+trigger1 = AnimElem = 4
+value = SCA
+time = 36
+
+[State 6500,Image]
+type = NULL;AfterImage
+trigger1 = AnimElem = 2
+time = 9999
+
+[State 6500,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 6510
+
+;-----{(Grateful Dead Flying)}
+[Statedef 6510]
+type = A
+movetype = A
+ctrl = 0
+anim = 6510
+velset = 0,0,0
+
+[State 6510,Snd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 63,2
+
+[State 6510,Hit]
+type = HitDef
+Trigger1 = Time = 0
+attr = S, HT
+priority = 5, Miss
+hitflag = MAF
+guardflag = MA
+;snap = -1,-98,38,1
+sparkno = -1
+pausetime = 8,0
+hitsound = S61,8
+guardsound = 6,0
+sparkxy = 10,0
+p2facing = 1
+p1stateno = 6530
+p2stateno = 6570
+air.velocity = 4.5, -6.5
+ground.velocity = 4.5, -6.5
+fall.yvelocity = -3.5
+fall.recover = 0
+fall = 1
+
+[State 6510,Grav]
+type = Gravity
+trigger1 = Time >= 0
+
+[State 6510,Vel1]
+type = VelSet
+trigger1 = P2BodyDist X >= 0
+trigger1 = P2BodyDist X < 15
+trigger1 = Time = 0
+x = 1
+y = -8.5
+
+[State 6510,Vel2]
+type = VelSet
+trigger1 = P2BodyDist X >= 15
+trigger1 = P2BodyDist X < 30
+trigger1 = Time = 0
+x = 2
+y = -8.5
+
+[State 6510,Vel3]
+type = VelSet
+trigger1 = P2BodyDist X >= 30
+trigger1 = P2BodyDist X < 55
+trigger1 = Time = 0
+x = 3
+y = -8.5
+
+[State 6510,Vel4]
+type = VelSet
+trigger1 = P2BodyDist X >= 55
+trigger1 = P2BodyDist X < 90
+trigger1 = Time = 0
+x = 4
+y = -8.5
+
+[State 6510,Vel5]
+type = VelSet
+trigger1 = P2BodyDist X >= 90
+trigger1 = P2BodyDist X < 135
+trigger1 = Time = 0
+x = 5
+y = -8.5
+
+[State 6510,Vel6]
+type = VelSet
+trigger1 = P2BodyDist X >= 135
+trigger1 = P2BodyDist X < 190
+trigger1 = Time = 0
+x = 6
+y = -8.5
+
+[State 6510,Vel7]
+type = VelSet
+trigger1 = P2BodyDist X >= 190
+trigger1 = P2BodyDist X < 255
+trigger1 = Time = 0
+x = 7
+y = -8.5
+
+[State 6510,Vel8]
+type = VelSet
+trigger1 = P2BodyDist X >= 255
+;trigger1 = P2BodyDist X < 470
+trigger1 = Time = 0
+x = 8
+y = -8.5
+
+[State 6510,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 6520
+
+[State 6510,21]
+type = ChangeState
+trigger1 = MoveGuarded = 1
+value = 6540
+ctrl = 0
+
+;-----{(Grateful Dead Blocked)}
+[Statedef 6540]
+type = A
+movetype = I
+ctrl = 0
+anim = 6540
+velset = -2.8,-5,0
+
+[State 6540,Grav]
+type = Gravity
+trigger1 = Time >= 0
+
+[State 6540,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 6550
+
+;-----{(Grateful Dead Blocked Landing)}
+[Statedef 6550]
+type = S
+movetype = I
+ctrl = 0
+anim = 6550
+velset = 0,0,0
+
+[State 6550,Pos]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 6550,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Grateful Dead Landing)}
+[Statedef 6520]
+type = S
+movetype = I
+ctrl = 0
+anim = 6520
+velset = 0,0,0
+
+[State 6520,Pos]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 6520,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;-----{(Grateful Dead Hit)}
+[Statedef 6530]
+type = S
+movetype = I
+ctrl = 0
+anim = 6530
+velset = 0,0,0
+
+[State 6530,Bind1]
+type = BindToTarget
+trigger1 = AnimElem = 2
+pos = 0,0,head
+time = 22
+
+[State 6530,Turn]
+type = Turn
+trigger1 = AnimElem = 3
+
+[State 6530,Bind2]
+type = TargetBind
+trigger1 = AnimElem = 7
+pos = 30,0
+time = 191
+
+[State 6530,Pos1]
+type = PosSet
+trigger1 = AnimElem = 7
+y = 0
+
+[State 6530,E]
+type = Explod
+trigger1 = AnimElem = 17
+anim = 6580
+ID = 6580
+vel = 0
+pos = 3,-94
+postype = p1
+shadow = -1
+sprpriority = 3
+bindtime = 9999
+ownpal = 1
+
+[State 6530,E]
+type = Explod
+trigger1 = AnimElem = 19, =1
+anim = 6590
+ID = 6590
+vel = 0
+pos = 5,0
+postype = p1
+shadow = -1
+sprpriority = 6
+bindtime = 9999
+ownpal = 1
+
+[State 6530,Snd1]
+type = PlaySnd
+trigger1 = AnimElem = 18
+value = 61,1
+
+[State 6530,Snd2]
+type = PlaySnd
+trigger1 = AnimElem = 19
+value = 63,3
+
+[State 6530, E]
+type = Explod
+trigger1 = AnimElem = 19
+anim = 77
+pos = 29,-92
+postype = p1
+vel = 0, 0
+bindtime = 1
+ontop = 1
+ownpal = 1
+
+[State 6530,Snd3]
+type = PlaySnd
+trigger1 = AnimElem = 47
+value = 6000,3
+
+[State 6530,BG2]
+type = BGPalFX
+trigger1 = Time = 90
+trigger2 = Time = 99
+trigger3 = Time = 108
+trigger4 = Time = 117
+trigger5 = Time = 126
+trigger6 = Time = 135
+trigger7 = Time = 144
+trigger8 = Time = 152
+trigger9 = Time = 161
+trigger10 = Time = 170
+trigger11 = Time = 179
+trigger12 = AnimElem = 47
+add = 255,255,255
+time = 1
+
+[State 6530,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;-----{(Hit by Grateful Dead)}
+[Statedef 6570]
+type    = S
+movetype= H
+velset = 0,0,0
+ctrl = 0
+
+[State 6570,Vel]
+type = VelSet
+trigger1 = Time >= 0
+x = 0
+
+[State 6570,CA2]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 6570
+
+[State 6570,Turn]
+type = Turn
+trigger1 = time = 9
+
+[State 6570,LA]
+type = LifeAdd
+trigger1 = Time = 90
+trigger2 = Time = 99
+trigger3 = Time = 108
+trigger4 = Time = 117
+trigger5 = Time = 126
+trigger6 = Time = 135
+trigger7 = Time = 144
+trigger8 = Time = 152
+trigger9 = Time = 161
+trigger10 = Time = 170
+trigger11 = Time = 179
+value = -30
+
+[State 6570,3]
+type = PowerAdd
+trigger1 = AnimTime = 0
+value = 250
+
+[State 6570,20]
+type = SelfState
+trigger1 = AnimTime = 0
+value = 5030
+ctrl = 0
+
+
+;-----{(Grateful Dead Level 2 Start)}
+[Statedef 6600]
+type = S
+movetype = I
+ctrl = 0
+anim = 6500
+velset = 0,0,0
+
+[State 6600, Pause]
+type = SuperPause
+trigger1 = AnimElem = 4
+time = 29
+movetime = 29
+anim = -1
+
+[State 6600,Power]
+type = PowerAdd
+trigger1 = AnimElem = 4
+value = -2000
+
+[State 6600,Snd]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 6000,1
+
+[State 6600,Snd2]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 17,2
+
+[State 6600,Spark1]
+type = Explod
+trigger1 = AnimElem = 4, =5
+anim = 9030
+sprpriority = -2
+postype = p1
+pos = 9,-46
+bindtime = 1
+supermove = 1
+
+[State 6600,Spark2]
+type = Explod
+trigger1 = AnimElem = 4
+anim = 9040
+sprpriority = 4
+postype = p1
+pos = 9,-46
+bindtime = 1
+supermove = 1
+
+[State 6600,NHB]
+type = NotHitBy
+trigger1 = AnimElem = 4
+value = SCA
+time = 36
+
+[State 6600,Image]
+type = NULL;AfterImage
+trigger1 = AnimElem = 2
+time = 9999
+
+[State 6600,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 6610
+
+;-----{(Grateful Dead Level 2 Flying)}
+[Statedef 6610]
+type = A
+movetype = A
+ctrl = 0
+anim = 6510
+velset = 0,0,0
+
+[State 6610,Snd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 63,2
+
+[State 6610,Hit]
+type = HitDef
+Trigger1 = Time = 0
+attr = S, HT
+priority = 5, Miss
+hitflag = MAF
+guardflag = MA
+;snap = -1,-98,38,1
+sparkno = -1
+pausetime = 8,0
+hitsound = S61,8
+guardsound = 6,0
+sparkxy = 10,0
+p2facing = 1
+p1stateno = 6630
+p2stateno = 6670
+air.velocity = 4.5, -6.5
+ground.velocity = 4.5, -6.5
+fall.yvelocity = -3.5
+fall.recover = 0
+fall = 1
+
+[State 6610,Grav]
+type = Gravity
+trigger1 = Time >= 0
+
+[State 6610,Vel1]
+type = VelSet
+trigger1 = P2BodyDist X >= 0
+trigger1 = P2BodyDist X < 15
+trigger1 = Time = 0
+x = 1
+y = -8.5
+
+[State 6610,Vel2]
+type = VelSet
+trigger1 = P2BodyDist X >= 15
+trigger1 = P2BodyDist X < 30
+trigger1 = Time = 0
+x = 2
+y = -8.5
+
+[State 6610,Vel3]
+type = VelSet
+trigger1 = P2BodyDist X >= 30
+trigger1 = P2BodyDist X < 55
+trigger1 = Time = 0
+x = 3
+y = -8.5
+
+[State 6610,Vel4]
+type = VelSet
+trigger1 = P2BodyDist X >= 55
+trigger1 = P2BodyDist X < 90
+trigger1 = Time = 0
+x = 4
+y = -8.5
+
+[State 6610,Vel5]
+type = VelSet
+trigger1 = P2BodyDist X >= 90
+trigger1 = P2BodyDist X < 135
+trigger1 = Time = 0
+x = 5
+y = -8.5
+
+[State 6610,Vel6]
+type = VelSet
+trigger1 = P2BodyDist X >= 135
+trigger1 = P2BodyDist X < 190
+trigger1 = Time = 0
+x = 6
+y = -8.5
+
+[State 6610,Vel7]
+type = VelSet
+trigger1 = P2BodyDist X >= 190
+trigger1 = P2BodyDist X < 255
+trigger1 = Time = 0
+x = 7
+y = -8.5
+
+[State 6610,Vel8]
+type = VelSet
+trigger1 = P2BodyDist X >= 255
+;trigger1 = P2BodyDist X < 470
+trigger1 = Time = 0
+x = 8
+y = -8.5
+
+[State 6610,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 6620
+
+[State 6610,21]
+type = ChangeState
+trigger1 = MoveGuarded = 1
+value = 6640
+ctrl = 0
+
+;-----{(Grateful Dead Level 2 Blocked)}
+[Statedef 6640]
+type = A
+movetype = I
+ctrl = 0
+anim = 6540
+velset = -2.8,-5,0
+
+[State 6640,Grav]
+type = Gravity
+trigger1 = Time >= 0
+
+[State 6640,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 6650
+
+;-----{(Grateful Dead Level 2 Blocked Landing)}
+[Statedef 6650]
+type = S
+movetype = I
+ctrl = 0
+anim = 6550
+velset = 0,0,0
+
+[State 6650,Pos]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 6650,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Grateful Dead Level 2 Landing)}
+[Statedef 6620]
+type = S
+movetype = I
+ctrl = 0
+anim = 6520
+velset = 0,0,0
+
+[State 6620,Pos]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 6620,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;-----{(Grateful Dead Level 2 Hit)}
+[Statedef 6630]
+type = S
+movetype = I
+ctrl = 0
+anim = 6630
+velset = 0,0,0
+
+[State 6630,Bind1]
+type = BindToTarget
+trigger1 = AnimElem = 2
+pos = 0,0,head
+time = 22
+
+[State 6630,Turn]
+type = Turn
+trigger1 = AnimElem = 3
+
+[State 6630,Bind2]
+type = TargetBind
+trigger1 = AnimElem = 7
+pos = 30,0
+time = 191
+
+[State 6630,Pos1]
+type = PosSet
+trigger1 = AnimElem = 7
+y = 0
+
+[State 6630,E]
+type = Explod
+trigger1 = AnimElem = 17
+anim = 6580
+ID = 6580
+vel = 0
+pos = 3,-94
+postype = p1
+shadow = -1
+sprpriority = 3
+bindtime = 9999
+ownpal = 1
+
+[State 6630,E]
+type = Explod
+trigger1 = AnimElem = 19, =1
+anim = 6590
+ID = 6590
+vel = 0
+pos = 5,0
+postype = p1
+shadow = -1
+sprpriority = 6
+bindtime = 9999
+ownpal = 1
+
+[State 6630,E2]
+type = Explod
+trigger1 = AnimElem = 19, =1
+anim = 6602
+ID = 6602
+vel = 0
+pos = 20,-78
+postype = p1
+shadow = -1
+sprpriority = 4
+bindtime = 9999
+removetime = 9999
+ownpal = 1
+
+[State 6630,E3]
+type = Explod
+trigger1 = AnimElem = 19, =1
+anim = 6604
+ID = 6604
+vel = 0
+pos = -10,-155
+postype = p1
+shadow = -1
+sprpriority = 4
+bindtime = 1
+removetime = 9999
+ownpal = 1
+
+[State 6630,E4]
+type = Explod
+trigger1 = AnimElem = 45
+anim = 6606
+ID = 6606
+vel = 0, 3
+pos = -10,-155
+postype = p1
+shadow = -1
+sprpriority = -5
+bindtime = 1
+removetime = 30
+ownpal = 1
+
+[State 6630,E5]
+type = Explod
+trigger1 = AnimElem = 47
+anim = 6608
+ID = 6608
+vel = 0
+pos = 3,-69
+postype = p1
+shadow = -1
+sprpriority = -5
+bindtime = 1
+ownpal = 1
+
+[State 6630,Pal]
+type = PalFX
+trigger1 = AnimElem = 47
+add = 175,0,0
+mul = 100,0,0
+time = 4
+
+[State 6630,RE2]
+type = RemoveExplod
+trigger1 = AnimElem = 45
+ID = 6602
+
+[State 6630,RE3]
+type = RemoveExplod
+trigger1 = AnimElem = 45
+ID = 6604
+
+[State 6630,Life]
+type = LifeAdd
+trigger1 = AnimElem = 47
+value = 100
+
+[State 6630,Snd1]
+type = PlaySnd
+trigger1 = AnimElem = 18
+value = 61,1
+
+[State 6630,Snd2]
+type = PlaySnd
+trigger1 = AnimElem = 19
+value = 63,3
+
+[State 6630, E]
+type = Explod
+trigger1 = AnimElem = 19
+anim = 77
+pos = 29,-92
+postype = p1
+vel = 0, 0
+bindtime = 1
+ontop = 1
+ownpal = 1
+
+[State 6630,Snd3]
+type = PlaySnd
+trigger1 = AnimElem = 47
+value = 6000,3
+
+[State 6630,BG2]
+type = BGPalFX
+trigger1 = Time = 90
+trigger2 = Time = 99
+trigger3 = Time = 108
+trigger4 = Time = 117
+trigger5 = Time = 126
+trigger6 = Time = 135
+trigger7 = Time = 144
+trigger8 = Time = 152
+trigger9 = Time = 161
+trigger10 = Time = 170
+trigger11 = Time = 179
+;trigger12 = AnimElem = 47
+add = 230,0,0
+mul = 100,0,0
+time = 1
+
+[State 6630,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;-----{(Hit by Grateful Dead Level 2)}
+[Statedef 6670]
+type    = S
+movetype= H
+velset = 0,0,0
+ctrl = 0
+
+[State 6670,Vel]
+type = VelSet
+trigger1 = Time >= 0
+x = 0
+
+[State 6670,CA2]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 6570
+
+[State 6670,Turn]
+type = Turn
+trigger1 = time = 9
+
+[State 6670,LA]
+type = LifeAdd
+trigger1 = Time = 90
+trigger2 = Time = 99
+trigger3 = Time = 108
+trigger4 = Time = 117
+trigger5 = Time = 126
+trigger6 = Time = 135
+trigger7 = Time = 144
+trigger8 = Time = 152
+trigger9 = Time = 161
+trigger10 = Time = 170
+trigger11 = Time = 179
+value = -40
+
+[State 6670,3]
+type = PowerAdd
+trigger1 = AnimTime = 0
+value = 270
+
+[State 6670,20]
+type = SelfState
+trigger1 = AnimTime = 0
+value = 5030
+ctrl = 0
+
+
+
+;-----{(Gravity Storm Start)}
+[Statedef 7000]
+type = S
+movetype = I
+velset = 0,0,0
+ctrl = 0
+anim = 7000
+
+[State 7000, Pause]
+type = SuperPause
+trigger1 = Time = 2
+time = 29
+movetime = 29
+anim = -1
+
+[State 7000,Power]
+type = PowerAdd
+trigger1 = Time = 2
+value = -1000
+
+[State 7000,Snd]
+type = PlaySnd
+trigger1 = Time = 2
+value = 6000,1
+
+[State 7000,Spark1]
+type = Explod
+trigger1 = Time = 5
+anim = 9010
+sprpriority = -2
+postype = p1
+pos = 4,-77
+bindtime = 1
+supermove = 1
+
+[State 7000,Spark2]
+type = Explod
+trigger1 = Time = 1
+anim = 9020
+sprpriority = 4
+postype = p1
+pos = 4,-77
+bindtime = 1
+supermove = 1
+
+[State 7000,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 7010
+ctrl = 0
+
+;-----{(Gravity Storm Attack)}
+[Statedef 7010]
+type = S
+movetype = A
+velset = 0,0,0
+ctrl = 0
+anim = 7010
+
+[State 7010,Pos]
+type = PosAdd
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 4
+trigger4 = AnimElem = 5
+trigger5 = AnimElem = 6
+trigger6 = AnimElem = 7
+trigger7 = AnimElem = 8
+trigger8 = AnimElem = 9
+x = 7
+
+[State 7010,Snd]
+type = PlaySnd
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 8
+value = 61,4
+
+[State 7010,Hit1]
+type = HitDef
+trigger1 = AnimElem = 1
+attr = S, HA
+animtype = Hard
+damage = 70
+guardflag = MA
+hitflag = MAF
+pausetime = 0, 16
+sparkxy = -10, -82
+hitsound = 5,2
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 20
+ground.velocity = 0,0
+air.velocity = -3.4, -3.1
+
+[State 7013,Hit2]
+type = HitDef
+trigger1 = AnimElem = 5
+attr = S, HA
+animtype = Hard
+damage = 70
+guardflag = MA
+hitflag = MAF+
+pausetime = 0, 0
+sparkxy = -10, -82
+hitsound = 5,2
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 20
+ground.velocity = 0,-11
+air.velocity = -5, -7
+fall = 1
+fall.recover = 0
+
+[State 7010,CS1]
+type = ChangeState
+trigger1 = MoveContact = 1
+trigger1 = AnimElem = 4
+trigger1 = P2StateType != A
+value = 7013
+ 
+[State 7010,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 7015
+ctrl = 0
+
+;-----{(Gravity Storm Second Attack (Hit)}
+[Statedef 7013]
+type = S
+movetype = A
+velset = 0,0,0
+ctrl = 0
+anim = 7013
+
+[State 7013,Pos]
+type = PosAdd
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 2
+trigger3 = AnimElem = 3
+trigger4 = AnimElem = 4
+trigger5 = AnimElem = 5
+trigger6 = AnimElem = 6
+x = 7
+
+[State 7013,Snd]
+type = PlaySnd
+trigger1 = AnimElem = 5
+value = 61,4
+
+[State 7013,Hit2]
+type = HitDef
+trigger1 = AnimElem = 1
+attr = S, HA
+animtype = Hard
+damage = 70
+guardflag = MA
+hitflag = MAF+
+pausetime = 0, 0
+sparkxy = -10, -82
+hitsound = 5,2
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 20
+ground.velocity = 0,-9.5
+air.velocity = -5, -7
+fall = 1
+fall.recover = 0
+
+[State 7013,CS]
+type = ChangeState
+trigger1 = MoveHit = 1
+trigger1 = AnimElem = 11
+value = 7020
+ 
+[State 7013,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 7020
+ctrl = 0
+
+;-----{(Gravity Storm Attack End)}
+[Statedef 7015]
+type = S
+movetype = I
+velset = 0,0,0
+ctrl = 0
+anim = 7015
+
+[State 7015,Pos]
+type = PosAdd
+trigger1 = AnimElem = 1
+x = -12
+
+[State 7015,Pos]
+type = PosAdd
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 4
+trigger4 = AnimElem = 5
+trigger5 = AnimElem = 6
+x = -6 
+
+[State 7015,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Gravity Storm Leap)}
+[Statedef 7020]
+type = A
+movetype = A
+velset = 0,0,0
+ctrl = 0
+anim = 7020
+
+[State 7020,Vel]
+type = VelSet
+trigger1 = AnimElem = 7
+x = 1.5
+y = -5.5
+
+[State 7020,G]
+type = Gravity
+trigger1 = AnimElem >= 7
+trigger2 = Anim = 989
+
+[State 7020,Hit]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = A, HT
+priority = 7, Miss
+guardflag = 
+;snap = -1,-98,38,1
+sparkno = -1
+hitsound = 5,2
+guardsound = 6,0
+;sparkxy = 0,-142
+p2facing = 1
+p1stateno = 7030
+p2stateno = 7070
+air.velocity = -3.5, -6.5
+ground.velocity = -3.5, -6.5
+fall.recover = 0
+fall = 1
+
+[State 7020,21]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 52
+ctrl = 0
+
+[State 7020,20]
+type = ChangeAnim
+trigger1 = Time = 20
+trigger1 = MoveContact = 0
+value = 989
+
+;-----{(Gravity Storm Fall)}
+[Statedef 7030]
+type = A
+movetype = I
+velset = 0,0,0
+ctrl = 0
+anim = 7030
+
+[State 7030,Bind]
+type = TargetBind
+trigger1 = Time = 0
+pos = 0,-148
+time = 31
+
+[State 7030,G]
+type = Gravity
+trigger1 = Time >= 65
+
+[State 7030,Pos]
+type = PosAdd
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 4
+y = -10
+
+[State 7030,Snd]
+type = PlaySnd
+trigger1 = Time = 42
+value = 900,2
+
+[State 7030,E]
+type = Explod
+trigger1 = Time = 41
+trigger2 = Time = 42
+trigger3 = Time = 43
+trigger4 = Time = 44
+trigger5 = Time = 45
+trigger6 = Time = 46
+trigger7 = Time = 47
+anim = 999
+ID = 999
+vel = 0
+pos = 0,0
+postype = p2
+random = 90,60
+shadow = -1
+sprpriority = 4
+bindtime = 1
+ownpal = 1
+
+[State 7030,Shake]
+type = EnvShake
+trigger1 = Time = 42
+time = 60
+ampl = -7
+
+[State 7030,BG]
+type = BGPalFX
+trigger1 = Time = 42
+time = 4
+add = 255,255,255
+
+[State 7030,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 7050
+ctrl = 0
+
+;-----{(Gravity Storm Land)}
+[Statedef 7050]
+type    = S
+movetype= I
+velset = 0,0,0
+ctrl = 0
+anim = 7050
+
+[State 7070,Pos]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 7070,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;-----{(Hit by Gravity Storm)}
+[Statedef 7070]
+type    = A
+movetype= H
+velset = 0,0,0
+ctrl = 0
+
+[State 7070,Spr]
+type = SprPriority
+trigger1 = Time = 0
+value = 2
+
+[State 7070,Vel]
+type = VelSet
+trigger1 = Time >= 0
+x = 0
+y = 0
+
+[State 7070,CA2]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 7070
+
+[State 7070,LA]
+type = LifeAdd
+trigger1 = AnimTime = 0
+value = -180
+
+[State 7070,3]
+type = PowerAdd
+trigger1 = AnimTime = 0
+value = 250
+
+[State 7070,Pal]
+type = PalFX
+trigger1 = AnimTime = 0
+time = 50
+mul = 275,192,192 
+add = 200,120,0
+
+[State 7070,20]
+type = SelfState
+trigger1 = AnimTime = 0
+value = 5030
+ctrl = 0
+
+
+
+
+
+
+;-----{(Gravity Storm Level 2 Start)}
+[Statedef 7100]
+type = S
+movetype = I
+velset = 0,0,0
+ctrl = 0
+anim = 7000
+
+[State 7100, Pause]
+type = SuperPause
+trigger1 = Time = 2
+time = 29
+movetime = 29
+anim = -1
+
+[State 7100,Power]
+type = PowerAdd
+trigger1 = Time = 2
+value = -2000
+
+[State 7100,Snd]
+type = PlaySnd
+trigger1 = Time = 2
+value = 6000,1
+
+[State 7100,Spark1]
+type = Explod
+trigger1 = Time = 5
+anim = 9030
+sprpriority = -2
+postype = p1
+pos = 4,-77
+bindtime = 1
+supermove = 1
+
+[State 7100,Spark2]
+type = Explod
+trigger1 = Time = 1
+anim = 9040
+sprpriority = 4
+postype = p1
+pos = 4,-77
+bindtime = 1
+supermove = 1
+
+[State 7100,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 7110
+ctrl = 0
+
+;-----{(Gravity Storm Level 2 Attack)}
+[Statedef 7110]
+type = S
+movetype = A
+velset = 0,0,0
+ctrl = 0
+anim = 7110
+
+[State 7110,Pos]
+type = PosAdd
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 4
+trigger4 = AnimElem = 5
+trigger5 = AnimElem = 6
+trigger6 = AnimElem = 7
+trigger7 = AnimElem = 8
+trigger8 = AnimElem = 9
+trigger9 = AnimElem = 15
+trigger10 = AnimElem = 16
+trigger11 = AnimElem = 17
+trigger12 = AnimElem = 23
+trigger13 = AnimElem = 24
+trigger14 = AnimElem = 25
+x = 7
+
+[State 7110,Snd]
+type = PlaySnd
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 8
+trigger3 = AnimElem = 17
+trigger4 = AnimElem = 24
+value = 61,4
+
+[State 7110,Hit1]
+type = HitDef
+trigger1 = AnimElem = 1
+attr = S, HA
+animtype = Hard
+damage = 50
+guardflag = MA
+hitflag = MAF
+pausetime = 0, 16
+sparkxy = -10, -82
+hitsound = 5,2
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 20
+ground.velocity = 0,0
+air.velocity = -3.4, -3.1
+
+[State 7110,Hit2]
+type = HitDef
+trigger1 = AnimElem = 5
+attr = S, HA
+animtype = Hard
+damage = 50
+guardflag = MA
+hitflag = MAF
+pausetime = 0, 16
+sparkxy = -10, -82
+hitsound = 5,2
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 20
+ground.velocity = 0,0
+air.velocity = -3.4, -3.1
+
+[State 7110,Hit3]
+type = HitDef
+trigger1 = AnimElem = 16
+attr = S, HA
+animtype = Hard
+damage = 50
+guardflag = MA
+hitflag = MAF
+pausetime = 0, 16
+sparkxy = -10, -82
+hitsound = 5,2
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 20
+ground.velocity = 0,0
+air.velocity = -3.4, -3.1
+
+[State 7110,Hit4]
+type = HitDef
+trigger1 = AnimElem = 20
+attr = S, HA
+animtype = Hard
+damage = 70
+guardflag = MA
+hitflag = MAF
+pausetime = 0, 0
+sparkxy = -10, -82
+hitsound = 5,2
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 20
+ground.velocity = 0,-11
+air.velocity = -5, -7
+fall = 1
+fall.recover = 0
+
+[State 7110,CS1]
+type = ChangeState
+trigger1 = MoveContact = 1
+trigger1 = AnimElem = 18
+trigger1 = P2StateType != A
+value = 7113
+ 
+[State 7110,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 7015
+ctrl = 0
+
+;-----{(Gravity Storm Level 2 Second Attack (Hit)}
+[Statedef 7113]
+type = S
+movetype = A
+velset = 0,0,0
+ctrl = 0
+anim = 7113
+
+[State 7113,Pos]
+type = PosAdd
+trigger1 = AnimElem = 1
+trigger2 = AnimElem = 2
+trigger3 = AnimElem = 3
+trigger4 = AnimElem = 4
+trigger5 = AnimElem = 5
+trigger6 = AnimElem = 6
+x = 7
+
+[State 7113,Snd]
+type = PlaySnd
+trigger1 = AnimElem = 5
+value = 61,4
+
+[State 7113,Hit2]
+type = HitDef
+trigger1 = Time = 2
+attr = S, HA
+animtype = Hard
+damage = 70
+guardflag = MA
+hitflag = MAF
+pausetime = 0, 0
+sparkxy = -10, -82
+hitsound = 5,2
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 20
+ground.velocity = 0,-9.5
+air.velocity = -5, -7
+fall = 1
+fall.recover = 0
+
+[State 7113,CS]
+type = ChangeState
+trigger1 = MoveHit = 1
+trigger1 = AnimElem = 10
+value = 7120
+ 
+[State 7113,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 7120
+ctrl = 0
+
+;-----{(Gravity Storm Attack End)}
+[Statedef 7015]
+type = S
+movetype = I
+velset = 0,0,0
+ctrl = 0
+anim = 7015
+
+[State 7015,Pos]
+type = PosAdd
+trigger1 = AnimElem = 1
+x = -12
+
+[State 7015,Pos]
+type = PosAdd
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 4
+trigger4 = AnimElem = 5
+trigger5 = AnimElem = 6
+x = -6 
+
+[State 7015,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Gravity Storm Level 2 Leap)}
+[Statedef 7120]
+type = A
+movetype = A
+velset = 0,0,0
+ctrl = 0
+anim = 7020
+
+[State 7120,Vel]
+type = VelSet
+trigger1 = AnimElem = 7
+x = 1.5
+y = -5.5
+
+[State 7120,G]
+type = Gravity
+trigger1 = AnimElem >= 7
+trigger2 = Anim = 989
+
+[State 7120,Hit]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = A, HT
+priority = 7, Miss
+guardflag = 
+;snap = -1,-98,38,1
+sparkno = -1
+hitsound = 5,2
+guardsound = 6,0
+;sparkxy = 0,-142
+p2facing = 1
+p1stateno = 7130
+p2stateno = 7170
+air.velocity = -3.5, -6.5
+ground.velocity = -3.5, -6.5
+fall.recover = 0
+fall = 1
+
+[State 7120,21]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 52
+ctrl = 0
+
+[State 7120,20]
+type = ChangeAnim
+trigger1 = Time = 20
+trigger1 = MoveContact = 0
+value = 989
+
+;-----{(Gravity Storm Level 2 Fall)}
+[Statedef 7130]
+type = A
+movetype = I
+velset = 0,0,0
+ctrl = 0
+anim = 7130
+
+[State 7130,Bind]
+type = TargetBind
+trigger1 = Time = 0
+pos = 0,-140
+time = 48
+
+[State 7130,G]
+type = Gravity
+trigger1 = Time >= 72
+
+[State 7130,Pos]
+type = NULL;PosAdd
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 4
+y = -10
+
+[State 7130,Snd1]
+type = PlaySnd
+trigger1 = Time = 59
+value = 900,2
+
+[State 7130,Snd2]
+type = PlaySnd
+trigger1 = Time = 46
+value = 6000,5
+
+[State 7130,E]
+type = Explod
+trigger1 = Time = 59
+anim = 998
+ID = 998
+vel = 0
+pos = 0,0
+postype = p2
+shadow = -1
+sprpriority = 4
+bindtime = 1
+ownpal = 1
+
+[State 7130,E]
+type = Explod
+trigger1 = Time = 59
+anim = 997
+ID = 997
+vel = 0
+pos = 0,175
+postype = p2
+shadow = -1
+sprpriority = 3
+bindtime = 1
+ownpal = 1
+
+
+[State 7130,Shake]
+type = EnvShake
+trigger1 = Time = 59
+time = 60
+ampl = -7
+
+[State 7130,BG]
+type = BGPalFX
+trigger1 = Time = 59
+time = 4
+add = 255,255,255
+
+[State 7130,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 7150
+ctrl = 0
+
+;-----{(Gravity Storm Level 2 Land)}
+[Statedef 7150]
+type    = S
+movetype= I
+velset = 0,0,0
+ctrl = 0
+anim = 7150
+
+[State 7170,Pos]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 7170,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;-----{(Hit by Gravity Storm Level 2)}
+[Statedef 7170]
+type    = A
+movetype= H
+velset = 0,0,0
+ctrl = 0
+
+[State 7170,Spr]
+type = SprPriority
+trigger1 = Time = 0
+value = -4
+
+[State 7170,Vel]
+type = VelSet
+trigger1 = Time >= 0
+x = 0
+y = 0
+
+[State 7170,CA2]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 7170
+
+[State 7170,LA]
+type = LifeAdd
+trigger1 = AnimTime = 0
+value = -300
+
+[State 7170,3]
+type = PowerAdd
+trigger1 = AnimTime = 0
+value = 250
+
+[State 7170,Pal]
+type = PalFX
+trigger1 = AnimTime = 0
+time = 50
+mul = 275,192,192 
+add = 200,120,0
+
+[State 7170,20]
+type = SelfState
+trigger1 = AnimTime = 0
+value = 5030
+ctrl = 0
+
+
+
+
+
+
+
+
+;-----{(Blood Spray)}
+[Statedef 8700]
+type = S
+physics = S
+movetype = A
+ctrl = 0
+anim = 8700
+velset = 0,0,0
+
+[State 8700,Flash]
+type = PalFX
+trigger1 = Time = 0
+trigger2 = AnimTime = 0
+time = 5
+add = 255, 0, 0
+ignorehitpause = 1
+
+[State 8700, Pause]
+type = SuperPause
+trigger1 = AnimElem = 2
+time = 29
+movetime = 16
+anim = -1
+
+[State 8700,Power]
+type = PowerAdd
+trigger1 = AnimElem = 2
+value = -1000
+
+[State 8700,Snd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 6000,1
+
+[State 8700,Spark1]
+type = Explod
+trigger1 = AnimElem = 2,=3
+anim = 9010
+sprpriority = -2
+postype = p1
+pos = 6,-78
+bindtime = 1
+supermove = 1
+ownpal = 1
+
+[State 8700,Spark2]
+type = Explod
+trigger1 = AnimElem = 1,=2
+anim = 9020
+sprpriority = 4
+postype = p1
+pos = 6,-78
+bindtime = 1
+supermove = 1
+ownpal = 1
+
+[State 8700,Image]
+type = AfterImage
+trigger1 = AnimElem = 3
+time = 9999
+
+[State 8700,Hit]
+type = HitDef
+trigger1 = AnimElem = 5,=5
+attr = S, NA
+animtype = Hard
+damage = 100
+guardflag = MA
+hitflag = MAF
+pausetime = 0, 20
+sparkno = -1
+hitsound = 5,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 20
+ground.hittime = 22
+ground.velocity = -5.8
+air.velocity = -3.7, -3.3
+fall = 1
+fall.recover = 0
+
+[State 8700,S1]
+type = PlaySnd
+trigger1 = AnimElem = 5, =2
+value = 704,5
+
+[State 8700,E]
+type = Explod
+trigger1 = AnimElem = 5, =5
+anim = 8701
+postype = p1
+pos = -6, -97
+bindtime = -1
+sprpriority = 1
+ownpal = 1
+
+[State 8700,Image2]
+type = AfterImageTime
+trigger1 = AnimElem = 6
+time = 0
+
+[State 8700,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+

@@ -1,0 +1,29 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Wank"        ;Name of character
+displayname = "Wank" ;Name of character to display
+versiondate = 06,27,2021    ;Version date of character (MM-DD-YYYY)
+mugenversion = 04,14,2002   ;Version of M.U.G.E.N character works on
+author = "Syunsuke"         ;Character author name
+pal.defaults = 4,2,3,1,5,6,7,8      ;Default palettes in order of preference
+
+; Files for the player
+[Files]
+cmd     = Waluigi.cmd   ;Command set
+cns     = Waluigi.cns   ;Constants
+st      = Waluigi.cns   ;States
+stcommon = common1.cns ;Common states
+sprite  = Waluigi.sff   ;Sprite
+anim    = Waluigi.air   ;Animation
+sound   = Waluigi.snd   ;Sound
+pal1    = wario.act  ;Palettes (can have up to 12)
+pal2    = luigi.act
+pal3    = mario.act
+pal4    = norm.act
+pal5    = fire.act
+pal6    = darkyellow.act
+pal7    = pink.act
+pal8    = black.act

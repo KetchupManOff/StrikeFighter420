@@ -1,0 +1,50 @@
+table: 114A2860 {
+  [teamstart] => table: 114A2860 {
+                   [offset] => 0
+                   [wins] => 1
+                 }
+  [arcademaxmatches] => table: 114A2860 {
+                          [1] => 1
+                          [2] => 1
+                          [3] => 1
+                          [4] => 1
+                          [5] => 0
+                          [6] => 0
+                          [7] => 0
+                          [8] => 0
+                          [9] => 0
+                          [10] => 0
+                        }
+  [survivalend] => table: 114A2860 {
+                     [offset] => 4
+                     [wins] => 16
+                   }
+  [teamend] => table: 114A2860 {
+                 [offset] => 2
+                 [wins] => 3
+               }
+  [arcadeend] => table: 114A2860 {
+                   [offset] => 2
+                   [wins] => 4
+                 }
+  [teammaxmatches] => table: 114A2860 {
+                        [1] => 1
+                        [2] => 1
+                        [3] => 1
+                        [4] => 1
+                        [5] => 0
+                        [6] => 0
+                        [7] => 0
+                        [8] => 0
+                        [9] => 0
+                        [10] => 0
+                      }
+  [survivalstart] => table: 114A2860 {
+                       [offset] => -3
+                       [wins] => 0
+                     }
+  [arcadestart] => table: 114A2860 {
+                     [offset] => 0
+                     [wins] => 2
+                   }
+}

@@ -1,0 +1,58 @@
+la banshee (toon)
+condition: 1
+ trigger
+  before: 1
+  after: true
+  result: true
+ value
+  before: 0+(random%10)
+  after: 0+(math.random(0,999)*1/1000*10)
+  result: 9
+condition: 2
+ trigger
+  before: enemy,name = "skarlet"
+  after: "la nonne"== "skarlet"
+  result: false
+ value
+  before: 11+(random%3)
+  after: 11+(math.random(0,999)*1/1000*3)
+  result: 11
+condition: 3
+ trigger
+  before: enemy, name = "rusher"
+  after:  "la nonne"== "rusher"
+  result: false
+ value
+  before: 15+(random%4)
+  after: 15+(math.random(0,999)*1/1000*4)
+  result: 17
+condition: 4
+ trigger
+  before: enemy, name = "bloodrayne by cvs artist" || enemy, name = "super rayne"
+  after:  "la nonne"== "bloodrayne by cvs artist"  or   "la nonne"== "super rayne"
+  result: false
+ value
+  before: 20+(random%4)
+  after: 20+(math.random(0,999)*1/1000*4)
+  result: 20
+condition: 5
+ trigger
+  before: enemy, name = "mileena"
+  after:  "la nonne"== "mileena"
+  result: false
+ value
+  before: 25+(random%2)
+  after: 25+(math.random(0,999)*1/1000*2)
+  result: 26
+condition: 6
+ trigger
+  before: enemy, name = "ermac"
+  after:  "la nonne"== "ermac"
+  result: false
+ value
+  before: 28+(random%2)
+  after: 28+(math.random(0,999)*1/1000*2)
+  result: 29
+
+quote: 9
+exists: no

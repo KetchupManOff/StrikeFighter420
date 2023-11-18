@@ -1,0 +1,63 @@
+[Output]
+ ;Filename of the SFF file to create (required).
+;filename = 
+
+[Option]
+input.dir =
+sprite.compress.5 = lz5 ;none/lz5/rle5
+sprite.compress.8 = png8 ;none/rle8/png8
+sprite.compress.24 = png24 ;none/png24
+sprite.compress.32 = png32 ;none/png32
+sprite.decompressonload = 0 ;0/1
+sprite.detectduplicates = 0 ;0/1
+sprite.autocrop = 1 ;0/1
+pal.detectduplicates = 1 ;0/1
+pal.discardduplicates = 1 ;0/1
+
+[Pal]
+;Enter pals here (png or act files)
+;0,0, filename.png, 0,255 ;grp,idx, fname, startcol,endcol
+
+[Option]
+sprite.usepal = -1 ;Set this to the right pal
+
+[Sprite]
+   0, 1, data\charTrash\Leona\s000.png,  31,107
+   0, 2, data\charTrash\Leona\s001.png,  31,106
+   0, 3, data\charTrash\Leona\s002.png,  31,106
+   0, 4, data\charTrash\Leona\s003.png,  31,105
+   0, 5, data\charTrash\Leona\s004.png,  31,107
+   0, 6, data\charTrash\Leona\s005.png,  31,107
+   0, 7, data\charTrash\Leona\s006.png,  31,108
+   0, 8, data\charTrash\Leona\s007.png,  31,104
+   0, 9, data\charTrash\Leona\s008.png,  31,107
+   0,10, data\charTrash\Leona\s009.png,  31,109
+   0,11, data\charTrash\Leona\s010.png,  31,110
+   0,12, data\charTrash\Leona\s011.png,  31,107
+   0,13, data\charTrash\Leona\s012.png,  31,107
+   0,42, data\charTrash\Leona\s013.png,  31,105
+   0,43, data\charTrash\Leona\s014.png,  31,107
+   0,44, data\charTrash\Leona\s015.png,  31,107
+   0,45, data\charTrash\Leona\s016.png,  31,107
+   0,46, data\charTrash\Leona\s017.png,  31,107
+   0,47, data\charTrash\Leona\s018.png,  31,107
+   0,48, data\charTrash\Leona\s019.png,  31,107
+5300, 1, data\charTrash\Leona\s152.png,  19, 47
+5300, 2, data\charTrash\Leona\s153.png,  19, 47
+5300, 4, data\charTrash\Leona\s154.png,  19, 47
+ 181, 1, data\charTrash\Leona\s323.png,   9,107
+ 181, 2, data\charTrash\Leona\s324.png,   2,108
+ 181, 3, data\charTrash\Leona\s325.png,   9,113
+ 181, 4, data\charTrash\Leona\s326.png,  10,112
+ 181, 5, data\charTrash\Leona\s327.png,  11,112
+ 181, 7, data\charTrash\Leona\s329.png,  11,114
+ 181, 8, data\charTrash\Leona\s330.png,  11,114
+ 181,18, data\charTrash\Leona\s331.png,   8,114
+ 181,19, data\charTrash\Leona\s332.png,  23,111
+ 181,20, data\charTrash\Leona\s333.png,  36,107
+ 181,21, data\charTrash\Leona\s334.png,  38,107
+ 181,22, data\charTrash\Leona\s335.png,  41,107
+ 181,23, data\charTrash\Leona\s336.png,  13,107
+ 181,24, data\charTrash\Leona\s337.png,   9,107
+ 181,25, data\charTrash\Leona\s338.png,   9,107
+ 181,26, data\charTrash\Leona\s339.png,   9,107

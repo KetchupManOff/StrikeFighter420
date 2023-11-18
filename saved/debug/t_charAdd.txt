@@ -1,0 +1,30 @@
+table: 03ADD708 {
+  [miketyson] => 9
+  [lucasgoku] => 2
+  [dragon claw] => 120
+  [jade] => 16
+  [kung fu man/evil/evil kung fu man.def] => 118
+  [wank2] => 1
+  [training/sandbag.def] => 125
+  [bansheetoon] => 0
+  [catwalk] => 124
+  [strength training] => 123
+  [kung fu man/master/master kung fu man.def] => 122
+  [servietsky] => 3
+  [kung fu girl/master/master kung fu girl.def] => 121
+  [csn] => 13
+  [conspi] => 6
+  [guepes] => 7
+  [dan morin] => 8
+  [farcy] => 10
+  [davidclement] => 14
+  [boss master hand] => 119
+  [randomselect] => 117
+  [nonne] => 4
+  [alban] => 5
+  [freaz] => 17
+  [greve] => 12
+  [stage viewer] => 126
+  [fujiyama] => 15
+  [garda] => 11
+}

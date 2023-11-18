@@ -1,0 +1,37 @@
+[Output]
+ ;Filename of the SFF file to create (required).
+;filename = 
+
+[Option]
+input.dir =
+sprite.compress.5 = lz5 ;none/lz5/rle5
+sprite.compress.8 = png8 ;none/rle8/png8
+sprite.compress.24 = png24 ;none/png24
+sprite.compress.32 = png32 ;none/png32
+sprite.decompressonload = 0 ;0/1
+sprite.detectduplicates = 0 ;0/1
+sprite.autocrop = 1 ;0/1
+pal.detectduplicates = 1 ;0/1
+pal.discardduplicates = 1 ;0/1
+
+[Pal]
+;Enter pals here (png or act files)
+;0,0, filename.png, 0,255 ;grp,idx, fname, startcol,endcol
+
+[Option]
+sprite.usepal = -1 ;Set this to the right pal
+
+[Sprite]
+   0, 2, data\charTrash\La_Nonne\s003.png,  27, 93
+   0, 1, data\charTrash\La_Nonne\s004.png,  27, 93
+   0, 3, data\charTrash\La_Nonne\s005.png,  27, 93
+   0, 4, data\charTrash\La_Nonne\s006.png,  27, 93
+   0, 5, data\charTrash\La_Nonne\s007.png,  28, 93
+5040, 0, data\charTrash\La_Nonne\s117.png,  28, 94
+5040,10, data\charTrash\La_Nonne\s121.png,  28, 94
+5300, 0, data\charTrash\La_Nonne\s144.png,  31, 94
+5300, 1, data\charTrash\La_Nonne\s145.png,  31, 94
+5300, 2, data\charTrash\La_Nonne\s146.png,  31, 94
+5300, 3, data\charTrash\La_Nonne\s147.png,  31, 94
+5040,20, data\charTrash\La_Nonne\s989.png,  28, 94
+   0, 6, data\charTrash\La_Nonne\s1037.png,  30, 93

@@ -1,0 +1,67 @@
+[Output]
+ ;Filename of the SFF file to create (required).
+;filename = 
+
+[Option]
+input.dir =
+sprite.compress.5 = lz5 ;none/lz5/rle5
+sprite.compress.8 = png8 ;none/rle8/png8
+sprite.compress.24 = png24 ;none/png24
+sprite.compress.32 = png32 ;none/png32
+sprite.decompressonload = 0 ;0/1
+sprite.detectduplicates = 0 ;0/1
+sprite.autocrop = 1 ;0/1
+pal.detectduplicates = 1 ;0/1
+pal.discardduplicates = 1 ;0/1
+
+[Pal]
+;Enter pals here (png or act files)
+;0,0, filename.png, 0,255 ;grp,idx, fname, startcol,endcol
+
+[Option]
+sprite.usepal = -1 ;Set this to the right pal
+
+[Sprite]
+   0, 0, data\charTrash\Jade_et_Alice\s001.png,  51,115
+   0, 1, data\charTrash\Jade_et_Alice\s002.png,  51,112
+   0, 2, data\charTrash\Jade_et_Alice\s003.png,  50,114
+   0, 3, data\charTrash\Jade_et_Alice\s004.png,  50,111
+   0, 4, data\charTrash\Jade_et_Alice\s005.png,  51,110
+   0, 5, data\charTrash\Jade_et_Alice\s006.png,  51,110
+   0, 6, data\charTrash\Jade_et_Alice\s007.png,  52,109
+   0, 7, data\charTrash\Jade_et_Alice\s008.png,  52,108
+   0, 8, data\charTrash\Jade_et_Alice\s010.png,  50,108
+   0, 9, data\charTrash\Jade_et_Alice\s012.png,  52,110
+   0,10, data\charTrash\Jade_et_Alice\s013.png,  52,110
+   0,11, data\charTrash\Jade_et_Alice\s014.png,  52,111
+   0,12, data\charTrash\Jade_et_Alice\s015.png,  51,114
+   0,13, data\charTrash\Jade_et_Alice\s016.png,  52,112
+ 181, 0, data\charTrash\Jade_et_Alice\s109.png,  51,115
+ 181, 1, data\charTrash\Jade_et_Alice\s110.png,  51,115
+ 181, 2, data\charTrash\Jade_et_Alice\s111.png,  51,115
+ 181, 3, data\charTrash\Jade_et_Alice\s112.png,  51,115
+ 181, 4, data\charTrash\Jade_et_Alice\s113.png,  51,115
+ 181, 5, data\charTrash\Jade_et_Alice\s114.png,  51,115
+ 181, 6, data\charTrash\Jade_et_Alice\s115.png,  65,115
+ 181, 7, data\charTrash\Jade_et_Alice\s116.png,  74,115
+ 181, 8, data\charTrash\Jade_et_Alice\s117.png,  80,115
+ 181, 9, data\charTrash\Jade_et_Alice\s118.png,  81,117
+ 181,10, data\charTrash\Jade_et_Alice\s119.png,  82,118
+ 181,11, data\charTrash\Jade_et_Alice\s120.png,  80,122
+ 181,12, data\charTrash\Jade_et_Alice\s121.png,  77,124
+ 181,13, data\charTrash\Jade_et_Alice\s122.png,  80,125
+ 181,14, data\charTrash\Jade_et_Alice\s123.png,  78,130
+ 181,15, data\charTrash\Jade_et_Alice\s124.png,  78,128
+ 181,16, data\charTrash\Jade_et_Alice\s125.png,  79,130
+ 181,17, data\charTrash\Jade_et_Alice\s126.png,  78,142
+5080, 0, data\charTrash\Jade_et_Alice\s607.png,  69, 84
+5080, 1, data\charTrash\Jade_et_Alice\s608.png,  73, 83
+5300, 0, data\charTrash\Jade_et_Alice\s659.png,  50,108
+5300, 1, data\charTrash\Jade_et_Alice\s660.png,  53,117
+5300, 2, data\charTrash\Jade_et_Alice\s661.png,  52,124
+5300, 3, data\charTrash\Jade_et_Alice\s662.png,  49,128
+5300, 4, data\charTrash\Jade_et_Alice\s663.png,  46,117
+5300, 5, data\charTrash\Jade_et_Alice\s664.png,  45,110
+5300, 6, data\charTrash\Jade_et_Alice\s665.png,  45, 84
+5300, 7, data\charTrash\Jade_et_Alice\s666.png,  44, 83
+5300, 8, data\charTrash\Jade_et_Alice\s667.png,  49, 87

@@ -1,0 +1,152 @@
+;=============================================
+;Vars
+;=============================================
+;var(0) : 
+;var(1) : Air Juggle limiter
+;var(2) : Solid or transparent FX (config)
+;var(3) : Ki Blast command + pimp glasses randomizer
+;var(4) : dragon fist command + jump var + kaioken Rising Kick counter
+;var(5) : dragon fist strength
+;var(6) : a.HK no juggle check
+;var(7) : a.HK no juggle limiter
+;var(8) : cheap KO voice and KO voice variable
+;var(9) : EX slash down kick num contact
+;var(10) : Air dash limiter
+;var(11) : opponent check (goku, vegeta)
+;var(12) : combo after hurricane kick
+;var(13) : Super BG choice (config)
+;var(14) : Ki Blast number for gethit gut
+;var(15) : hurricane kick command
+;var(16) : hurricane kick = aerial or ground
+;var(17) : Zero Counter command
+;var(18) : Ki Blast or Kmh on screen and no hitiooiio
+;var(19) : play through hitpause
+;var(20) : varset for 1st/2nd state of slashing chop
+;var(21) : counting flik flak
+;var(22) : Super jump var
+;var(23) : Slashing Chop animelem set
+;var(24) : slashing chop repel
+;var(25) : Chou Kamehameha charging time
+;var(26) : Chou Kamehameha charging time
+;var(27) : First attack notification
+;var(28) : Kaioken palFX (config)
+;var(29) : Kaioken Super Kill BG (config)
+;var(30) : Dash Collision count - Beam Collision count
+;var(31) : Beam collision triggering
+;var(32) : Chou Kmh time counter for beam countering synch
+;var(33) : command for Genkidama Kaiyoken finisher
+;var(34) : Hope Gauge goes down when Goku is thrown
+;var(35) : Juggling variable when opponent dizzy
+;var(36) : movie 7 kill or not.
+;var(37) : HP > c.MK link damage
+;var(38) : throw enabled/disabled variable.
+;var(39) : slash down kick command
+;var(40) : Kaioken choice by command
+;var(41) : Count Hits
+;var(42) : Already said "You're finished" during full emo
+;var(43) : Kaioken Activation
+;var(44) : Repel Projectile choice (config)
+;var(45) : X axis Hope Gauge
+;var(46) : Y axis Hope Gauge
+;var(47) : flip knockout bounce
+;var(48) : 
+;var(49) : Kaioken Timer
+;var(50) : Kaioken Cancel Activation Check
+;var(51) : Ground Kaioken Cancel Requirement Check
+;var(52) : Air Kaioken Cancel Requirement Check
+;var(53) : open
+;var(54) : 
+;var(55) : open
+;var(56) : counter system notification
+;var(57) : counter system notification
+;var(58) : 
+;var(59) : AI
+
+;fvar(1) : Cheap KO
+;fvar(2) : Damage Detection variable
+;fvar(3)  : Goku: Specific Move Variabls (Velocities and such)
+;fvar(4)  : Goku: Specific Move Variabls (Velocities and such)
+;fvar(9)  : Slash Chop Charging strength
+;fvar(8)  : system: Counter Hit
+;fvar(9)  : system: Focus Attack Strength
+;fvar(10) : system: Damage Dampener
+;fvar(11) : system: Root Dampener
+;fvar(13) : system: Hit Count Reset
+;fvar(20) : scaling for Beam Collision
+;fvar(26) : Chichi has been thrown
+;fvar(27) : Genkidama was performed
+;fvar(28) : Genkidama power
+;fvar(39) : Ki blasts hit in combo
+
+
+;=============================================
+; CNS File for Goku Z2 by Team Z2
+; Constants file
+;=============================================
+
+[Data]
+life		= 1000
+power		= 3000
+attack		= 100
+defence		= 100
+fall.defence_up	= 50
+liedown.time	= 15
+airjuggle		= 15
+sparkno		= 2	
+guard.sparkno	= -1
+KO.echo		= 0	
+;volume		= 150
+IntPersistIndex	= 50
+FloatPersistIndex	= 20
+
+;--	--	--	--	--	--	--
+
+[Size]
+xscale		= 1		;Horizontal scaling factor.
+yscale		= 1		;Vertical scaling factor.
+ground.back	= 30		;Player width (back, ground)
+ground.front	= 25		;Player width (front, ground)
+air.back		= 12		;Player width (back, air)
+air.front		= 12		;Player width (front, air)
+height		= 60		;Height of player (for opponent to jump over)
+attack.dist	= 160		;Default attack distance
+proj.attack.dist	= 90		;Default attack distance for projectiles
+proj.doscale	= 0		;Set to 1 to scale projectiles too   
+head.pos		= 10,-70		;Approximate position of head
+mid.pos		= -1,-41		;Approximate position of midsection
+shadowoffset	= 0		;Number of pixels to vertically offset the shadow
+draw.offset	= 0,0		;Player drawing offset in pixels (x, y)
+
+;--	--	--	--	--	--	--
+
+[Velocity]
+walk.fwd		= 2.4		;Walk forward
+walk.back		= -2.2		;Walk backward
+run.fwd		= 6.5, 0		;Run forward (x, y)
+run.back		= -5.5,-4.8	;Hop backward (x, y)
+jump.neu		= 0,-10		;Neutral jumping velocity (x, y)
+jump.back		= -3.25		;Jump back Speed (x, y)
+jump.fwd		= 3.25		;Jump forward Speed (x, y)
+runjump.back	= -7.5,-8.5	;Running jump speeds (opt)
+runjump.fwd	= 6,-8.5
+airjump.neu	= 0,-8.1
+airjump.back	= -2.55		;Air jump speeds (opt)
+airjump.fwd	= 2.5
+
+[Movement]
+airjump.num	= 0		;Number of air jumps allowed (opt)
+airjump.height	= 35		;Minimum distance from ground before you can air jump (opt)
+yaccel		= .51        	;Vertical acceleration
+stand.friction	= .85		;Friction coefficient when standing
+crouch.friction	= .82		;Friction coefficient when crouching
+
+
+[Quotes]
+
+victory0      = "Godly Power Ha ha"
+victory1      = "Bills Sama Where are ya!"
+victory2      = "Super Saiyan God ?!"
+victory3      = "I feel your ki , but you not feel mine"
+victory4      = "Puding ?!"
+
+

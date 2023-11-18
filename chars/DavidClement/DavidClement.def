@@ -1,0 +1,28 @@
+[Info]
+name="David Clement"
+displayname="David Clement"
+versiondate=2009/11/18
+mugenversion=04,14,2001
+author="tora"
+pal.defaults=1,2,3,4,5,6,7
+[Files]
+sprite=Tung_Fu_Rue.sff
+sound=Tung_Fu_Rue.snd
+anim=Tung_Fu_Rue.air
+cmd=Tung_Fu_Rue.cmd
+cns=Tung_Fu_Rue.cns
+st=Tung_Fu_Rue.cns
+stcommon=Tung_Fu_Rue_common1.cns
+pal1=Tung_Fu_Rue1.act
+pal2=Tung_Fu_Rue2.act
+pal3=Tung_Fu_Rue3.act
+pal4=Tung_Fu_Rue4.act
+pal5=Tung_Fu_Rue5.act
+pal6=Tung_Fu_Rue6.act
+pal7=Tung_Fu_Rue7.act
+st1=Tung_Fu_Rue2.cns
+st2=Tung_Fu_RueS.cns
+st3=Tung_Fu_RueH.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=ED.def

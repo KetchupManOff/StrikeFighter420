@@ -1,0 +1,5591 @@
+
+;---------------------------------------------------------------------------
+; 相手を倒す
+;---------------------------------------------------------------------------
+
+[Statedef 5151]
+type    = A
+movetype= H
+physics = N
+Ctrl = 0
+
+[State ]
+type = Changestate
+triggerall = name = "INDEX"
+trigger1 = 1
+value = 0
+ctrl = 1
+ignorehitpause = 1
+pausemovetime = 99999
+supermovetime = 99999
+
+[state ]
+type = AssertSpecial
+trigger1 = 1
+flag = invisible
+flag2 = noshadow
+ignorehitpause = 1
+pausemovetime = 99999
+supermovetime = 99999
+
+[State ]
+type = posset
+trigger1 = 1
+y=0
+
+[State ]
+type = Projectile
+triggerall = time < 10
+trigger1 = Ishelper
+projanim = anim
+projID = 10000
+projremove = 1
+projremovetime = 2
+projscale=1.0,1.0
+velocity =0,0
+affectteam = b
+postype = P1
+numhits = 0
+offset = 0,1000
+attr = A,NP
+hitflag = MAFPDL
+damage=0
+sparkno = -1
+guard.sparkno = -1
+p1stateno = prevstateno
+ignorehitpause = 1
+supermovetime = 9999999
+pausemovetime = 9999999
+
+[State ]
+type = Projectile
+triggerall = time >= 10
+trigger1 = Ishelper
+projanim = anim
+projID = 10000
+projremove = 1
+projremovetime = 2
+projscale = 1.0,1.0
+velocity = 0,0
+affectteam = b
+postype = P1
+numhits = 0
+offset = 0,1000
+attr = A,NP
+hitflag = MAFPDL
+damage=0
+sparkno = -1
+guard.sparkno = -1
+p1stateno = 40
+ignorehitpause = 1
+supermovetime = 9999999
+pausemovetime = 9999999
+
+[State ]
+type = Changestate
+trigger1 = Time >= 20
+trigger1 = alive
+value = 5152
+ctrl = 0
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State ]
+type = SelfState
+trigger1 = !Ishelper
+trigger1 = !alive
+value = 5150
+ctrl = 0
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state ]
+type = destroyself
+trigger1 = Ishelper
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+;===========================================================================
+; 即死ステート
+;===========================================================================
+
+[Statedef 5152]
+type    = A
+movetype= H
+physics = N
+Ctrl     = 0
+             
+[State ]
+type = Changestate
+triggerall = name = "index"
+trigger1 = 1
+value = 0
+ctrl = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state ]
+type = AssertSpecial
+trigger1 = 1
+flag = invisible
+flag2 = noshadow
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State ]
+type = lifeset
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state ]
+type = nothitby
+trigger1 = 1
+value = SCA
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State ]
+type = Changeanim2
+trigger1 = alive
+value = 3
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State ]
+type = StateTypeSet
+trigger1 = !Ishelper
+trigger1 = alive
+movetype = A
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State ]
+type = DestroySelf
+trigger1 = 1
+ignorehitpaus = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State ]
+type = HitDef
+trigger1 = !Ishelper
+trigger1 = alive
+attr = A,NP
+animtype  = Hard
+damage    = 0,0
+priority  = 4
+hitflag = MHLAFDP
+guardflag = MA
+pausetime = 7,7
+sparkxy = 0,-99990
+hitsound   = -1
+guardsound = -1
+ground.type = Low
+ignorehitpause = 1
+pausemovetime = 9999999
+supermovetime = 9999999
+
+[State ]
+type = ChangeState
+triggerall = !Ishelper
+triggerall = alive
+trigger1 = HitPauseTime >= 4
+value = 5140
+ctrl = 0
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State ]
+type = SelfState
+triggerall = !Ishelper
+trigger1 = !alive
+trigger2 = Time >= 300
+value = 5150
+ctrl = 0
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state ]
+type = destroyself
+trigger1 = Ishelper
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+
+;===========================================================================
+;超即死ステート
+;===========================================================================
+
+[Statedef 5140]
+type    = A
+movetype= H
+physics = N
+Ctrl     = 0
+
+[State ]
+type = Changestate
+triggerall = name = "index"
+trigger1 = 1
+value = 0
+ctrl = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State ]
+type = DestroySelf
+trigger1 = 1
+ignorehitpaus = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[state ]
+type = AssertSpecial
+trigger1 = 1
+flag = invisible
+flag2 = noshadow
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State ]
+type = lifeset
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state ]
+type = nothitby
+trigger1 = 1
+value = SCA
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state ]
+type = posset
+trigger1 = Ishelper
+y = 2400
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state ]
+type = destroyself
+triggerall = Ishelper
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State ]
+type = SelfState
+triggerall = !Ishelper
+trigger1 = !alive
+value = 5150
+ctrl = 0
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+;------------------------------------------------------------------------------
+; ぬるぬる攻撃
+;------------------------------------------------------------------------------
+
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+[state 0]
+type = null
+trigger1 = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State -1]
+type = changestate
+trigger1 = alive != 0
+value = 0
+ctrl = 1
+ignorehitpause = 1

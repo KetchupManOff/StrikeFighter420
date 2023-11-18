@@ -1,0 +1,23 @@
+Rank: 0 
+chars/jade/jade.def
+chars/guepes/guepes.def
+chars/farcy/farcy.def
+chars/garda/garda.def
+chars/davidclement/davidclement.def
+chars/lucasgoku/lucasgoku.def
+chars/freaz/freaz.def
+randomselect
+randomselect
+chars/bansheetoon/bansheetoon.def
+chars/greve/greve.def
+chars/miketyson/miketyson.def
+chars/nonne/nonne.def
+chars/servietsky/servietsky.def
+randomselect
+randomselect
+chars/wank2/wank2.def
+chars/alban/alban.def
+randomselect
+chars/fujiyama/fujiyama.def
+chars/conspi/conspi.def
+chars/csn/csn.def

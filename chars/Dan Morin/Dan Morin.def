@@ -1,0 +1,36 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Daniel Morin"
+displayname ="Daniel Morin"
+versiondate =03,11,2023
+mugenversion =1.0
+author ="Maniac, moddé par Yank"
+pal.defaults =1,2,3,4,5,6,7,8,9
+
+[Files]
+sprite =WrenchT.sff
+anim =WrenchT.air
+sound =WrenchT.snd
+cmd =WrenchT.cmd
+cns =WrenchT.cns
+stcommon =common1.cns
+st =WrenchT.cns
+pal1=01.act
+pal2=02.act
+pal3=02.act
+pal4=01.act
+pal5=02.act
+pal6=01.act
+pal7=a.act
+pal8=00.act
+pal9=face.act
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=
+;intro.storyboard = 
+;ending.storyboard = 

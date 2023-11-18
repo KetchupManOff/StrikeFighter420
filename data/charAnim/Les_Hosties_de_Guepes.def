@@ -1,0 +1,69 @@
+[Output]
+ ;Filename of the SFF file to create (required).
+;filename = 
+
+[Option]
+input.dir =
+sprite.compress.5 = lz5 ;none/lz5/rle5
+sprite.compress.8 = png8 ;none/rle8/png8
+sprite.compress.24 = png24 ;none/png24
+sprite.compress.32 = png32 ;none/png32
+sprite.decompressonload = 0 ;0/1
+sprite.detectduplicates = 0 ;0/1
+sprite.autocrop = 1 ;0/1
+pal.detectduplicates = 1 ;0/1
+pal.discardduplicates = 1 ;0/1
+
+[Pal]
+;Enter pals here (png or act files)
+;0,0, filename.png, 0,255 ;grp,idx, fname, startcol,endcol
+
+[Option]
+sprite.usepal = -1 ;Set this to the right pal
+
+[Sprite]
+   0, 0, data\charTrash\Les_Hosties_de_Guepes\s002.png,  44, 91
+   0, 1, data\charTrash\Les_Hosties_de_Guepes\s003.png,  44, 93
+   0, 2, data\charTrash\Les_Hosties_de_Guepes\s004.png,  44, 90
+   0, 3, data\charTrash\Les_Hosties_de_Guepes\s005.png,  44, 92
+   0, 4, data\charTrash\Les_Hosties_de_Guepes\s006.png,  44, 92
+   0, 5, data\charTrash\Les_Hosties_de_Guepes\s007.png,  44, 94
+   0, 6, data\charTrash\Les_Hosties_de_Guepes\s008.png,  44, 91
+   0, 7, data\charTrash\Les_Hosties_de_Guepes\s009.png,  44, 93
+   0, 8, data\charTrash\Les_Hosties_de_Guepes\s010.png,  44, 92
+   0, 9, data\charTrash\Les_Hosties_de_Guepes\s011.png,  43, 93
+   0,10, data\charTrash\Les_Hosties_de_Guepes\s012.png,  43, 95
+   0,11, data\charTrash\Les_Hosties_de_Guepes\s013.png,  43, 92
+   0,12, data\charTrash\Les_Hosties_de_Guepes\s014.png,  43, 94
+   0,13, data\charTrash\Les_Hosties_de_Guepes\s015.png,  44, 94
+   0,14, data\charTrash\Les_Hosties_de_Guepes\s016.png,  44, 96
+   0,15, data\charTrash\Les_Hosties_de_Guepes\s017.png,  44, 93
+   0,16, data\charTrash\Les_Hosties_de_Guepes\s018.png,  44, 95
+   0,17, data\charTrash\Les_Hosties_de_Guepes\s019.png,  44, 95
+   0,18, data\charTrash\Les_Hosties_de_Guepes\s020.png,  44, 97
+   0,19, data\charTrash\Les_Hosties_de_Guepes\s021.png,  44, 94
+   0,20, data\charTrash\Les_Hosties_de_Guepes\s022.png,  44, 96
+   0,21, data\charTrash\Les_Hosties_de_Guepes\s023.png,  44, 94
+   0,22, data\charTrash\Les_Hosties_de_Guepes\s024.png,  44, 96
+   0,23, data\charTrash\Les_Hosties_de_Guepes\s025.png,  44, 93
+   0,24, data\charTrash\Les_Hosties_de_Guepes\s026.png,  44, 95
+   0,25, data\charTrash\Les_Hosties_de_Guepes\s027.png,  43, 93
+   0,26, data\charTrash\Les_Hosties_de_Guepes\s028.png,  43, 95
+   0,27, data\charTrash\Les_Hosties_de_Guepes\s029.png,  43, 92
+   0,28, data\charTrash\Les_Hosties_de_Guepes\s030.png,  43, 94
+   0,29, data\charTrash\Les_Hosties_de_Guepes\s031.png,  44, 92
+   0,30, data\charTrash\Les_Hosties_de_Guepes\s032.png,  44, 94
+   0,31, data\charTrash\Les_Hosties_de_Guepes\s033.png,  44, 91
+   0,32, data\charTrash\Les_Hosties_de_Guepes\s034.png,  44, 93
+   0,33, data\charTrash\Les_Hosties_de_Guepes\s035.png,  44, 92
+ 181, 0, data\charTrash\Les_Hosties_de_Guepes\s331.png,  11, 10
+ 181, 1, data\charTrash\Les_Hosties_de_Guepes\s332.png,  11, 10
+5040,20, data\charTrash\Les_Hosties_de_Guepes\s918.png,  77, 53
+5075, 0, data\charTrash\Les_Hosties_de_Guepes\s940.png,  75, 56
+5300, 0, data\charTrash\Les_Hosties_de_Guepes\s977.png,  47, 84
+5300, 1, data\charTrash\Les_Hosties_de_Guepes\s978.png,  51, 76
+5300, 2, data\charTrash\Les_Hosties_de_Guepes\s979.png,  54, 64
+5300, 3, data\charTrash\Les_Hosties_de_Guepes\s980.png,  55, 62
+5300, 4, data\charTrash\Les_Hosties_de_Guepes\s981.png,  56, 59
+5300, 5, data\charTrash\Les_Hosties_de_Guepes\s982.png,  55, 62
+5300, 6, data\charTrash\Les_Hosties_de_Guepes\s983.png,  54, 64

@@ -1,0 +1,23 @@
+
+[Info]
+name = "Master Hand"	  
+displayname = "Master Hand"
+versiondate = 2013.5.19  
+mugenversion = 2011.05.14 
+author = "N64Mario" ; 개조자: 그램슨
+pal.defaults = 6,3,4,2  
+
+[Files]
+cmd	 = command.cmd
+cns	 = constant.cns	
+stcommon = common1.cns	
+sprite	 = 10.sff	
+anim	 = animation.air
+sound	 = sound.snd	
+
+st	 = mhand.cns	
+st2	 = mhand-s.cns	
+st3      = override.cns
+
+pal1   = 10.act
+

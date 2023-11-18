@@ -1,0 +1,30 @@
+;##########################################
+;              ELLA
+;##########################################
+
+[Info]
+name = "1 an et 8 mois de greve"              
+displayname = "1 an et 8 mois de greve"       
+versiondate = 12,26,2006    
+mugenversion = 04,14,2001   
+author = "AIDUZZI"               
+pal.defaults =          
+
+; Files for the player
+[Files]
+cmd     = ella.cmd   
+cns     = ella.cns   
+st      = ella.cns   
+st1     = perro.cns   
+stcommon = common1.cns 
+sprite  = ella.sff   
+anim    = ella.air   
+sound   = ella.snd   
+pal1    = ellaa.act
+pal2    = ellab.act
+pal3    = ellac.act
+pal4    = ellad.act
+pal5    = ellae.act
+pal6    = ellaf.act
+pal7    = ellag.act
+

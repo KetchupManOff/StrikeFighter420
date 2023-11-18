@@ -1,0 +1,41 @@
+; Player information
+[Info]
+name = "Servietsky"        ;Name of character
+displayname = "Servietsky" ;Name of character to display
+versiondate = 10/31/2018    ;Version date of character (MM-DD-YYYY or X.XX)
+mugenversion = 1.0       ;Version of M.U.G.E.N character works on (X.XX)
+author = "Pokemaster2016"         ;Character author name
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12      ;Default palettes in order of preference (up to 4)
+                            ;Numbering starts from 1
+
+; Files for the player
+[Files]
+cmd     = Towelie.cmd           ;Command set
+cns     = Towelie.cns           ;Constants
+st      = Towelie.cns           ;States
+st2     = helpers.cns
+stcommon = common1.cns      ;Common states (from data/ or motif)
+sprite  = Towelie.sff           ;Sprite
+anim    = Towelie.air           ;Animation
+sound   = Towelie.snd           ;Sound
+ai      = Towelie.ai            ;AI hints data (not used)
+
+; Maps character selection buttons to palette numbers.
+[Palette Keymap]
+a = 1 ;Press button X to select palette 1, etc.
+b = 2
+c = 3
+x = 4
+y = 5
+z = 6
+a2 = 7
+b2 = 8
+c2 = 9
+x2 = 10 
+y2 = 11
+z2 = 12
+
+; Arcade mode
+[Arcade]
+intro.storyboard =
+ending.storyboard =

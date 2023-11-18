@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Senju Fujiyama"
+displayname = "Fujiyama"
+versiondate = 05,03,2021
+mugenversion = 1.0
+author = "Arantadoh"
+pal.defaults = 1,2,3,4
+
+[Files]
+sprite = Fujiyama.sff
+anim = Fujiyama.air
+sound = Fujiyama.snd
+cmd = Fujiyama.cmd
+cns = Fujiyama.cns
+stcommon = common1.cns
+st = Fujiyama.cns
+pal1 = Purple.act
+pal2 = Blue.act
+pal3 = Red.act
+pal4 = Green.act
+pal5 = Mazenta.act
+pal6 = Black.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

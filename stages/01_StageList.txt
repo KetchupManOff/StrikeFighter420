@@ -1,0 +1,16 @@
+stages\CentreCommerceMondial.def
+stages\China.def
+stages\ChrismasTown.def
+stages\Far Mountains.def
+stages\ManifestationPolice.def
+stages\Mountain Valley.def
+stages\Mountainside Temple - Hidden Path.def
+stages\Mountainside Temple - Hidden Room.def
+stages\Mountainside Temple - Roof.def
+stages\Mountainside Temple.def
+stages\Sakura.def
+stages\Suave's Corridor.def
+stages\Sunday Afternoon.def
+stages\Training Room 2.def
+stages\Training Room.def
+

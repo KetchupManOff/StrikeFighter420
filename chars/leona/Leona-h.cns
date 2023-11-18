@@ -1,0 +1,367 @@
+;~~~~~Helper data for Leona.~~~~~
+
+;-----{(Baltic Launcher X)}
+[Statedef 830]
+type = S
+movetype = A
+velset = 0,0,0
+juggle = 15
+ctrl = 0
+anim = 830
+
+[State 830,Spr]
+type = SprPriority
+trigger1 = Time = 0
+value = 1
+
+[State 830,Hit]
+type = HitDef
+trigger1 = Time = 14
+trigger2 = Time = 16
+trigger3 = Time = 19
+trigger4 = Time = 22
+trigger5 = Time = 25
+trigger6 = Time = 28
+attr = S, SA
+animtype = Hard
+damage = 18, 5
+priority = 7
+air.juggle = 2
+guardflag = MA
+hitflag = MAF
+pausetime = 2, 4
+sparkxy = -10, 0
+spark.no = 0,6
+hitsound = S61,2
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 20
+ground.hittime = 25
+ground.velocity = -2.8, -4.2
+air.velocity = -5, -4
+air.animtype = Back
+fall = 1
+fall.recover = 0
+
+[State 830,Vel]
+type = VelSet
+trigger1 = Time >= 0
+x = 0
+y = 0
+
+[State 830,20]
+type = DestroySelf
+trigger1 = AnimTime = 0
+
+;-----{(Baltic Launcher Y)}
+[Statedef 880]
+type = S
+movetype = A
+velset = 1.0,0,0
+juggle = 15
+ctrl = 0
+anim = 880
+
+[State 880,Spr]
+type = SprPriority
+trigger1 = Time = 0
+value = 1
+
+[State 880,Hit]
+type = HitDef
+trigger1 = Time = 14
+trigger2 = Time = 16
+trigger3 = Time = 19
+trigger4 = Time = 22
+trigger5 = Time = 25
+trigger6 = Time = 28
+trigger7 = Time = 32
+trigger8 = Time = 34
+trigger9 = Time = 37
+trigger10 = Time = 40
+trigger11 = Time = 43
+trigger12 = Time = 46
+attr = S, SA
+animtype = Hard
+damage = 16, 5
+priority = 7
+air.juggle = 2
+guardflag = MA
+hitflag = MAF
+pausetime = 2, 5
+sparkxy = -10, 0
+spark.no = 0,6
+hitsound = S61,2
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 20
+ground.hittime = 25
+ground.velocity = -2.8, -4.2
+air.velocity = -5, -4
+air.animtype = Back
+fall = 1
+fall.recover = 0
+
+[State 880,Vel]
+type = VelSet
+trigger1 = Time >= 0
+x = 1
+y = 0
+
+[State 880,20]
+type = DestroySelf
+trigger1 = AnimTime = 0
+
+
+;-----{(Earring Bakudan Projectile)}
+[Statedef 910]
+type = S
+movetype = A
+velset = 7.8,-3.6,0
+ctrl = 0
+anim = 910
+poweradd = 50
+
+[State 910,Hit]
+type = HitDef
+Trigger1 = Time = 0
+animtype = Hard
+ground.type  = High
+attr = S, SA
+damage = 105
+hitflag = MAFD
+guardflag = MA
+priority = 7
+givepower = 50
+hitsound = S900,2
+guardsound = 6,0
+sparkno = -1
+ground.velocity = -4.5,-6
+air.velocity =  -4.5,-6
+fall.recover = 0
+fall = 1
+palfx.time = 30 
+palfx.add = 200,120,0 
+palfx.mul = 275,192,192 
+
+[State 910,Vel]
+type = VelAdd
+trigger1 = Time = 2
+trigger2 = Time = 4
+trigger3 = Time = 6
+trigger4 = Time = 8
+trigger5 = Time = 10
+trigger6 = Time = 12
+trigger7 = Time = 14
+trigger8 = Time = 16
+trigger9 = Time = 18
+trigger10 = Time = 20
+trigger11 = Time = 22
+trigger12 = Time = 24
+trigger13 = Time = 26
+trigger14 = Time = 28
+trigger15 = Time = 30
+trigger16 = Time = 32
+trigger17 = Time = 34
+trigger18 = Time = 36
+trigger19 = Time = 38
+trigger20 = Time = 40
+trigger21 = Time = 42
+y = 0.9
+
+[State 910,E]
+type = Explod
+trigger1 = Time = 2
+trigger2 = Time = 6
+trigger3 = Time = 10
+trigger4 = Time = 14
+trigger5 = Time = 18
+trigger6 = Time = 22
+trigger7 = Time = 26
+trigger8 = Time = 30
+trigger9 = Time = 34
+trigger10 = Time = 38
+trigger11 = Time = 42
+anim = 915
+ID = 915
+vel = 0
+pos = 0,0
+postype = p1
+shadow = -1
+sprpriority = 1
+bindtime = 1
+ownpal = 1
+
+[State 910,V]
+type = VelSet
+trigger1 = MoveContact = 1
+x = 0
+
+[State 910,19]
+type = ChangeState
+trigger1 = MoveHit = 1
+value = 912
+
+[State 910,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+trigger2 = MoveGuarded = 1
+value = 911
+ctrl = 0
+
+;-----{(Earring Bakudan Hit)}
+[Statedef 912]
+type = S
+movetype = I
+anim = 911
+velset = 0,0,0
+
+[State 911,E]
+type = Explod
+trigger1 = Time = 1
+trigger2 = Time = 2
+trigger3 = Time = 3
+trigger4 = Time = 5
+trigger5 = Time = 7
+trigger6 = Time = 8
+trigger7 = Time = 9
+anim = 999
+ID = 999
+vel = 0
+pos = 0,-65
+postype = p2
+random = 60,110
+shadow = -1
+sprpriority = 1
+bindtime = 1
+ownpal = 1
+
+[State 911,DS]
+type = DestroySelf
+trigger1 = Time = 15
+
+;-----{(Earring Bakudan Hit Ground)}
+[Statedef 911]
+type = S
+movetype = I
+anim = 911
+velset = 0,0,0
+
+[State 911,S]
+type = PlaySnd
+trigger1 = Time = 0
+value = 900,1
+
+[State 911,DS]
+type = DestroySelf
+trigger1 = Time = 15
+
+;-----{(Earring Bakudan 2 Attached)}
+[Statedef 960]
+type = S
+movetype = I
+physics = N
+anim = 960
+velset = 0,0,0
+ctrl = 0
+
+[State 960,Bind]
+type = BindToTarget
+trigger1 = Time = 0
+pos = -20,-35
+time = 999
+
+[State 960,Pos1]
+type = PosAdd
+trigger1 = P2Dist X >= 10
+x = 6
+
+[State 960,Pos2]
+type = PosAdd
+trigger1 = P2Dist X <= 10
+x = -6
+
+[State 960,Pos3]
+type = PosAdd
+trigger1 = P2Dist Y <= 35
+y = -6
+
+[State 960,Pos4]
+type = PosAdd
+trigger1 = P2Dist Y >= 35
+y = 6
+
+[State 960,20]
+type = DestroySelf
+trigger1 = parent, stateno = 5000
+trigger2 = parent, stateno = 5001
+trigger3 = parent, stateno = 5002
+trigger4 = parent, stateno = 5010
+trigger5 = parent, stateno = 5011
+trigger6 = parent, stateno = 5012
+trigger7 = parent, stateno = 5020
+trigger8 = parent, stateno = 5021
+trigger9 = parent, stateno = 5022
+trigger10 = parent, stateno = 5035
+trigger11 = parent, stateno = 5070
+
+[State 960,21]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = parent, stateno = 980
+trigger2 = parent, AnimElem = 5, =5 
+value = 966
+
+;-----{(Earring Bakudan 2 Explode)}
+[Statedef 966]
+type = S
+movetype = A
+velset = 0,0,0
+anim = 966
+
+[State 966,Hit]
+type = HitDef
+Trigger1 = Time = 0
+animtype = Hard
+ground.type  = High
+attr = S, SA
+damage = 160
+hitflag = MAFD
+guardflag =
+priority = 7
+givepower = 60
+hitsound = S900,2
+guardsound = 6,0
+sparkno = -1
+ground.velocity = -4.5,-6
+air.velocity =  -4.5,-6
+fall.recover = 0
+fall = 1
+palfx.time = 30 
+palfx.add = 200,120,0 
+palfx.mul = 275,192,192 
+
+[State 966,E]
+type = Explod
+trigger1 = Time = 1
+trigger2 = Time = 2
+trigger3 = Time = 3
+trigger4 = Time = 5
+trigger5 = Time = 7
+trigger6 = Time = 8
+trigger7 = Time = 9
+anim = 999
+ID = 999
+vel = 0
+pos = 0,-65
+postype = p2
+random = 60,110
+shadow = -1
+sprpriority = 1
+bindtime = 1
+ownpal = 1
+
+[State 966,20]
+type = DestroySelf
+trigger1 = AnimTime = 0

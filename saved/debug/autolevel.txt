@@ -1,0 +1,23 @@
+﻿chars/bansheetoon/bansheetoon.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/wank2/wank2.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/lucasgoku/lucasgoku.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/servietsky/servietsky.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/nonne/nonne.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/alban/alban.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/conspi/conspi.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/guepes/guepes.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/dan morin/dan morin.def, 0 0 0 0 1 0 0 0 0 0 0 0
+chars/miketyson/miketyson.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/farcy/farcy.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/garda/garda.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/greve/greve.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/csn/csn.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/davidclement/davidclement.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/fujiyama/fujiyama.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/jade/jade.def, 0 0 0 0 0 0 0 0 0 0 0 0
+chars/freaz/freaz.def, 0 0 0 0 0 0 0 0 0 0 0 0
+randomselect, 0 0 0 0 0 0 0 0 0 0 0 0
+randomselect, 0 0 0 0 0 0 0 0 0 0 0 0
+randomselect, 0 0 0 0 0 0 0 0 0 0 0 0
+randomselect, 0 0 0 0 0 0 0 0 0 0 0 0
+randomselect, 0 0 0 0 0 0 0 0 0 0 0 0

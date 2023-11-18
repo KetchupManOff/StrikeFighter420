@@ -1,0 +1,355 @@
+[Output]
+ ;Filename of the SFF file to create (required).
+;filename = 
+
+[Option]
+input.dir =
+sprite.compress.5 = lz5 ;none/lz5/rle5
+sprite.compress.8 = png8 ;none/rle8/png8
+sprite.compress.24 = png24 ;none/png24
+sprite.compress.32 = png32 ;none/png32
+sprite.decompressonload = 0 ;0/1
+sprite.detectduplicates = 0 ;0/1
+sprite.autocrop = 1 ;0/1
+pal.detectduplicates = 1 ;0/1
+pal.discardduplicates = 1 ;0/1
+
+[Pal]
+;Enter pals here (png or act files)
+;0,0, filename.png, 0,255 ;grp,idx, fname, startcol,endcol
+
+[Option]
+sprite.usepal = -1 ;Set this to the right pal
+
+[Sprite]
+   0, 0, data\charTrash\Jacques_Farcy\s000.png, 209,397
+   0, 1, data\charTrash\Jacques_Farcy\s001.png, 206,398
+   0, 2, data\charTrash\Jacques_Farcy\s002.png, 202,399
+   0, 3, data\charTrash\Jacques_Farcy\s003.png, 198,400
+   0, 4, data\charTrash\Jacques_Farcy\s004.png, 195,401
+   0, 5, data\charTrash\Jacques_Farcy\s005.png, 191,401
+   0, 6, data\charTrash\Jacques_Farcy\s006.png, 189,402
+   0, 7, data\charTrash\Jacques_Farcy\s007.png, 187,403
+   0, 8, data\charTrash\Jacques_Farcy\s008.png, 186,403
+   0, 9, data\charTrash\Jacques_Farcy\s009.png, 186,403
+   0,10, data\charTrash\Jacques_Farcy\s010.png, 187,404
+   0,11, data\charTrash\Jacques_Farcy\s011.png, 188,404
+   0,12, data\charTrash\Jacques_Farcy\s012.png, 190,403
+   0,13, data\charTrash\Jacques_Farcy\s013.png, 193,402
+   0,14, data\charTrash\Jacques_Farcy\s014.png, 195,401
+   0,15, data\charTrash\Jacques_Farcy\s015.png, 198,399
+   0,16, data\charTrash\Jacques_Farcy\s016.png, 201,397
+   0,17, data\charTrash\Jacques_Farcy\s017.png, 204,394
+   0,18, data\charTrash\Jacques_Farcy\s018.png, 206,391
+   0,19, data\charTrash\Jacques_Farcy\s019.png, 207,388
+   0,20, data\charTrash\Jacques_Farcy\s020.png, 208,386
+   0,21, data\charTrash\Jacques_Farcy\s021.png, 208,384
+   0,22, data\charTrash\Jacques_Farcy\s022.png, 208,382
+   0,23, data\charTrash\Jacques_Farcy\s023.png, 206,381
+   0,24, data\charTrash\Jacques_Farcy\s024.png, 204,380
+   0,25, data\charTrash\Jacques_Farcy\s025.png, 203,380
+   0,26, data\charTrash\Jacques_Farcy\s026.png, 201,379
+   0,27, data\charTrash\Jacques_Farcy\s027.png, 198,378
+   0,28, data\charTrash\Jacques_Farcy\s028.png, 195,378
+   0,29, data\charTrash\Jacques_Farcy\s029.png, 192,377
+   0,30, data\charTrash\Jacques_Farcy\s030.png, 190,377
+   0,31, data\charTrash\Jacques_Farcy\s031.png, 189,376
+   0,32, data\charTrash\Jacques_Farcy\s032.png, 188,376
+   0,33, data\charTrash\Jacques_Farcy\s033.png, 188,376
+   0,34, data\charTrash\Jacques_Farcy\s034.png, 189,376
+   0,35, data\charTrash\Jacques_Farcy\s035.png, 190,378
+   0,36, data\charTrash\Jacques_Farcy\s036.png, 192,380
+   0,37, data\charTrash\Jacques_Farcy\s037.png, 195,383
+   0,38, data\charTrash\Jacques_Farcy\s038.png, 197,386
+   0,39, data\charTrash\Jacques_Farcy\s039.png, 200,389
+   0,40, data\charTrash\Jacques_Farcy\s040.png, 203,390
+   0,41, data\charTrash\Jacques_Farcy\s041.png, 205,392
+   0,42, data\charTrash\Jacques_Farcy\s042.png, 207,392
+   0,43, data\charTrash\Jacques_Farcy\s043.png, 209,391
+   0,44, data\charTrash\Jacques_Farcy\s044.png, 211,391
+   0,45, data\charTrash\Jacques_Farcy\s045.png, 213,391
+   0,46, data\charTrash\Jacques_Farcy\s046.png, 215,390
+   0,47, data\charTrash\Jacques_Farcy\s047.png, 217,390
+   0,48, data\charTrash\Jacques_Farcy\s048.png, 219,389
+   0,49, data\charTrash\Jacques_Farcy\s049.png, 221,389
+   0,50, data\charTrash\Jacques_Farcy\s050.png, 223,389
+   0,51, data\charTrash\Jacques_Farcy\s051.png, 225,389
+   0,52, data\charTrash\Jacques_Farcy\s052.png, 227,389
+   0,53, data\charTrash\Jacques_Farcy\s053.png, 228,389
+   0,54, data\charTrash\Jacques_Farcy\s054.png, 229,389
+   0,55, data\charTrash\Jacques_Farcy\s055.png, 230,389
+   0,56, data\charTrash\Jacques_Farcy\s056.png, 231,389
+   0,57, data\charTrash\Jacques_Farcy\s057.png, 231,389
+   0,58, data\charTrash\Jacques_Farcy\s058.png, 232,389
+   0,59, data\charTrash\Jacques_Farcy\s059.png, 232,389
+   0,60, data\charTrash\Jacques_Farcy\s060.png, 231,389
+   0,61, data\charTrash\Jacques_Farcy\s061.png, 231,389
+   0,62, data\charTrash\Jacques_Farcy\s062.png, 229,389
+   0,63, data\charTrash\Jacques_Farcy\s063.png, 228,390
+   0,64, data\charTrash\Jacques_Farcy\s064.png, 227,390
+   0,65, data\charTrash\Jacques_Farcy\s065.png, 225,390
+   0,66, data\charTrash\Jacques_Farcy\s066.png, 223,390
+   0,67, data\charTrash\Jacques_Farcy\s067.png, 221,390
+   0,68, data\charTrash\Jacques_Farcy\s068.png, 219,390
+   0,69, data\charTrash\Jacques_Farcy\s069.png, 217,390
+   0,70, data\charTrash\Jacques_Farcy\s070.png, 215,390
+   0,71, data\charTrash\Jacques_Farcy\s071.png, 214,391
+   0,72, data\charTrash\Jacques_Farcy\s072.png, 213,391
+   0,73, data\charTrash\Jacques_Farcy\s073.png, 211,392
+   0,74, data\charTrash\Jacques_Farcy\s074.png, 210,393
+   0,75, data\charTrash\Jacques_Farcy\s075.png, 209,394
+   0,76, data\charTrash\Jacques_Farcy\s076.png, 209,395
+   0,77, data\charTrash\Jacques_Farcy\s077.png, 208,396
+   0,78, data\charTrash\Jacques_Farcy\s078.png, 208,397
+   0,79, data\charTrash\Jacques_Farcy\s079.png, 208,398
+   0,80, data\charTrash\Jacques_Farcy\s080.png, 208,398
+   0,81, data\charTrash\Jacques_Farcy\s081.png, 208,399
+   0,82, data\charTrash\Jacques_Farcy\s082.png, 208,399
+   0,83, data\charTrash\Jacques_Farcy\s083.png, 209,400
+   0,84, data\charTrash\Jacques_Farcy\s084.png, 210,401
+   0,85, data\charTrash\Jacques_Farcy\s085.png, 211,401
+   0,86, data\charTrash\Jacques_Farcy\s086.png, 212,402
+   0,87, data\charTrash\Jacques_Farcy\s087.png, 213,402
+   0,88, data\charTrash\Jacques_Farcy\s088.png, 214,402
+   0,89, data\charTrash\Jacques_Farcy\s089.png, 215,402
+   0,90, data\charTrash\Jacques_Farcy\s090.png, 215,402
+   0,91, data\charTrash\Jacques_Farcy\s091.png, 215,402
+   0,92, data\charTrash\Jacques_Farcy\s092.png, 215,402
+   0,93, data\charTrash\Jacques_Farcy\s093.png, 216,402
+   0,94, data\charTrash\Jacques_Farcy\s094.png, 215,402
+   0,95, data\charTrash\Jacques_Farcy\s095.png, 215,401
+   0,96, data\charTrash\Jacques_Farcy\s096.png, 214,401
+   0,97, data\charTrash\Jacques_Farcy\s097.png, 214,401
+   0,98, data\charTrash\Jacques_Farcy\s098.png, 213,400
+   0,99, data\charTrash\Jacques_Farcy\s099.png, 212,400
+   0,100, data\charTrash\Jacques_Farcy\s100.png, 211,399
+   0,101, data\charTrash\Jacques_Farcy\s101.png, 210,399
+   0,102, data\charTrash\Jacques_Farcy\s102.png, 209,398
+   0,103, data\charTrash\Jacques_Farcy\s103.png, 208,398
+   0,104, data\charTrash\Jacques_Farcy\s104.png, 207,397
+   0,105, data\charTrash\Jacques_Farcy\s105.png, 206,396
+   0,106, data\charTrash\Jacques_Farcy\s106.png, 206,396
+   0,107, data\charTrash\Jacques_Farcy\s107.png, 206,395
+   0,108, data\charTrash\Jacques_Farcy\s108.png, 206,394
+   0,109, data\charTrash\Jacques_Farcy\s109.png, 206,394
+   0,110, data\charTrash\Jacques_Farcy\s110.png, 206,393
+   0,111, data\charTrash\Jacques_Farcy\s111.png, 207,392
+   0,112, data\charTrash\Jacques_Farcy\s112.png, 207,392
+   0,113, data\charTrash\Jacques_Farcy\s113.png, 208,391
+   0,114, data\charTrash\Jacques_Farcy\s114.png, 208,391
+   0,115, data\charTrash\Jacques_Farcy\s115.png, 209,391
+   0,116, data\charTrash\Jacques_Farcy\s116.png, 210,391
+   0,117, data\charTrash\Jacques_Farcy\s117.png, 211,391
+   0,118, data\charTrash\Jacques_Farcy\s118.png, 212,391
+   0,119, data\charTrash\Jacques_Farcy\s119.png, 213,391
+   0,120, data\charTrash\Jacques_Farcy\s120.png, 214,392
+   0,121, data\charTrash\Jacques_Farcy\s121.png, 216,392
+   0,122, data\charTrash\Jacques_Farcy\s122.png, 217,392
+   0,123, data\charTrash\Jacques_Farcy\s123.png, 219,392
+   0,124, data\charTrash\Jacques_Farcy\s124.png, 221,392
+   0,125, data\charTrash\Jacques_Farcy\s125.png, 223,392
+   0,126, data\charTrash\Jacques_Farcy\s126.png, 224,392
+   0,127, data\charTrash\Jacques_Farcy\s127.png, 227,392
+   0,128, data\charTrash\Jacques_Farcy\s128.png, 228,392
+   0,129, data\charTrash\Jacques_Farcy\s129.png, 230,392
+   0,130, data\charTrash\Jacques_Farcy\s130.png, 231,392
+   0,131, data\charTrash\Jacques_Farcy\s131.png, 232,392
+   0,132, data\charTrash\Jacques_Farcy\s132.png, 232,392
+   0,133, data\charTrash\Jacques_Farcy\s133.png, 233,391
+   0,134, data\charTrash\Jacques_Farcy\s134.png, 233,391
+   0,135, data\charTrash\Jacques_Farcy\s135.png, 232,391
+   0,136, data\charTrash\Jacques_Farcy\s136.png, 231,391
+   0,137, data\charTrash\Jacques_Farcy\s137.png, 230,391
+   0,138, data\charTrash\Jacques_Farcy\s138.png, 229,391
+   0,139, data\charTrash\Jacques_Farcy\s139.png, 227,391
+   0,140, data\charTrash\Jacques_Farcy\s140.png, 226,391
+   0,141, data\charTrash\Jacques_Farcy\s141.png, 224,391
+   0,142, data\charTrash\Jacques_Farcy\s142.png, 223,392
+   0,143, data\charTrash\Jacques_Farcy\s143.png, 221,392
+   0,144, data\charTrash\Jacques_Farcy\s144.png, 220,392
+   0,145, data\charTrash\Jacques_Farcy\s145.png, 219,392
+   0,146, data\charTrash\Jacques_Farcy\s146.png, 218,392
+   0,147, data\charTrash\Jacques_Farcy\s147.png, 218,392
+   0,148, data\charTrash\Jacques_Farcy\s148.png, 217,392
+   0,149, data\charTrash\Jacques_Farcy\s149.png, 217,392
+   0,150, data\charTrash\Jacques_Farcy\s150.png, 217,392
+   0,151, data\charTrash\Jacques_Farcy\s151.png, 216,392
+   0,152, data\charTrash\Jacques_Farcy\s152.png, 216,392
+   0,153, data\charTrash\Jacques_Farcy\s153.png, 216,393
+   0,154, data\charTrash\Jacques_Farcy\s154.png, 216,393
+   0,155, data\charTrash\Jacques_Farcy\s155.png, 215,393
+   0,156, data\charTrash\Jacques_Farcy\s156.png, 214,393
+   0,157, data\charTrash\Jacques_Farcy\s157.png, 214,393
+   0,158, data\charTrash\Jacques_Farcy\s158.png, 213,393
+   0,159, data\charTrash\Jacques_Farcy\s159.png, 213,393
+   0,160, data\charTrash\Jacques_Farcy\s160.png, 212,393
+   0,161, data\charTrash\Jacques_Farcy\s161.png, 212,394
+   0,162, data\charTrash\Jacques_Farcy\s162.png, 211,394
+   0,163, data\charTrash\Jacques_Farcy\s163.png, 210,394
+   0,164, data\charTrash\Jacques_Farcy\s164.png, 210,394
+   0,165, data\charTrash\Jacques_Farcy\s165.png, 209,394
+   0,166, data\charTrash\Jacques_Farcy\s166.png, 208,394
+   0,167, data\charTrash\Jacques_Farcy\s167.png, 207,394
+   0,168, data\charTrash\Jacques_Farcy\s168.png, 207,395
+   0,169, data\charTrash\Jacques_Farcy\s169.png, 206,395
+   0,170, data\charTrash\Jacques_Farcy\s170.png, 205,395
+   0,171, data\charTrash\Jacques_Farcy\s171.png, 204,396
+   0,172, data\charTrash\Jacques_Farcy\s172.png, 204,396
+   0,173, data\charTrash\Jacques_Farcy\s173.png, 203,397
+   0,174, data\charTrash\Jacques_Farcy\s174.png, 203,397
+ 181, 0, data\charTrash\Jacques_Farcy\s880.png, 274,446
+ 181, 1, data\charTrash\Jacques_Farcy\s881.png, 278,446
+ 181, 2, data\charTrash\Jacques_Farcy\s882.png, 282,445
+ 181, 3, data\charTrash\Jacques_Farcy\s883.png, 287,442
+ 181, 4, data\charTrash\Jacques_Farcy\s884.png, 291,439
+ 181, 5, data\charTrash\Jacques_Farcy\s885.png, 296,434
+ 181, 6, data\charTrash\Jacques_Farcy\s886.png, 300,428
+ 181, 7, data\charTrash\Jacques_Farcy\s887.png, 305,420
+ 181, 8, data\charTrash\Jacques_Farcy\s888.png, 309,411
+ 181, 9, data\charTrash\Jacques_Farcy\s889.png, 313,418
+ 181,10, data\charTrash\Jacques_Farcy\s890.png, 316,442
+ 181,11, data\charTrash\Jacques_Farcy\s891.png, 319,461
+ 181,12, data\charTrash\Jacques_Farcy\s892.png, 321,469
+ 181,13, data\charTrash\Jacques_Farcy\s893.png, 323,472
+ 181,14, data\charTrash\Jacques_Farcy\s894.png, 325,469
+ 181,15, data\charTrash\Jacques_Farcy\s895.png, 325,461
+ 181,16, data\charTrash\Jacques_Farcy\s896.png, 324,454
+ 181,17, data\charTrash\Jacques_Farcy\s897.png, 324,451
+ 181,18, data\charTrash\Jacques_Farcy\s898.png, 322,446
+ 181,19, data\charTrash\Jacques_Farcy\s899.png, 319,440
+ 181,20, data\charTrash\Jacques_Farcy\s900.png, 315,422
+ 181,21, data\charTrash\Jacques_Farcy\s901.png, 315,385
+ 181,22, data\charTrash\Jacques_Farcy\s902.png, 314,390
+ 181,23, data\charTrash\Jacques_Farcy\s903.png, 310,391
+ 181,24, data\charTrash\Jacques_Farcy\s904.png, 309,390
+ 181,25, data\charTrash\Jacques_Farcy\s905.png, 307,391
+ 181,26, data\charTrash\Jacques_Farcy\s906.png, 304,393
+ 181,27, data\charTrash\Jacques_Farcy\s907.png, 303,396
+ 181,28, data\charTrash\Jacques_Farcy\s908.png, 303,398
+ 181,29, data\charTrash\Jacques_Farcy\s909.png, 303,399
+ 181,30, data\charTrash\Jacques_Farcy\s910.png, 304,399
+ 181,31, data\charTrash\Jacques_Farcy\s911.png, 305,399
+ 181,32, data\charTrash\Jacques_Farcy\s912.png, 305,399
+ 181,33, data\charTrash\Jacques_Farcy\s913.png, 308,399
+ 181,34, data\charTrash\Jacques_Farcy\s914.png, 311,399
+ 181,35, data\charTrash\Jacques_Farcy\s915.png, 313,399
+ 181,36, data\charTrash\Jacques_Farcy\s916.png, 316,399
+ 181,37, data\charTrash\Jacques_Farcy\s917.png, 319,399
+ 181,38, data\charTrash\Jacques_Farcy\s918.png, 322,399
+ 181,39, data\charTrash\Jacques_Farcy\s919.png, 323,399
+ 181,40, data\charTrash\Jacques_Farcy\s920.png, 326,399
+ 181,41, data\charTrash\Jacques_Farcy\s921.png, 328,399
+ 181,42, data\charTrash\Jacques_Farcy\s922.png, 329,399
+ 181,43, data\charTrash\Jacques_Farcy\s923.png, 330,398
+ 181,44, data\charTrash\Jacques_Farcy\s924.png, 331,398
+ 181,45, data\charTrash\Jacques_Farcy\s925.png, 331,398
+ 181,46, data\charTrash\Jacques_Farcy\s926.png, 332,398
+ 181,47, data\charTrash\Jacques_Farcy\s927.png, 332,398
+ 181,48, data\charTrash\Jacques_Farcy\s928.png, 332,398
+ 181,49, data\charTrash\Jacques_Farcy\s929.png, 332,398
+ 181,50, data\charTrash\Jacques_Farcy\s930.png, 332,397
+ 181,51, data\charTrash\Jacques_Farcy\s931.png, 332,397
+5040, 0, data\charTrash\Jacques_Farcy\s3040.png, 246,308
+5040,10, data\charTrash\Jacques_Farcy\s3043.png, 242,289
+5040,20, data\charTrash\Jacques_Farcy\s3046.png, 232,230
+5300, 0, data\charTrash\Jacques_Farcy\s3088.png, 292,335
+5300, 1, data\charTrash\Jacques_Farcy\s3089.png, 290,337
+5300, 2, data\charTrash\Jacques_Farcy\s3090.png, 289,339
+5300, 3, data\charTrash\Jacques_Farcy\s3091.png, 288,341
+5300, 4, data\charTrash\Jacques_Farcy\s3092.png, 286,342
+5300, 5, data\charTrash\Jacques_Farcy\s3093.png, 285,344
+5300, 6, data\charTrash\Jacques_Farcy\s3094.png, 282,345
+5300, 7, data\charTrash\Jacques_Farcy\s3095.png, 280,347
+5300, 8, data\charTrash\Jacques_Farcy\s3096.png, 277,348
+5300, 9, data\charTrash\Jacques_Farcy\s3097.png, 274,349
+5300,10, data\charTrash\Jacques_Farcy\s3098.png, 270,350
+5300,11, data\charTrash\Jacques_Farcy\s3099.png, 267,350
+5300,12, data\charTrash\Jacques_Farcy\s3100.png, 263,351
+5300,13, data\charTrash\Jacques_Farcy\s3101.png, 259,352
+5300,14, data\charTrash\Jacques_Farcy\s3102.png, 256,352
+5300,15, data\charTrash\Jacques_Farcy\s3103.png, 252,351
+5300,16, data\charTrash\Jacques_Farcy\s3104.png, 249,350
+5300,17, data\charTrash\Jacques_Farcy\s3105.png, 246,349
+5300,18, data\charTrash\Jacques_Farcy\s3106.png, 243,347
+5300,19, data\charTrash\Jacques_Farcy\s3107.png, 240,345
+5300,20, data\charTrash\Jacques_Farcy\s3108.png, 238,344
+5300,21, data\charTrash\Jacques_Farcy\s3109.png, 236,342
+5300,22, data\charTrash\Jacques_Farcy\s3110.png, 235,341
+5300,23, data\charTrash\Jacques_Farcy\s3111.png, 234,340
+5300,24, data\charTrash\Jacques_Farcy\s3112.png, 234,339
+5300,25, data\charTrash\Jacques_Farcy\s3113.png, 234,339
+5300,26, data\charTrash\Jacques_Farcy\s3114.png, 234,340
+5300,27, data\charTrash\Jacques_Farcy\s3115.png, 234,340
+5300,28, data\charTrash\Jacques_Farcy\s3116.png, 236,340
+5300,29, data\charTrash\Jacques_Farcy\s3117.png, 236,341
+5300,30, data\charTrash\Jacques_Farcy\s3118.png, 238,340
+5300,31, data\charTrash\Jacques_Farcy\s3119.png, 238,340
+5300,32, data\charTrash\Jacques_Farcy\s3120.png, 241,339
+5300,33, data\charTrash\Jacques_Farcy\s3121.png, 243,337
+5300,34, data\charTrash\Jacques_Farcy\s3122.png, 243,335
+5300,35, data\charTrash\Jacques_Farcy\s3123.png, 246,334
+5300,36, data\charTrash\Jacques_Farcy\s3124.png, 248,332
+5300,37, data\charTrash\Jacques_Farcy\s3125.png, 250,330
+5300,38, data\charTrash\Jacques_Farcy\s3126.png, 252,328
+5300,39, data\charTrash\Jacques_Farcy\s3127.png, 255,327
+5300,40, data\charTrash\Jacques_Farcy\s3128.png, 259,325
+5300,41, data\charTrash\Jacques_Farcy\s3129.png, 260,324
+5300,42, data\charTrash\Jacques_Farcy\s3130.png, 259,322
+5300,43, data\charTrash\Jacques_Farcy\s3131.png, 260,321
+5300,44, data\charTrash\Jacques_Farcy\s3132.png, 263,320
+5300,45, data\charTrash\Jacques_Farcy\s3133.png, 264,319
+5300,46, data\charTrash\Jacques_Farcy\s3134.png, 265,318
+5300,47, data\charTrash\Jacques_Farcy\s3135.png, 261,317
+5300,48, data\charTrash\Jacques_Farcy\s3136.png, 262,316
+5300,49, data\charTrash\Jacques_Farcy\s3137.png, 261,315
+5300,50, data\charTrash\Jacques_Farcy\s3138.png, 261,313
+5300,51, data\charTrash\Jacques_Farcy\s3139.png, 263,311
+5300,52, data\charTrash\Jacques_Farcy\s3140.png, 262,310
+5300,53, data\charTrash\Jacques_Farcy\s3141.png, 265,307
+5300,54, data\charTrash\Jacques_Farcy\s3142.png, 263,305
+5300,55, data\charTrash\Jacques_Farcy\s3143.png, 264,303
+5300,56, data\charTrash\Jacques_Farcy\s3144.png, 264,303
+5300,57, data\charTrash\Jacques_Farcy\s3145.png, 264,303
+5300,58, data\charTrash\Jacques_Farcy\s3146.png, 267,303
+5300,59, data\charTrash\Jacques_Farcy\s3147.png, 268,303
+5300,60, data\charTrash\Jacques_Farcy\s3148.png, 267,303
+5300,61, data\charTrash\Jacques_Farcy\s3149.png, 269,303
+5300,62, data\charTrash\Jacques_Farcy\s3150.png, 272,302
+5300,63, data\charTrash\Jacques_Farcy\s3151.png, 273,301
+5300,64, data\charTrash\Jacques_Farcy\s3152.png, 272,300
+5300,65, data\charTrash\Jacques_Farcy\s3153.png, 276,299
+5300,66, data\charTrash\Jacques_Farcy\s3154.png, 275,297
+5300,67, data\charTrash\Jacques_Farcy\s3155.png, 274,296
+5300,68, data\charTrash\Jacques_Farcy\s3156.png, 275,294
+5300,69, data\charTrash\Jacques_Farcy\s3157.png, 276,296
+5300,70, data\charTrash\Jacques_Farcy\s3158.png, 279,298
+5300,71, data\charTrash\Jacques_Farcy\s3159.png, 279,299
+5300,72, data\charTrash\Jacques_Farcy\s3160.png, 279,300
+5300,73, data\charTrash\Jacques_Farcy\s3161.png, 279,301
+5300,74, data\charTrash\Jacques_Farcy\s3162.png, 279,302
+5300,75, data\charTrash\Jacques_Farcy\s3163.png, 279,303
+5300,76, data\charTrash\Jacques_Farcy\s3164.png, 279,304
+5300,77, data\charTrash\Jacques_Farcy\s3165.png, 282,304
+5300,78, data\charTrash\Jacques_Farcy\s3166.png, 282,304
+5300,79, data\charTrash\Jacques_Farcy\s3167.png, 281,305
+5300,80, data\charTrash\Jacques_Farcy\s3168.png, 283,305
+5300,81, data\charTrash\Jacques_Farcy\s3169.png, 285,305
+5300,82, data\charTrash\Jacques_Farcy\s3170.png, 283,305
+5300,83, data\charTrash\Jacques_Farcy\s3171.png, 285,306
+5300,84, data\charTrash\Jacques_Farcy\s3172.png, 285,306
+5300,85, data\charTrash\Jacques_Farcy\s3173.png, 286,307
+5300,86, data\charTrash\Jacques_Farcy\s3174.png, 288,307
+5300,87, data\charTrash\Jacques_Farcy\s3175.png, 288,309
+5300,88, data\charTrash\Jacques_Farcy\s3176.png, 289,310
+5300,89, data\charTrash\Jacques_Farcy\s3177.png, 290,312
+5300,90, data\charTrash\Jacques_Farcy\s3178.png, 291,313
+5300,91, data\charTrash\Jacques_Farcy\s3179.png, 289,315
+5300,92, data\charTrash\Jacques_Farcy\s3180.png, 291,317
+5300,93, data\charTrash\Jacques_Farcy\s3181.png, 291,319
+5300,94, data\charTrash\Jacques_Farcy\s3182.png, 293,322
+5300,95, data\charTrash\Jacques_Farcy\s3183.png, 293,324
+5300,96, data\charTrash\Jacques_Farcy\s3184.png, 294,326
+5300,97, data\charTrash\Jacques_Farcy\s3185.png, 293,329
+5300,98, data\charTrash\Jacques_Farcy\s3186.png, 293,331
+5300,99, data\charTrash\Jacques_Farcy\s3187.png, 293,333
+5300,100, data\charTrash\Jacques_Farcy\s3188.png, 292,335

@@ -1,0 +1,46 @@
+Name:Fujiyama
+Country:Japan
+Gender:Male
+Occupation:Sumo Wrestler
+Birthday:5 of May
+Age:25
+height:185cm
+weight:123kg
+Blood Type:A
+Hobby:Shogi, Gomoku
+Special Skill:Cooking Nabemono
+Favorite Food:Meat Balls, Chanko Nabe
+Least Food:Umeboshi (Pickled Plums)
+Fighting Style:Sumo Wrestling
+
+Japanese Sumo Wrestler who Fight for show Sumo is Strongest Fighting Style of Japan.
+
+Basic Moviment
+Low Punch:X
+Middle Punch:Y
+High Punch:Z
+Low Kick:A
+Middle Kick:B
+High Kick:C
+Throw:C+Z
+
+Special Move:
+Hatakikomi:Down,Down Foward,Foward,Punch Button
+Shikofumi Bound:Down,Down Back,Back,Foward,Kick Button
+Oshidashi:Back,Down Back,Down,Down Foward,Foward,Punch Button
+Sabaori:X+Y+Z
+
+Super Move:
+Kamikaze Hataki:Down,Down Foward,Foward,C+Z(1 Power Gauge)
+Harite Rush:Back,Down Back,Down,Down Foward,Foward,C+Z(1 Power Gauge)
+
+Hyper Move:
+Fujiyama Throw:Foward,Down Foward,Down,Down Back,Back,Foward,C+Z(3 Power Gauge)
+
+Creator：Arantadoh
+
+SE：
+https://wingless-seraph.net/
+http://on-jin.com/
+Ending BGM：
+http://heppokomusic.com/

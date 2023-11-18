@@ -1,0 +1,44 @@
+; Definition file for Leona.
+
+; Character information
+[Info]
+name    ="Leona"
+displayname ="Leona"
+versiondate =06,27,2000
+mugenversion =06,27,2000
+author ="Edo Impact"
+;UPDATE_FILE_12/JUN/2019 
+;editor1 ="bison shadaloo"
+;editor2 of [18+]sprites = "gettag"
+pal.defaults=1,2,3,4,5
+
+; Files for the character
+[Files]
+cmd     =Leona.cmd
+cns     =Leona.cns
+st      =Leona.cns
+stcommon =common1.cns
+sprite  =nudeleona.sff
+anim    =Leona.air
+sound   =Leona.snd
+pal1=991.act
+pal2=992.act
+pal3=962.act
+pal4=98D.act
+pal5=97A2.act
+pal6=purple.act
+pal7=kain1.act
+pal8=kain2.act
+pal9=kain3.act
+pal10=kain4.act
+pal11=kain5.act
+pal12=kain6.act
+st1=Leona-s.cns
+st2=Leona-h.cns
+st3=Leona-d.cns
+st4=Leona-d.cns
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

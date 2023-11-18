@@ -1,0 +1,402 @@
+;PERRO
+[Statedef 6000]
+type = A
+movetype = I
+physics = N
+anim = 6000
+velset = 0
+juggle = 5
+ctrl = 0
+sprpriority = -2
+
+[State 6000, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 10010, Afterimage]
+type = AfterImage
+trigger1 = Time = 0
+length = 50
+PalBright   =  30, 30,  0
+PalContrast =  70, 70, 20
+TimeGap  = 1
+FrameGap = 2
+Trans = sub
+time = 5
+
+[State 10010, Afterimage]
+type = AfterImageTime
+trigger1 = 1
+time = 5
+
+[State 6000, VelSet]
+type = VelSet
+trigger1 = Pos Y < 0
+x = .5
+y = 25
+
+[State 6000, VelSet]
+type = VelSet
+trigger1 = Pos Y = 0
+x = 0
+y = 0
+
+
+[State 6000, DS1]                ;se il p2 sta volando
+type = BindToParent
+triggerall = P2Statetype = A
+trigger1 = animtime > 20
+pos = 290,0
+
+[State 6000, DS2]
+type = BindToParent
+triggerall = P2Statetype = A
+triggerall = P2BodyDist X >= 1
+triggerall = P2BodyDist X <= 25
+trigger1 = animtime > 20
+pos = 95,0
+
+[State 6000, DS3]
+type = BindToParent
+triggerall = P2Statetype = A
+triggerall = P2BodyDist X >= 26
+triggerall = P2BodyDist X <= 50
+trigger1 = animtime > 20
+pos = 160,0
+
+[State 6000, DS3]
+type = BindToParent
+triggerall = P2Statetype = A
+triggerall = P2BodyDist X >= 51
+triggerall = P2BodyDist X <= 75
+trigger1 = animtime > 20
+pos = 185,0
+
+[State 6000, DS4]
+type = BindToParent
+triggerall = P2Statetype = A 
+triggerall = P2BodyDist X >= 76
+triggerall = P2BodyDist X <= 100
+trigger1 = animtime > 20
+pos = 210,0
+
+[State 6000, DS5]
+type = BindToParent
+triggerall = P2Statetype = A 
+triggerall = P2BodyDist X >= 101
+triggerall = P2BodyDist X <= 125
+trigger1 = animtime > 20
+pos = 245,0
+
+[State 6000, DS6]
+type = BindToParent
+triggerall = P2Statetype = A 
+triggerall = P2BodyDist X >= 126
+triggerall = P2BodyDist X <= 150
+trigger1 = animtime > 20
+pos = 270,0
+
+[State 6000, CG]                 ; perro atterra
+type = ChangeState
+trigger1 = Pos Y = 0 && vel y = 0
+value = 6001
+
+[State 6000, DS]                ; si distrugge se non atterra correttamente
+type = DestroySelf
+trigger1 = animtime = 65
+
+;---------------------------------------------------------
+;Perro atterra e si rialza
+[Statedef 6001]
+type = S
+movetype = A
+physics = N
+juggle = 13
+anim = 6001
+ctrl = 0
+sprpriority = -2
+
+[State 6001, SE]   ; chiamo Perro
+type = PlaySnd
+trigger1 = AnimElem = 1
+ignorehitpause = 1
+value = 17012,0             ;6000,1
+channel = 0
+
+[State 3303, polverone]        ;polverone per terra
+type = Explod
+trigger1 = AnimElem = 1 
+anim = 8120  
+postype = p1
+pos = -7, 0                
+supermove = 1
+sprpriority = 3
+ownpal = 1
+shadow = -1
+scale = 1, .7
+
+[State 3303, polverone]        ;polverone per terra (opposto)
+type = Explod
+trigger1 = AnimElem = 1     
+anim = 8120  
+postype = p1
+pos = 7, 0                 
+supermove = 1
+sprpriority = 3
+facing = -1
+ownpal = 1
+shadow = -1
+scale = 1, .7
+
+[State 3060, SE]
+type = EnvShake
+trigger1 = AnimElem = 1
+ampl = 10
+time = 20
+
+[State 6001, Hitef]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = S, NA
+damage    = 15
+animtype  = Light
+hitflag = MAF
+guardflag = L
+pausetime = 0,60
+;sparkno = S8002
+;guard.sparkno = S8050
+sparkxy = 10,-20
+hitsound   = 5,1
+guardsound = 6,0
+ground.type = Low
+ground.slidetime = 2
+ground.hittime  = 15
+
+[State 6001, CS]
+type = ChangeState
+trigger1 = animtime = 0
+value = 6003
+ctrl = 0
+
+;-----------------------------------------------------------
+;Perro da il pugnone
+[Statedef 6003]
+type = S
+movetype = A
+physics = S
+anim = 6003
+velset = 0,0
+ctrl = 0
+sprpriority = -2
+
+[State 3003, Hit]
+type = HitDef
+trigger1 = AnimElem = 6 
+persistent = 0
+attr = S, NA
+animtype = Hard
+damage = 135,35
+getpower = 45
+sparkno = S8018
+;guard.sparkno = S8050
+sparkxy = -20,-110
+priority = 4
+guardflag = M
+yaccel = 0.5
+sparkxy = -10,-55
+pausetime = 20,20
+hitsound = S10138,0
+guardsound = S150,1
+ground.type = Low
+ground.slidetime = 18
+ground.hittime = 18
+ground.velocity = -2.2,-14
+guard.velocity = -3.5
+air.velocity = -2.2,-14
+air.animtype = Back
+fall = 1
+fall.recover = 0
+envshake.ampl = 12
+envshale.time = 20
+envshake.freq = 170
+mindist = 15
+
+[State 6003, SE]
+type = PlaySnd
+trigger1 = animelem = 4
+ignorehitpause = 1
+value = 640,1;SE
+
+[State 6003, CS]
+type = ChangeState
+trigger1 = animtime = 0
+trigger1 = roundstate != 2
+value = 6006
+
+[State 6003, CS]
+type = ChangeState
+trigger1 = animtime = 0
+trigger1 = roundstate = 2
+value = 6004
+ctrl = 1
+
+;-----------------------------------------------------------
+;saluta e se ne va
+[Statedef 6004]
+type = S
+physics = N
+movetype = I
+anim = 6004
+velset = 0,0
+ctrl = 0
+sprpriority = -2
+
+[State 3303, polvere]
+type = Explod
+trigger1 = AnimElem = 6, =4    
+anim = 8003  
+postype = p1
+pos = 7, 30                
+supermove = 1
+sprpriority = 3
+facing = -1
+ownpal = 1
+shadow = -1
+
+[State 6004, CS]
+type = ChangeState
+trigger1 = animtime = 0
+trigger1 = roundstate = 2
+value = 6005
+
+[State 6004, CS]
+type = ChangeState
+trigger1 = animtime = 0
+trigger1 = roundstate != 2
+value = 6006
+
+;-----------------------------------------------------------
+;Perro vola via
+[Statedef 6005]
+type = S
+physics = N
+movetype = I
+anim = 6005
+velset = 0,0
+ctrl = 0
+sprpriority = -2
+
+[State 3060, SE]
+type = EnvShake
+trigger1 = AnimElem = 1
+ampl = 8
+time = 8
+
+[State 6005, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 6005, VelSet]
+type = VelSet
+trigger1 = 1
+;x = .5
+y = -25
+
+[State 10010, Afterimage]
+type = AfterImage
+trigger1 = Time = 0
+length = 50
+PalBright   =  30, 30,  0
+PalContrast =  70, 70, 20
+TimeGap  = 1
+FrameGap = 2
+Trans = sub
+time = 5
+
+[State 10010, Afterimage]
+type = AfterImageTime
+trigger1 = 1
+time = 5
+
+[State 6005, SE]
+type = PlaySnd
+trigger1 = time = 2
+ignorehitpause = 1
+value = 6000,0;SE
+
+[State 6005, DS]
+type = DestroySelf
+trigger1 = animtime = 0
+
+;-------------------------
+;Pero esulta con i vincitori!
+[statedef 6006]
+type = S
+movetype = I
+valset = 0,0
+physics = S
+anim = 6004
+sprpriority = -2
+
+[state 6006,VelSet]
+type = velset
+trigger1 = time = 0
+x = 0
+y = 0
+
+[state 6006, Posset]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State 6006, CS]
+type = ChangeState
+trigger1 = roundstate = 4
+value = 6007
+
+;-------------------------
+;ma che ci faccio io qui
+[statedef 6007]
+type = S
+movetype = I
+valset = 0,0
+physics = S
+anim = 6006
+
+[State 6007, VR]
+type = VarRandom
+trigger1 = Time = 0
+v = 30
+range = 0,2
+
+[state 6007, VS]
+type = velset
+trigger1 = time = 0
+x = 0
+y = 0
+
+[state 6007, PS]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State 6007, SE]
+type = playsnd
+trigger1 = Var(30) = 0
+trigger1 = time = 1
+value = 6000,3
+
+[State 6007, SE]
+type = playsnd
+trigger1 = Var(30) = 1
+trigger1 = Time = 1
+value = 6000,4
+
+[State 6007, SE]
+type = playsnd
+trigger1 = Var(30) = 2
+trigger1 = Time = 1
+value = 6000,5
+volume = -40

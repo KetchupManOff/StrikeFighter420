@@ -1,0 +1,49 @@
+[Output]
+ ;Filename of the SFF file to create (required).
+;filename = 
+
+[Option]
+input.dir =
+sprite.compress.5 = lz5 ;none/lz5/rle5
+sprite.compress.8 = png8 ;none/rle8/png8
+sprite.compress.24 = png24 ;none/png24
+sprite.compress.32 = png32 ;none/png32
+sprite.decompressonload = 0 ;0/1
+sprite.detectduplicates = 0 ;0/1
+sprite.autocrop = 1 ;0/1
+pal.detectduplicates = 1 ;0/1
+pal.discardduplicates = 1 ;0/1
+
+[Pal]
+;Enter pals here (png or act files)
+;0,0, filename.png, 0,255 ;grp,idx, fname, startcol,endcol
+
+[Option]
+sprite.usepal = -1 ;Set this to the right pal
+
+[Sprite]
+   0, 0, data\charTrash\Banshee\s002.png,  27,123
+   0, 1, data\charTrash\Banshee\s003.png,  27,122
+   0, 2, data\charTrash\Banshee\s004.png,  27,122
+   0, 3, data\charTrash\Banshee\s005.png,  27,122
+   0, 4, data\charTrash\Banshee\s006.png,  27,123
+   0, 5, data\charTrash\Banshee\s007.png,  29,123
+   0, 6, data\charTrash\Banshee\s008.png,  34,123
+   0, 7, data\charTrash\Banshee\s009.png,  37,122
+   0, 8, data\charTrash\Banshee\s010.png,  32,123
+1100, 4, data\charTrash\Banshee\s250.png,  44,133
+1100, 5, data\charTrash\Banshee\s251.png,  44,133
+1100, 6, data\charTrash\Banshee\s252.png,  44,133
+1100, 7, data\charTrash\Banshee\s253.png,  44,133
+5030,30, data\charTrash\Banshee\s341.png,  58, 61
+5040,10, data\charTrash\Banshee\s342.png,  59, 14
+5300, 0, data\charTrash\Banshee\s349.png,  27,126
+5300, 1, data\charTrash\Banshee\s350.png,  27,126
+5300, 2, data\charTrash\Banshee\s351.png,  27,125
+5300, 3, data\charTrash\Banshee\s352.png,  27,125
+5300, 4, data\charTrash\Banshee\s353.png,  27,121
+5300, 5, data\charTrash\Banshee\s354.png,  27,115
+5300, 6, data\charTrash\Banshee\s355.png,  27,114
+5300, 7, data\charTrash\Banshee\s356.png,  27,120
+5300, 8, data\charTrash\Banshee\s357.png,  28,124
+5400, 0, data\charTrash\Banshee\s358.png,  59, 40

@@ -1,0 +1,74 @@
+; original sindel by MKP Team
+; MK3 arcade sprites ripped by Fly
+; MK3 sound rips by Le@N
+; fatality reactions by Lows
+; sky background by Ziltama
+; new moves, voicer rips, compiled & updated by borg117
+; new icon by Le@n
+; deep freeze by Emsi-D
+; additional moves by Mohammad Behzad & coded and adapted by Interpreter
+; air combos and mouthful fatality by Interpreter
+
+;-------------------------------------------
+[Info]
+;-------------------------------------------
+
+name         = "La Banshee"
+displayname  = "La Banshee"
+versiondate  = 
+mugenversion = 1.0
+pal.defaults = 1,2
+localcoord = 400,254
+;-------------------------------------------
+
+[Files]
+cmd      = 1.cmd
+cns      = 1.cns
+st       = 1.cns
+st2      = sp.st
+st3      = ../../data/MKP/bmoves.st
+st4      = ../../data/MKP/Pit.st
+st5      = ../../data/MKP/Fatality.st
+st6      = kombos.st
+st7      = brutality.st
+st8      = finishers.st
+stcommon = common1.cns
+sprite   = 1.sff
+anim     = sindel.air
+sound    = 1.snd
+
+pal1     = sindel_default.act
+pal2     = sindel_alter.act
+pal3     = sindel_white.act
+pal4     = sindel_gold.act
+pal5     = sindel_darkred.act
+pal6     = sindel_black.act
+pal7     = sindel_lighter.act
+pal8     = sindel_levia.act
+pal9     = sindel_skintone.act
+pal10     = sindel_grass.act
+pal11     = sindel_purple.act
+pal12     = sindel_zombie.act
+
+[Palette Keymap]
+a = 1
+b = 6
+c = 2
+x = 4
+y = 3
+z = 5
+a2 = 7
+b2 = 12
+c2 = 8
+x2 = 10
+y2 = 9
+z2 = 11
+
+;-------------------------------------------
+[Arcade]
+;-------------------------------------------
+
+intro.storyboard  = intro.def
+ending.storyboard = ending.def
+
+;-------------------------------------------

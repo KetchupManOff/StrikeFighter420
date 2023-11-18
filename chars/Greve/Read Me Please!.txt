@@ -1,0 +1,230 @@
+
+-------------------------
+ ELLA by Aiduzzi (ver 2.5)
+-------------------------
+
+
+Name: ELLA
+Age : 6 (but she is dead)
+Height : 185 cm
+Weight : 48 Kg
+Nationality : unknown
+Combat Stile: Giocondo Stile
+What she likes: PERRO the striker, flowers & chainsaws
+What He dislikes : Teddy
+She looks like : a KOF 2001 character
+
+---------------------------------------------------------
+What's news:(ver.2.5)
+
+super charge:(only vs ubu,ella,kuando)
+cns fix
+cmd fix
+air fix
+new sprites
+new bloody rainbow
+
+
+----------------------------------------------------------
+-throws & grabs:
+
+fwd + y
+fwd + b
+
+
+
+-sinasta:
+
+f+x
+
+
+-twin towers:
+
+f/b+a
+
+
+striker:
+
+y+a
+
+-super charge:(only vs ubu,ella,kuando,giano)
+
+D,DF,F c
+
+-special charge
+
+D,DF,F c
+----------------------------------------------------------------------
+SPECIALS:
+
+-slaphappy:
+
+x,x,x or y,y,y
+
+
+-face the piccion:
+
+d,df,f+x
+d,df,f+y
+
+
+-indryuken:
+
+f,d,df+x
+f,d,df+y
+
+
+-sammersault kick:
+
+(after f,d,df y) f+b
+
+
+-counterstrike:
+
+d,db,b+x (middle , high)
+
+d,db,b+y (middle , low)
+ 
+
+-chainshow:
+
+b,db,d,df,f+x/y(when close)
+
+
+-pretendo in vanati
+
+d,df,f+a
+d,df,f+b
+
+
+-devil may fly
+
+d,db,b+a
+d,db,b+b
+
+
+-bloody rainbow
+
+f,d,df+b     
+
+
+-surprise step
+
+f,d,df+a
+
+
+-fall on me
+
+d,db,b+x/y(on air)
+--------------------------------------------------------
+SUPER(level 1 gauge):
+
+-PsychoTeddy:
+
+d,df,f,d,df,f+x
+d,df,f,d,df,f+y
+
+
+-Grab'o'rama
+
+d,df,f,d,df,f+a
+d,df,f,d,df,f+b
+
+
+-Touch Me
+
+d,df,f,d,db,b+x
+d,df,f,d,db,b+y
+
+_insistiscici
+
+d,db,b,d,db,b+x
+d,db,b,d,db,b+y
+----------------------------------------------------------
+SUPER(level 2 gauge):
+
+-FullMetalTeddy:
+
+d,df,f,d,df,f+xy
+
+
+
+-Chain'o'saw
+
+d,df,f,d,df,f+ab
+
+
+
+-The Devil Inside
+
+d,df,f,d,db,b+xy
+
+
+
+bloodshower:
+
+d,db,b,d,db,b+x+y
+
+
+--------------------------------------------------------------
+-COMBOS:
+
+
+y \\ f+x \\ d,df,f+b \\ f,d,df+x \\ d,df,f,d,df,f+ab
+
+
+y \\ f+x \\ d,df,f+b \\ f,d,df+y \\ f+b
+
+
+y(during jump) \\ y,y,y \\ d,df,f+a
+
+
+y \\ f+x \\ d,df,f+b \\ d,df,f+a
+
+
+y \\ f+x \\ d,df,f,d,df,f+xy
+
+
+f,d,df+b \\ d,df,f,d,df,f+ab
+
+
+y,y,y \\ d,df,f+a
+
+
+and others...
+
+-------------------------------------------------------
+
+DISCLAIMER: 
+This character is for WIN-M.U.G.E.N. use only. 
+I will not be held responsable for any damage done to your Computer...or your life. (muahahaha!!!)
+
+-------------------------------------------------------
+INFO ABOUT THIS CHARACTER:
+ELLA is a totally original character maded pixel by pixel by AIDUZZI 
+
+CREDITS:
+thanks to Elecbyte for making MUGEN
+thanks to Antonio Navarra for hosting our character on his site
+thanks to Reu for giving me the honour to collaborate with him on the new version of EvilRyu!
+thanks to all mugenizers that help me to love MUGEN!
+
+Sorry for my bad english...
+For contact and suggestions visit the site: www.thephotonfalls.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

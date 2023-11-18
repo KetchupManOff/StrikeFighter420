@@ -1,0 +1,40 @@
+;-----------------------------------------------------------------------------
+[Info]
+Name         ="Les Hosties de Guepes"
+DisplayName  ="Les Hosties de Guepes"
+VersionDate  =10,25,2010
+MugenVersion =04,14,2002
+Author       ="misao, mod par Yank"
+Pal.Defaults =1,2
+;-----------------------------------------------------------------------------
+[Files]
+Cmd      =STATE\Q-Bee.cmd
+Cns      =STATE\Q-Bee_A.cns
+St       =STATE\Q-Bee_A.cns
+StCommon =STATE\common_Q-Bee.cns
+Sprite   =MEDIA\Q-Bee.sff
+Anim     =MEDIA\Q-Bee.air
+Sound    =MEDIA\Q-Bee.snd
+pal1=ACT\A.act
+pal2=ACT\B.act
+pal3=ACT\C.act
+pal4=ACT\X.act
+pal5=ACT\Y.act
+pal6=ACT\Z.act
+pal7=ACT\KK.act
+pal8=ACT\AGK.act
+pal9=ACT\A.act
+pal10=ACT\PP.act
+pal11=ACT\AGP.act
+pal12=ACT\X.act
+st1=STATE\Q-Bee_B.cns
+st2=STATE\Q-Bee_C.cns
+st3=STATE\Q-Bee_D.cns
+st4=STATE\Q-Bee_E.cns
+st5=STATE\Q-Bee_F.cns
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+[Arcade]
+Intro.Storyboard =
+Ending.Storyboard =
+;-----------------------------------------------------------------------------

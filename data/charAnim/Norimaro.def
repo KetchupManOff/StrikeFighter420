@@ -1,0 +1,65 @@
+[Output]
+ ;Filename of the SFF file to create (required).
+;filename = 
+
+[Option]
+input.dir =
+sprite.compress.5 = lz5 ;none/lz5/rle5
+sprite.compress.8 = png8 ;none/rle8/png8
+sprite.compress.24 = png24 ;none/png24
+sprite.compress.32 = png32 ;none/png32
+sprite.decompressonload = 0 ;0/1
+sprite.detectduplicates = 0 ;0/1
+sprite.autocrop = 1 ;0/1
+pal.detectduplicates = 1 ;0/1
+pal.discardduplicates = 1 ;0/1
+
+[Pal]
+;Enter pals here (png or act files)
+;0,0, filename.png, 0,255 ;grp,idx, fname, startcol,endcol
+
+[Option]
+sprite.usepal = -1 ;Set this to the right pal
+
+[Sprite]
+   0, 0, data\charTrash\Norimaro\s002.png,  43, 71
+   0, 1, data\charTrash\Norimaro\s003.png,  42, 72
+   0, 2, data\charTrash\Norimaro\s004.png,  36, 78
+   0, 3, data\charTrash\Norimaro\s005.png,  35, 79
+   0, 4, data\charTrash\Norimaro\s006.png,  35, 80
+   0, 5, data\charTrash\Norimaro\s007.png,  31, 81
+   0, 6, data\charTrash\Norimaro\s008.png,  27, 82
+   0, 7, data\charTrash\Norimaro\s009.png,  27, 82
+   0, 8, data\charTrash\Norimaro\s010.png,  28, 82
+   0, 9, data\charTrash\Norimaro\s011.png,  27, 82
+   0,10, data\charTrash\Norimaro\s012.png,  27, 82
+   0,11, data\charTrash\Norimaro\s013.png,  26, 82
+   0,12, data\charTrash\Norimaro\s014.png,  27, 82
+   0,13, data\charTrash\Norimaro\s015.png,  27, 82
+   0,14, data\charTrash\Norimaro\s016.png,  31, 81
+   0,15, data\charTrash\Norimaro\s017.png,  35, 80
+   0,16, data\charTrash\Norimaro\s018.png,  35, 79
+   0,17, data\charTrash\Norimaro\s019.png,  36, 78
+   0,18, data\charTrash\Norimaro\s020.png,  37, 76
+   0,19, data\charTrash\Norimaro\s021.png,  39, 73
+   0,20, data\charTrash\Norimaro\s022.png,  40, 72
+ 181, 0, data\charTrash\Norimaro\s073.png,  20, 76
+ 181, 1, data\charTrash\Norimaro\s074.png,  20, 75
+ 181, 2, data\charTrash\Norimaro\s075.png,  26, 77
+ 181, 3, data\charTrash\Norimaro\s076.png,  26, 77
+ 181, 4, data\charTrash\Norimaro\s077.png,  27, 73
+ 181, 5, data\charTrash\Norimaro\s078.png,  27, 73
+ 181, 6, data\charTrash\Norimaro\s079.png,  27, 73
+ 181, 7, data\charTrash\Norimaro\s080.png,  27, 73
+ 181, 8, data\charTrash\Norimaro\s081.png,  27, 73
+ 181, 9, data\charTrash\Norimaro\s082.png,  27, 73
+ 181,10, data\charTrash\Norimaro\s083.png,  69, 93
+ 181,11, data\charTrash\Norimaro\s084.png,  59, 89
+ 181,12, data\charTrash\Norimaro\s085.png,  59, 91
+ 181,13, data\charTrash\Norimaro\s086.png,  59, 89
+5040, 0, data\charTrash\Norimaro\s204.png,  36, 51
+5040,10, data\charTrash\Norimaro\s211.png,  38, 32
+5300, 0, data\charTrash\Norimaro\s247.png,  29, 72
+5300, 1, data\charTrash\Norimaro\s248.png,  28, 74
+5300, 2, data\charTrash\Norimaro\s249.png,  28, 75
+5300, 3, data\charTrash\Norimaro\s250.png,  25, 76

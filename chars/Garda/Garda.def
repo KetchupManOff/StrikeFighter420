@@ -1,0 +1,38 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Garda"
+displayname = "Garda"
+versiondate = 07,4,2008
+mugenversion = 04,14,2002
+author = "Warner/JudgeSpear/GigaBowserX/Luigi-Master/Mystery107"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+sprite = media\peter.sff
+anim = coding\peter.air
+sound = media\peter.snd
+cmd = coding\Peter.cmd
+cns = coding\Peter.cns
+stcommon = common1.cns
+st = coding\Peter.cns
+st1 = coding\intros.cns
+pal1 = palettes\peter4.act
+pal2 = palettes\peter2.act
+pal3 = palettes\peter3.act
+pal4 = palettes\peter.act
+pal5 = palettes\peter5.act
+pal6 = palettes\peter6.act
+pal7 = palettes\peter7.act
+pal8 = palettes\peter8.act
+pal9 = palettes\peter9.act
+pal10 = palettes\peter10.act
+pal11 = palettes\peter11.act
+pal12 = palettes\peter12.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

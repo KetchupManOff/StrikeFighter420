@@ -1,0 +1,30 @@
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name 	="Norimaro"  
+displayname ="Norimaro"    
+versiondate =10,18,2001  
+mugenversion = 1.0   
+author ="REDHOT" 
+pal.defaults = 1,2,3,4,5,6    
+
+; Files for the player
+[Files]
+cmd     = CMND/Norimaro.cmd   ;Command set
+cns      = CNS/Norimaro.cns
+st       = CNS/Norimaro.cns
+st1      = CNS/config.txt
+stcommon = CNS/common1.cns
+sprite   = SPRITES/Norimaro.sff
+anim     = ANIMATIONS/Norimaro.air
+sound    = SOUNDS/Norimaro.snd
+pal1     = PALETTES/Norimaro_01.act
+pal2     = PALETTES/Norimaro_02.act
+pal3     = PALETTES/Norimaro_03.act
+pal4     = PALETTES/Norimaro_04.act
+pal5     = PALETTES/Norimaro_05.act
+pal6     = PALETTES/Norimaro_06.act
+
+
+

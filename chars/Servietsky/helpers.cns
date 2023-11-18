@@ -1,0 +1,853 @@
+;---------------------------------------------------------------------------
+; Summon Muhammad
+[Statedef 2000]
+type = S
+ctrl = 0
+anim = 200
+velset = 0,0
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimElem = 2
+name = "Muhammad"
+ID = 2000
+stateno = 2001
+pos = -50, ceil(-50 - Screenpos Y)
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+;---------------------------------------------------------------------------
+; Muhammad Appears
+[Statedef 2001]
+type = A
+physics = N
+ctrl = 0
+anim = 2000
+velset = 0,4
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = Time >= 0
+y = const(movement.yaccel)*2
+
+[State 2001, 0]
+type = HitOverride
+trigger1 = Time = 0
+attr = SCA, AA, AP, AT
+stateno = 2005
+time = -1
+
+[State 1400, 7]
+type = ChangeState
+trigger1 = Vel Y > 0 && Pos Y >= -5
+value = 2002
+
+;---------------------------------------------------------------------------
+; Muhammad Attacks
+[Statedef 2002]
+type = S
+physics = N
+ctrl = 0
+anim = 2000
+velset = 0,0
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 1500, Helper]
+type = Helper
+trigger1 = Time = 10
+name = "something too inappropiate for tv"
+stateno = 2003
+pos = 16,-70
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time >= 30
+x = -8
+
+[State 2002, 1]
+type = HitOverride
+trigger1 = Time = 0
+attr = SCA, AA, AP, AT
+stateno = 2005
+time = -1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Time >= 180 && backedgedist < -60
+
+;---------------------------------------------------------------------------
+; Muhammad Projectile
+[Statedef 2003]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 2001
+ctrl = 0
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 1501, VelAdd]
+type = PosAdd
+trigger1 = Time >= 0
+x = 15
+
+[State 1501, HitDef]
+type = HitDef
+trigger1 = Time = 0
+attr = S,SP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+hitflag = MAF        ;HLAFD+-
+guardflag = MA         ;HLA
+air.animtype = Medium
+fall.animtype = Medium
+priority = 5, Hit   ;Hit,Miss,Dodge
+damage = 50, 8
+pausetime = 7,7
+sparkno = s8005
+guard.sparkno = s8010
+sparkxy = 0,0
+hitsound = s5, 4
+guardsound = s6, 0
+ground.type = High      ;Low,Trip,None
+air.type = High
+ground.slidetime = 8
+ground.hittime = 12
+ground.velocity = -4, -7
+air.velocity = -5,-8
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+hitonce = 0
+air.juggle = 4
+fall = 1
+getpower = 35
+
+[State 0, ChangeState]
+type = HitOverride
+trigger1 = Time = 0
+attr = SCA, AA, AP, AT
+stateno = 2004
+time = -1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = movecontact
+value = 2006
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = frontedgedist < -45
+
+;---------------------------------------------------------------------------
+; Muhammad Projectile Hurt
+[Statedef 2004]
+type    = A
+physics = N
+juggle  = 0
+poweradd= 0
+velset = -2,-2
+anim = 2001
+ctrl = 0
+sprpriority = 2
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 3250, Super D]
+type = NotHitBy
+trigger1 = Time >= 0
+value = SCA, NA, NP, NT, SA, SP, ST, HA, HP, HT
+time = 1
+
+[State 3061, VelAdd]
+type = VelAdd
+trigger1 = Time >= 0
+y = 0.5
+
+[State 3061, AngleDraw]
+type = AngleDraw
+trigger1 = Time >= 0
+
+[State 3061, AngleAdd]
+type = AngleAdd
+trigger1 = Time >= 0
+value = 12
+
+[State 3061, DestroySelf]
+type = DestroySelf
+trigger1 = Time = 100
+
+;---------------------------------------------------------------------------
+; Muhammad Hurt
+[Statedef 2005]
+type    = A
+movetype= H
+physics = N
+juggle  = 0
+poweradd= 0
+velset = -3,-2
+anim = 2000
+ctrl = 0
+sprpriority = 2
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = Time >= 0
+value = SCA, NA, NP, NT, SA, SP, ST, HA, HP, HT
+time = 1
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = Time >= 0
+y = 0.5
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = Time >= 0
+
+[State 0, AngleAdd]
+type = AngleAdd
+trigger1 = Time >= 0
+value = 6
+
+[State 3061, DestroySelf]
+type = DestroySelf
+trigger1 = Time = 100
+
+;---------------------------------------------------------------------------
+; Muhammad Projectile Hurt
+[Statedef 2006]
+type    = A
+movetype= H
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 2006
+ctrl = 0
+sprpriority = 2
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = Time >= 0
+value = SCA, NA, NP, NT, SA, SP, ST, HA, HP, HT
+time = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = Time >= 0
+value = 0
+scale = 1+((time)*0.03), 1+((time)*0.05)
+
+[State 3061, DestroySelf]
+type = DestroySelf
+trigger1 = AnimTime = 0
+
+;---------------------------------------------------------------------------
+; Summon Underpants Gnomes
+[Statedef 2100]
+type = S
+ctrl = 0
+anim = 200
+velset = 0,0
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimElem = 2
+name = "Underpants Gnome"
+ID = 2100
+stateno = 2101
+pos = -50, 0
+postype = back   ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+size.xscale = 0.5
+size.yscale = 0.5
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Underpants Gnome
+[Statedef 2101]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 2100
+velset = 4.5,0
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr =SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 2107
+time = 1
+ignorehitpause =  1
+
+[State 0, Helper]
+type = Helper
+trigger1 = Time = 0
+name = "Underpants Gnome"
+ID = 2100
+stateno = 2102
+pos = -6, 0
+postype = p1   ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+size.xscale = 0.5
+size.yscale = 0.5
+
+[State 0, Helper]
+type = Helper
+trigger1 = Time = 0
+name = "Underpants Gnome"
+ID = 2100
+stateno = 2103
+pos = 7, 0
+postype = p1   ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+size.xscale = 0.5
+size.yscale = 0.5
+
+[State 0, Helper]
+type = Helper
+trigger1 = Time = 0
+name = "Underpants Gnome"
+ID = 2100
+stateno = 2104
+pos = 4, 0
+postype = p1   ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+size.xscale = 0.5
+size.yscale = 0.5
+
+[State 1501, HitDef]
+type = HitDef
+trigger1 = Time = 0
+attr = S,SA        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+hitflag = M        ;HLAFD+-
+guardflag = M         ;HLA
+air.animtype = Light
+fall.animtype = Light
+priority = 5, Hit   ;Hit,Miss,Dodge
+damage = 0, 0
+pausetime = 0,0
+sparkno = -1
+guard.sparkno = -1
+sparkxy = 0,0
+hitsound = -1
+guardsound = -1
+ground.type = High      ;Low,Trip,None
+air.type = High
+ground.slidetime = 0
+ground.hittime = 1
+ground.velocity = -1
+air.velocity = -1,0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+hitonce = 0
+air.juggle = 0
+numhits = 0
+p2stateno = 2110
+id = 2100
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = MoveHit
+value = 2105
+ctrl = 0
+
+[State 0, ChangeState]
+type = Destroyself
+trigger1 = Time >= 180 && frontedgedist < -120
+
+;---------------------------------------------------------------------------
+; Underpants Gnome
+[Statedef 2102]
+type = S
+ctrl = 0
+anim = 2101
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+time = 1
+pos = -6,0
+ignorehitpause = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = parent, stateno = 2107
+value = 2107
+ctrl = 0
+
+[State 0, ChangeState]
+type = Destroyself
+trigger1 = Time >= 180 && frontedgedist < -120
+
+;---------------------------------------------------------------------------
+; Underpants Gnome
+[Statedef 2103]
+type = S
+ctrl = 0
+anim = 2102
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = parent, stateno = 2107
+value = 2107
+ctrl = 0
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+time = 1
+pos = 7,0
+ignorehitpause = 1
+
+[State 0, ChangeState]
+type = Destroyself
+trigger1 = Time >= 180 && frontedgedist < -120
+
+;---------------------------------------------------------------------------
+; Underpants Gnome
+[Statedef 2104]
+type = S
+ctrl = 0
+anim = 2103
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = parent, stateno = 2107
+value = 2107
+ctrl = 0
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+time = 1
+pos = 4,0
+ignorehitpause = 1
+
+[State 0, ChangeState]
+type = Destroyself
+trigger1 = Time >= 180 && frontedgedist < -120
+
+;---------------------------------------------------------------------------
+; Underpants Gnome Attack
+[StateDef 2105]
+type = S
+movetype= A
+physics = S
+juggle  = 0
+velset = 0,0
+ctrl = 0
+sprpriority = 2
+
+[State 0, BindToTarget]
+type = BindToTarget
+trigger1 = 1
+time = 1
+ID = 2100
+pos = 0, 0, Foot ;Mid, Head
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+[State 0, TargetState]
+type = TargetState
+trigger1 = Time = 0 
+value = 2110
+ID = 2100
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Time = 82
+value = 2106
+ctrl = 0 
+
+;---------------------------------------------------------------------------
+; Underpants Gnome
+[Statedef 2106]
+type = S
+ctrl = 0
+anim = 2104
+velset = 0,0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 20
+x = 5
+
+[State 0, ChangeState]
+type = Destroyself
+trigger1 = Time >= 180 && frontedgedist < -120
+
+;---------------------------------------------------------------------------
+; Underpants Gnome
+[Statedef 2107]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+velset = 4-(random%8),-5-(random%5)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr =SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 2107
+time = 1
+ignorehitpause =  1
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = 1
+y = .4
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Pos Y > 0
+flag = noshadow
+
+[State 3061, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+
+[State 3061, AngleAdd]
+type = AngleAdd
+trigger1 = 1
+value = 15
+
+[State 0, ChangeState]
+type = Destroyself
+trigger1 = pos Y > 500
+
+;--------------------------------------------------------------------------
+; Underpants Gnome Attack
+[StateDef 2110]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+poweradd = 20
+sprpriority = 2
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+y = 0
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 2110
+
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 = AnimTime = 0
+value = -85
+
+[State 0, ChangeState]
+type = SelfState
+trigger1 = AnimTime = 0
+value = ifelse(alive,5110,5150)
+ctrl = 0 
+
+;---------------------------------------------------------------------------
+; Summon Mr. Hankey
+[Statedef 2200]
+type = S
+ctrl = 0
+anim = 200
+velset = 0,0
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimElem = 2
+name = "Mr. Hankey"
+ID = 2200
+stateno = 2201
+pos = -35, 0
+postype = back    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+size.xscale = 0.5
+size.yscale = 0.5
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Mr. Hankey Appears
+[Statedef 2201]
+type = A
+physics = N
+ctrl = 0
+anim = 2200
+velset = 2,0
+
+[State 0, 0]
+type = HitOverride
+trigger1 = Time = 0
+attr = SCA, AA, AP, AT
+stateno = 2205
+time = -1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Time = 40
+value = 2202
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Mr. Hankey Attacks
+[Statedef 2202]
+type = S
+physics = N
+ctrl = 0
+anim = 2201
+velset = 0,0
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimElem = 5
+name = "Shit Cloud"
+id = 2200
+stateno = 2203
+pos = 0, 0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+trigger1 = anim = 2201 
+value = 22011
+elem = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Anim = 22011
+x = -2
+
+[State 0, 1]
+type = HitOverride
+trigger1 = Time = 0
+attr = SCA, AA, AP, AT
+stateno = 2205
+time = -1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Time >= 180 && backedgedist < -60
+
+;---------------------------------------------------------------------------
+; Shit Cloud
+[Statedef 2203]
+type    = A
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 2,-2.5
+anim = 2202
+ctrl = 0
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = Time >= 0
+y = -.275
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Time = 90
+value = 2204
+
+;---------------------------------------------------------------------------
+; Shit Cloud Attacks
+[Statedef 2204]
+type    = A
+physics = N
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 2206
+ctrl = 0
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = Time >= 0
+scale = 1,1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = Time >= 0
+x = 0
+y = -Screenpos Y
+
+[State 0, Projectile]
+type = Projectile
+trigger1 = TimeMod = 3, 0
+ProjID = 2200
+projanim = 2203
+projhitanim = 2205
+projscale = 2,2
+projremove = 1
+projremovetime = -1
+velmul = 1, 1
+projhits = 1
+projpriority = 10
+projsprpriority = 3
+velocity = 0, 15+(random%15)
+offset = -25 + (random%50), 0-Screenpos Y
+postype = p2         ;p2,front,back,left,right
+; HitDef
+attr = A,SP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+hitflag = MAF        ;HLAFD+-
+guardflag = MA         ;HLA
+air.animtype = Light
+fall.animtype = Light
+priority = 4, Hit   ;Hit,Miss,Dodge
+damage = 4, 2
+pausetime = 5,5
+sparkno = s8005
+guard.sparkno = s8010
+sparkxy = 0,0
+hitsound = s5, 0
+guardsound = s6 ,0
+ground.type = High      ;Low,Trip,None
+air.type = High
+ground.slidetime = 0
+ground.hittime = 6
+ground.velocity = -0
+air.velocity = -0,-3
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+hitonce = 0
+getpower = 20
+air.juggle = 1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Time = 100
+
+;---------------------------------------------------------------------------
+; Mr. Hankey Hurt
+[Statedef 2205]
+type    = A
+movetype= H
+physics = N
+juggle  = 0
+poweradd= 0
+velset = -8,-8
+anim = 2207
+ctrl = 0
+sprpriority = 2
+facep2 = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = Time >= 0
+value = SCA, NA, NP, NT, SA, SP, ST, HA, HP, HT
+time = 1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = backedgedist < -45

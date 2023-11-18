@@ -1,0 +1,968 @@
+;~~~~~Special Attack data for Leona.~~~~~
+
+;-----{(Baltic Launcher X)}
+[Statedef 800]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+poweradd = 200
+velset = 0,0,0
+anim = 800
+
+[State 800,Snd1]
+type = PlaySnd
+trigger1 = AnimElem = 2, =8
+value = 800,1
+
+[State 800,Snd2]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 800,2
+
+[State 800,H]
+type = Helper
+trigger1 = AnimElem = 3, =1
+name = "Leona's Baltic Launcher"
+ID = 860
+pos = 37,-94
+postype = p1
+stateno = 830
+helpertype = normal
+bindtime = 1
+keyctrl = 0
+ownpal = 1
+
+[State 800,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Baltic Launcher Y)}
+[Statedef 850]
+type = A
+movetype = A
+ctrl = 0
+poweradd = 200
+velset = 0,0,0
+anim = 850
+
+[State 850,Snd1]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 800,3
+
+[State 850,Snd2]
+type = PlaySnd
+trigger1 = AnimElem = 6, =1
+value = 800,2
+
+[State 850,H]
+type = Helper
+trigger1 = AnimElem = 6, =1
+name = "Leona's Baltic Launcher"
+ID = 860
+pos = 37,-94
+postype = p1
+stateno = 880
+helpertype = normal
+bindtime = 1
+keyctrl = 0
+ownpal = 1
+
+[State 850,Vel1]
+type = VelSet
+trigger1 = AnimElem = 6
+x = 1.7
+y = -7.3
+
+[State 850, HO]
+type = NULL;HitOverride
+trigger1 = vel Y < 0
+time = 120
+attr = SCA   ; list of attributes to override
+slot = 0   ; slot number to use for override (0-7)
+stateno = 857   ; state number to use when this override activates
+
+[State 850,Vel2]
+type = VelAdd
+trigger1 = Time = 38
+trigger2 = Time = 42
+trigger3 = Time = 46
+trigger4 = Time = 50
+trigger5 = Time = 54
+trigger6 = Time = 58
+trigger7 = Time = 62
+trigger8 = Time = 66
+y = 1.9
+
+[State 850,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 855
+ctrl = 0
+
+;-----{(Baltic Launcher Y - Landing)}
+[Statedef 855]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+velset = 0,0,0
+anim = 855
+
+[State 855,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(ES Baltic Launcher)}
+[Statedef 802]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+poweradd = -500
+velset = 0,0,0
+anim = 802
+
+[State 802,Flash]
+type = PalFX
+trigger1 = Time = 0
+trigger2 = AnimTime = 0
+time = 5
+add = 255, 0, 0
+ignorehitpause = 1
+
+[State 802,Snd1]
+type = PlaySnd
+trigger1 = AnimElem = 2, =8
+value = 704,1
+
+[State 802,Snd2]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 800,2
+
+[State 802,H]
+type = Helper
+trigger1 = AnimElem = 3, =1
+name = "Leona's Baltic Launcher"
+ID = 860
+pos = 37,-80
+postype = p1
+stateno = 830
+helpertype = normal
+bindtime = 1
+keyctrl = 0
+ownpal = 1
+
+[State 802,H]
+type = Helper
+trigger1 = AnimElem = 5
+name = "Leona's Baltic Launcher"
+ID = 860
+pos = 0,-120
+postype = p1
+stateno = 830
+helpertype = normal
+bindtime = 1
+keyctrl = 0
+ownpal = 1
+
+[State 802,H]
+type = Helper
+trigger1 = AnimElem = 7
+name = "Leona's Baltic Launcher"
+ID = 860
+pos = 50,-46
+postype = p1
+stateno = 830
+helpertype = normal
+bindtime = 1
+keyctrl = 0
+ownpal = 1
+
+[State 802,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;-----{(Earring Bakudan)}
+[Statedef 900]
+type = S
+movetype = A
+physics = S
+velset = 0,0,0
+poweradd = 100
+ctrl = 0
+anim = 900
+
+[State 900,H]
+type = Helper
+trigger1 = AnimElem = 19
+name = "Leona's Earring Bakudan"
+ID = 960
+pos = 36,-87
+postype = p1
+stateno = 910
+helpertype = normal
+bindtime = 1
+keyctrl = 0
+ownpal = 1
+
+[State 900,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Earring Bakudan 2)}
+[Statedef 950]
+type = S
+movetype = A
+physics = S
+velset = 0,0,0
+poweradd = 50
+ctrl = 0
+anim = 950
+
+[State 950,S]
+type = PlaySnd
+trigger1 = Time = 1
+value = 900,3; Haato Atakku!
+
+[State 950,Hit]
+type = HitDef
+trigger1 = AnimElem = 1
+attr = S, SA
+animtype = Medium
+guardflag = MA
+hitflag = MAF
+pausetime = 8, 13
+sparkxy = -10, -70
+hitsound = 5,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 6
+ground.hittime = 7
+ground.velocity = -2.2
+air.velocity = -1.7, -2.4
+
+[State 950,E]
+type = Explod
+trigger1 = AnimElem = 4
+anim = 962
+ID = 962
+pos = 11,-117
+postype = p1
+sprpriority = 2
+bindtime = 1
+removetime = 3
+ownpal = 1
+
+[State 950,E2]
+type = Explod
+trigger1 = AnimElem = 5
+anim = 962
+ID = 963
+pos = 45,-65
+postype = p1
+sprpriority = 2
+bindtime = 1
+removetime = 3
+ownpal = 1
+
+[State 950,H]
+type = Helper
+trigger1 = MoveHit = 1
+name = "Leona's Earring Bakudan 2"
+ID = 961
+pos = 45,-35
+postype = p1
+stateno = 960
+helpertype = normal
+bindtime = -1
+keyctrl = 0
+ownpal = 1
+persistent = 0
+
+[State 950,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Earring Bakudan 2 Detonate)}
+[Statedef 980]
+type = S
+movetype = I
+ctrl = 0
+velset = 0,0,0
+anim = 980
+
+[State 980,Width1]
+type = Width
+trigger1 = AnimElem = 2, =4
+value = 15
+time = 3
+
+[State 980,Pos1]
+type = PosAdd
+trigger1 = AnimElem = 3
+x = 15
+
+[State 980,Vel]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 0
+y = 0
+
+[State 980,S]
+type = PlaySnd
+trigger1 = Time = 1
+value = 900,4
+
+[State 980,E]
+type = Explod
+trigger1 = AnimElem = 5
+anim = 985
+ID = 985
+pos = 30,-88
+postype = p1
+sprpriority = 2
+bindtime = 1
+ownpal = 1
+
+[State 980,Pos1]
+type = PosAdd
+trigger1 = AnimElem = 7
+x = -15
+
+[State 980,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Moon Slasher X)}
+[Statedef 1000]
+type = S
+movetype = A
+velset = 0,0,0
+ctrl = 0
+anim = 1000
+
+[State 1000,Hit]
+type = HitDef
+trigger1 = Time = 0
+attr = S, SA
+damage = 95
+animtype = Medium
+guardflag = MA
+hitflag = MAF
+pausetime = 1, 3
+sparkxy = -25, -70
+sparkno = 12
+hitsound = S61,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 0
+ground.velocity = -4, -2.5
+air.velocity = -3.5, -2.2
+fall = 1
+fall.recover = 0
+
+
+[State 1000,E]
+type = Explod
+trigger1 = AnimElem = 3, =2
+anim = 1005
+ID = 1005
+pos = -30,-8
+postype = p1
+sprpriority = 2
+bindtime = 19
+ownpal = 1
+
+[State 1000,Snd1]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 1000,2
+
+[State 1000,Snd2]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 1000,1
+
+[State 1000,Vel]
+type = VelSet
+trigger1 = MoveContact = 1
+x = 0
+
+[State 1000,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Moon Slasher Y)}
+[Statedef 1050]
+type = S
+movetype = A
+physics = S
+velset = 0,0,0
+ctrl = 0
+anim = 1050
+
+[State 1050,Hit]
+type = HitDef
+trigger1 = Time = 0
+attr = S, SA
+damage = 100
+animtype = Medium
+guardflag = MA
+hitflag = MAF
+pausetime = 1, 3
+sparkxy = -25, -70
+sparkno = 12
+hitsound = S61,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 0
+ground.velocity = -4, -2.5
+air.velocity = -3.5, -2.2
+fall = 1
+fall.recover = 0
+
+[State 1050,E]
+type = Explod
+trigger1 = AnimElem = 3, =2
+anim = 1005
+ID = 1005
+pos = -30,-8
+postype = p1
+sprpriority = 2
+bindtime = 19
+ownpal = 1
+
+[State 1050,Vel]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 7.2
+
+[State 1050,Snd1]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 1000,2
+
+[State 1050,Snd2]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 1000,1
+
+[State 1050,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Grand Slasher X Running)}
+[Statedef 1100]
+type = S
+movetype = A
+velset = 0,0,0
+ctrl = 0
+anim = 1100
+
+[State 1100,Vel]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 8
+
+[State 1100,Steps]
+type = PlaySnd
+trigger1 = AnimElem = 4
+trigger2 = AnimElem = 7
+value = 61,6
+
+[State 1100,Stop]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1120
+
+[State 1100,Attack]
+type = ChangeState
+trigger1 = P2BodyDist X <= 60
+trigger1 = Vel X > 4
+value = 1140
+
+;-----{(Grand Slasher Y Running)}
+[Statedef 1150]
+type = S
+movetype = A
+velset = 0,0,0
+ctrl = 0
+anim = 1150
+
+[State 1150,Vel]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 8
+
+[State 1150,Steps]
+type = PlaySnd
+trigger1 = AnimElem = 4
+trigger2 = AnimElem = 7
+trigger3 = AnimElem = 10
+value = 61,6
+
+[State 1150,Stop]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1120
+
+[State 1150,Attack]
+type = ChangeState
+trigger1 = P2BodyDist X <= 60
+trigger1 = Vel X > 4
+value = 1160
+
+
+;-----{(Grand Slasher Stop)}
+[Statedef 1120]
+type = S
+movetype = I
+velset = 0,0,0
+ctrl = 0
+anim = 1120
+
+[State 1120,20]
+type = ChangeState
+trigger1 = Time = 20
+trigger1 = command = "holddown"
+value = 11
+ctrl = 1
+
+[State 1120,21]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Grand Slasher Attack X)}
+[Statedef 1140]
+type = S
+movetype = A
+ctrl = 0
+anim = 1140
+
+[State 1140,E]
+type = Explod
+trigger1 = AnimElem = 2, =2
+anim = 1190
+ID = 1190
+pos = -9,-67
+postype = p1
+sprpriority = 2
+bindtime = -1
+ownpal = 1
+
+[State 1140,Snd1]
+type = PlaySnd
+trigger1 = AnimElem = 2, =2
+value = 1000,1
+
+[State 1140,Vel]
+type = VelSet
+trigger1 = AnimElem = 3
+trigger2 = MoveContact = 1
+x = 0
+
+[State 1140,Hit]
+type = HitDef
+trigger1 = Time = 0
+attr = S, SA
+damage = 100
+animtype = Medium
+guardflag = MA
+hitflag = MAF
+pausetime = 1, 8
+sparkxy = -25, -70
+sparkno = 12
+hitsound = S61,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 0
+ground.velocity = -3, -3.5
+air.velocity = -3, -2.5
+fall = 1
+fall.recover = 0
+
+[State 1140,20]
+type = ChangeAnim
+triggerall = Time = 15
+trigger1 = MoveGuarded = 1
+trigger2 = MoveHit != 1
+value = 1142
+
+[State 1140,21]
+type = ChangeAnim
+triggerall = Time = 15
+trigger1 = MoveHit = 1
+value = 1141
+
+[State 1140,22]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Grand Slasher Attack Y)}
+[Statedef 1160]
+type = S
+movetype = A
+ctrl = 0
+anim = 1140
+
+[State 1160,E]
+type = Explod
+trigger1 = AnimElem = 2, =2
+anim = 1190
+ID = 1190
+pos = -9,-67
+postype = p1
+sprpriority = 2
+bindtime = 10
+ownpal = 1
+
+[State 1160,Snd1]
+type = PlaySnd
+trigger1 = AnimElem = 2, =2
+value = 1000,1
+
+[State 1160,Vel]
+type = VelSet
+trigger1 = AnimElem = 3
+trigger2 = MoveContact = 1
+x = 0
+
+[State 1160,Hit]
+type = HitDef
+trigger1 = Time = 0
+attr = S, SA
+damage = 100
+animtype = Medium
+guardflag = MA
+hitflag = MAF
+pausetime = 1, 8
+sparkxy = -25, -70
+sparkno = 12
+hitsound = S61,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 0
+ground.velocity = -3, -3.5
+air.velocity = -3, -2.5
+fall = 1
+fall.recover = 0
+
+[State 1160,20]
+type = ChangeAnim
+triggerall = Time = 15
+trigger1 = MoveGuarded = 1
+trigger2 = MoveHit != 1
+value = 1142
+
+[State 1160,21]
+type = ChangeAnim
+triggerall = Time = 15
+trigger1 = MoveHit = 1
+value = 1141
+
+[State 1160,22]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----{(Gliding Buster)}
+[Statedef 1145]
+type = A
+movetype = A
+ctrl = 0
+anim = 1145
+
+[State 1145,E]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 1149
+ID = 1149
+pos = 14,1
+postype = p1
+sprpriority = 2
+bindtime = -1
+ownpal = 1
+
+[State 1145,Snd1]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 1000,1
+
+[State 1145,Hit]
+type = HitDef
+trigger1 = Time = 0
+attr = S, SA
+damage = 100
+animtype = Medium
+guardflag = MA
+hitflag = MAF
+pausetime = 0, 8
+sparkxy = -25, -70
+sparkno = 12
+hitsound = S61,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 0
+ground.velocity = -2.5, -6.5
+air.velocity = -2.5, -6.5
+fall = 1
+fall.recover = 0
+
+
+[State 1145,Vel]
+type = VelSet
+trigger1 = Time = 5
+x = 2.8
+y = -11
+
+[State 1145,Vel]
+type = VelAdd
+trigger1 = Time = 5
+trigger2 = Time = 10
+trigger3 = Time = 15
+y = 2
+
+[State 1145,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1146
+
+;---{(Falling)}
+[Statedef 1146]
+type = A
+movetype = I
+ctrl = 0
+anim = 1146
+
+[State 1145,Vel]
+type = VelAdd
+trigger1 = Time = 5
+trigger2 = Time = 10
+trigger3 = Time = 15
+trigger4 = Time = 20
+trigger5 = Time = 25
+trigger6 = Time = 30
+trigger7 = Time = 35
+trigger8 = Time = 40
+trigger9 = Time = 45
+y = 3
+
+[State 1145,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 1147
+ctrl = 0
+
+;---{(Landing)}
+[Statedef 1147]
+type = S
+movetype = I
+ctrl = 0
+velset = 0,0,0
+anim = 1147
+
+[State 1147,snd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 40,2
+
+[State 1147,pos]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 1147,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;-----{(ES Gliding Buster)}
+[Statedef 1245]
+type = A
+movetype = A
+physics = A
+ctrl = 0
+anim = 1245
+
+[State 1245,Flash]
+type = PalFX
+trigger1 = Time = 0
+trigger2 = Vel Y >= 0
+time = 6
+add = 255, 0, 0
+ignorehitpause = 1
+persistent = 0
+
+[State 1245,E]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 1249
+ID = 1249
+pos = 25,1
+postype = p1
+sprpriority = 2
+bindtime = 1
+ownpal = 1
+
+[State 1245,Snd1]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 1000,1
+
+[State 1245,Hit]
+type = HitDef
+trigger1 = Time = 0
+trigger2 = Time = 8
+trigger3 = Time = 16
+attr = S, SA
+damage = 60
+animtype = Medium
+guardflag = MA
+hitflag = MAF
+pausetime = 0, 2
+sparkxy = -25, -70
+sparkno = 12
+hitsound = S61,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 0
+ground.velocity = 0, -8.5
+air.velocity = 0, -8.5
+fall = 1
+fall.recover = 0
+
+[State 1245,Vel]
+type = VelSet
+trigger1 = Time = 0
+x = 0
+y = -11
+
+[State 1245,Vel]
+type = NULL;VelAdd
+trigger1 = Time = 5
+trigger2 = Time = 10
+trigger3 = Time = 15
+y = 2
+
+[State 1245,20]
+type = ChangeAnim
+trigger1 = Vel Y >= 0
+value = 46
+
+
+;-----{(X-Caliber)}
+[Statedef 1300]
+type = A
+movetype = A
+ctrl = 0
+velset = 0,0,0
+anim = 1300
+
+[State 1300,E]
+type = Explod
+trigger1 = AnimElem = 5, =1
+anim = 1301
+ID = 1301
+pos = -8,-86
+postype = p1
+sprpriority = 2
+bindtime = 1
+ownpal = 1
+
+[State 1300,Snd1]
+type = PlaySnd
+trigger1 = AnimElem = 5
+value = 1000,1
+
+[State 1300,Vel]
+type = VelSet
+trigger1 = AnimElem = 6
+x = -2.8
+y = -5
+
+[State 1300,Grav]
+type = Gravity
+trigger1 = Time >= 21
+
+[State 1300,Hit]
+type = HitDef
+trigger1 = Time = 0
+attr = S, SA
+damage = 90
+animtype = Hard
+guardflag = MA
+hitflag = MAF
+pausetime = 1, 8
+sparkxy = 0, -20
+sparkno = 11
+hitsound = S61,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 0
+ground.hittime = 0
+ground.velocity = -3, -3.5
+air.velocity = -3, -2.5
+fall = 1
+fall.recover = 0
+
+[State 1300,20]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 1310
+
+;-----{(X-Caliber Landing)}
+[Statedef 1310]
+type = S
+movetype = I
+ctrl = 0
+anim = 1310
+velset = 0,0,0
+
+[State 1310,Pos]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 1310,20]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+

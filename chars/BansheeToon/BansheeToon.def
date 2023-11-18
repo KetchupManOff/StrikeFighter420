@@ -1,0 +1,33 @@
+; Player information
+[Info]
+name ="La Banshee (Toon)"
+displayname ="La Banshee (Toon)"
+versiondate =03, 18, 2017
+mugenversion =1.0 
+author ="Rusher"
+pal.defaults = 1,2,3,4,5,6
+
+; Files for the player
+[Files]
+cmd     =SINDEL.cmd
+cns     =Coding/System.cns
+st      =Coding/System.cns
+stcommon =common1.cns
+sprite  =SINDEL.sff
+anim    =SINDEL.air
+sound   =SINDEL.snd
+pal1=Colors/Default.act
+pal2=Colors/Kitana.act
+pal3=Colors/Ashrah.act
+pal4=Colors/Jade.act
+pal5=Colors/Li Mei.act
+pal6=Colors/Skarlet.act
+st1=Coding/Normal.cns
+st2=Coding/Specials.cns
+st3=Coding/Helpers.cns
+st4=Coding/Supers.cns
+
+; Arcade mode
+[Arcade]
+intro.storyboard =
+ending.storyboard =
